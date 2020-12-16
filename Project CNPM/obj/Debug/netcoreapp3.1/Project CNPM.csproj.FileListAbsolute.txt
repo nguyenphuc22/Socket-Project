@@ -1,0 +1,15 @@
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\Project CNPM.exe
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\Project CNPM.deps.json
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\Project CNPM.runtimeconfig.json
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\Project CNPM.runtimeconfig.dev.json
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\Project CNPM.dll
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\Project CNPM.pdb
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project CNPM.csprojAssemblyReference.cache
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.Form1.resources
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project CNPM.csproj.GenerateResource.cache
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project CNPM.AssemblyInfoInputs.cache
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project CNPM.AssemblyInfo.cs
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project CNPM.csproj.CoreCompileInputs.cache
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project CNPM.dll
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project CNPM.pdb
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project CNPM.genruntimeconfig.cache

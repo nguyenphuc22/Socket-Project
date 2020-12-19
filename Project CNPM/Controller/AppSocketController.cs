@@ -52,12 +52,10 @@ namespace Project_CNPM.Controller
         {
             return 0;
         }
-
         public void onReceive(IAsyncResult ar)
         {
 
         }
-
         public void onSend(IAsyncResult ar)
         {
 

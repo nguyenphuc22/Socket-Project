@@ -14,6 +14,7 @@ namespace Server
     {
         public MainView()
         {
+            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
         }
 

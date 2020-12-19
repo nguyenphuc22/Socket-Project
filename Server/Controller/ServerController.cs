@@ -179,7 +179,9 @@ namespace Server.Controller
                 }
                 catch
                 {
-
+                    // Check error if client close socket.
+                    clientList.Remove(client);
+                    client.Close();
                 }
             }
         }
@@ -194,7 +196,7 @@ namespace Server.Controller
                 {
                     while (true)
                     {
-
+                        
                         server.Listen(100);
                         Socket client = server.Accept();
                         clientList.Add(client);

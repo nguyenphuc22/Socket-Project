@@ -14,6 +14,7 @@ namespace Project_CNPM
     {
         public MainView()
         {
+            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
         }
 

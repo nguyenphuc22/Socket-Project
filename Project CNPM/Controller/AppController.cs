@@ -18,6 +18,12 @@ namespace Project_CNPM.Controller
         public string userName;
         public Thread threadListenClient;
 
+        // Function Support
+        // ==========================
+
+
+        // ==========================
+
         //Private Constructor.
         private AppController()
         {
@@ -152,11 +158,7 @@ namespace Project_CNPM.Controller
             return 0;
         }
 
-        // Function Support
-        // ==========================
-
-
-        // ==========================
+        
 
 
         /// <summary>

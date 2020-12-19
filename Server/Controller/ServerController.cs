@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
@@ -7,6 +8,12 @@ namespace Server.Controller
 {
     class ServerController
     {
+        private SocketController socketController;
+
+
+        //===================
+        //View Class Here........
+        //===================
 
 
         //Private Constructor.
@@ -32,6 +39,13 @@ namespace Server.Controller
         {
 
         }
+
+        // Function Support
+        // ==========================
+
+
+        // ==========================
+
 
         // Main Calling
         // Function Listen Message From Server:
@@ -143,19 +157,29 @@ namespace Server.Controller
             return 0;
         }
 
-        // Function Support
-        // ==========================
-
-
-        // ==========================
-
+       
 
         //Others
-        List getListClient();
-        List<String^>^ getRegisteredClientList();
-        String^ getUsernameBySocket(Socket^ _socket);
-        Socket^ getSocketByUsername(String^ _username);
-        void removeClientInfoByUsername(String^ _username);
+        List<string> getListClient()
+        {
+            return null;
+        }
+        List<string> getRegisteredClientList()
+        {
+            return null;
+        }
+        string getUsernameBySocket(Socket socket)
+        {
+            return null;
+        }
+        Socket getSocketByUsername(string userName)
+        {
+            return null;
+        }
+        void removeClientInfoByUsername(string userName)
+        {
+            
+        }
 
         /// <summary>
         ///  The main entry point for the application.

@@ -17,9 +17,11 @@ namespace Server.Controller
 
 
         //Private Constructor.
+        // LocalHost
         private ServerController()
         {
-
+            // Create Socket LocalHost
+            socketController = new SocketController();
         }
         // Singleton Patter: Surely this class is unique
         private static ServerController instance = null;

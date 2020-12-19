@@ -7,8 +7,8 @@ namespace Project_CNPM.Model
 {
     interface ChatStruct
     {
-        ArrayList pack();
-        ChatStruct unpack(ArrayList buff);
+        byte[] pack();
+        ChatStruct unpack(byte[] buff);
         void writeData(ArrayList buff);
         ArrayList readData();
     }

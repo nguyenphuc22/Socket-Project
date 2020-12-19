@@ -7,7 +7,7 @@ namespace Project_CNPM.Model
 {
     class PublicGroupMessageStruct : ChatStruct
     {
-        public ArrayList pack()
+        public byte[] pack()
         {
             throw new NotImplementedException();
         }
@@ -17,7 +17,7 @@ namespace Project_CNPM.Model
             throw new NotImplementedException();
         }
 
-        public ChatStruct unpack(ArrayList buff)
+        public ChatStruct unpack(byte[] buff)
         {
             throw new NotImplementedException();
         }

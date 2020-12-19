@@ -7,12 +7,12 @@ namespace Project_CNPM.Model
 {
     class ResponseLoginStruct : ChatStruct
     {
-        public ArrayList pack()
+        public byte[] pack()
         {
             throw new NotImplementedException();
         }
 
-        public ChatStruct unpack(ArrayList buff)
+        public ChatStruct unpack(byte[] buff)
         {
             throw new NotImplementedException();
         }

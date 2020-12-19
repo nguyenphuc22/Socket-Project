@@ -8,10 +8,9 @@ namespace Project_CNPM.Controller
 {
     class AppSocketController
     {
-        // 
+         
         private string serverIPAddr;
         private int serverPort;
-
         public Socket clientSocket;
 
         // no parameter constructor ( local ) 

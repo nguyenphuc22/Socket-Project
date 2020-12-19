@@ -10,6 +10,7 @@ namespace Project_CNPM.Controller
     class AppController
     {
         public AppController appSocket;
+
         //===================
         //View Class Here........
         //===================
@@ -151,6 +152,11 @@ namespace Project_CNPM.Controller
             return 0;
         }
 
+        // Function Support
+        // ==========================
+
+
+        // ==========================
 
 
         /// <summary>

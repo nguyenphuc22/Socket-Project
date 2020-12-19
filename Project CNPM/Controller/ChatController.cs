@@ -9,7 +9,7 @@ namespace Project_CNPM.Controller
     class ChatController
     {
         // Controll Struct Model
-        static ChatStruct unpack(byte[] buff)
+        public static ChatStruct unpack(byte[] buff)
         {
             // Check Null
             if(buff.Length == null)

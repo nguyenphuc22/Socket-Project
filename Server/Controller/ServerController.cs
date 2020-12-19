@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_CNPM.Model;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
@@ -175,7 +176,122 @@ namespace Server.Controller
             {
                 try
                 {
+                    byte[] buff = new byte[1024];
+                    ChatStruct msgReceived = ChatController.unpack(buff);
+                    switch (msgReceived.messageType)
+                    {
+                        case ChatStruct.MessageType.LoginNotificationStruct:
+                            {
+                                LoginNotificationStruct loginNotification = (LoginNotificationStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+                            }
+                        case ChatStruct.MessageType.LogoutNotificationStruct:
+                            {
+                                LogoutNotificationStruct logoutNotification = (LogoutNotificationStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+                            }
+                        case ChatStruct.MessageType.PrivateFileStruct:
+                            {
+                                PrivateFileStruct privateFile = (PrivateFileStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+                            }
+                        case ChatStruct.MessageType.PrivateGroupMessageStruct:
+                            {
+                                PrivateGroupMessageStruct PrivateGroupMessage = (PrivateGroupMessageStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
 
+                            }
+                        case ChatStruct.MessageType.PublicFileGroupStruct:
+                            {
+                                PublicFileGroupStruct PublicFileGroup = (PublicFileGroupStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.PublicGroupMessageStruct:
+                            {
+                                PublicGroupMessageStruct PublicGroupMessage = (PublicGroupMessageStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.RequestCreateGroupStruct:
+                            {
+                                RequestCreateGroupStruct RequestCreateGroup = (RequestCreateGroupStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.RequestLoginStruct:
+                            {
+                                RequestLoginStruct RequestLogin = (RequestLoginStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.ResponseLoginStruct:
+                            {
+                                ResponseLoginStruct ResponseLogin = (ResponseLoginStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.ResposeCreateGroupStruct:
+                            {
+                                ResposeCreateGroupStruct ResposeCreateGroup = (ResposeCreateGroupStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.ResposeProfileStruct:
+                            {
+                                ResposeProfileStruct ResposeProfile = (ResposeProfileStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.ResposeSignupStruct:
+                            {
+                                ResposeSignupStruct ResposeSignup = (ResposeSignupStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.ResquestProfileStruct:
+                            {
+                                ResquestProfileStruct ResquestProfile = (ResquestProfileStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.ResquestSearchStruct:
+                            {
+                                ResquestSearchStruct ResquestSearch = (ResquestSearchStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.ResquestSignupStruct:
+                            {
+                                ResquestSignupStruct ResquestSignup = (ResquestSignupStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        case ChatStruct.MessageType.ResponseSignupStruct:
+                            {
+                                ResponseSignupStruct ResponseSignup = (ResponseSignupStruct)msgReceived;
+                                // Write Action Function here.........
+                                break;
+
+                            }
+                        default:
+                            break;
+                    }
                 }
                 catch
                 {

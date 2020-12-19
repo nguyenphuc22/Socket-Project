@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Project_CNPM.Controller
@@ -52,6 +53,7 @@ namespace Project_CNPM.Controller
                 return false;
             }
 
+            
             return true;
 
         }

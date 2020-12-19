@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
@@ -12,11 +13,13 @@ namespace Server.Controller
         private int serverPort;
         public Socket serverSocket;
 
+
+
         // no parameter constructor ( local ) 
         public SocketController()
         {
             serverIPAddr = "127.0.0.1"; //Localhost IP
-            serverPort = 2015; //Default server Port
+            serverPort = 2020; //Default server Port
             createSoket(); //Create a socket
         }
         // have parameter constructor
@@ -29,8 +32,10 @@ namespace Server.Controller
         public int createSoket()
         {
             serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            serverSocket.Bind(new IPEndPoint(IPAddress.Any, serverPort));
             return 0;
         }
+       
         // send Message to server
         public int sendMessage(byte[] buff)
         {
@@ -51,5 +56,6 @@ namespace Server.Controller
         {
             // Not thing
         }
+        
     }
 }

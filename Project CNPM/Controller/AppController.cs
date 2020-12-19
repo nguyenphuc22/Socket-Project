@@ -9,7 +9,7 @@ namespace Project_CNPM.Controller
 {
     class AppController
     {
-        public AppController appSocket;
+        public AppController appController;
 
         //===================
         //View Class Here........
@@ -17,6 +17,7 @@ namespace Project_CNPM.Controller
 
         public string userName;
         public Thread threadListenClient;
+        AppSocketController appSocketController;
 
         // Function Support
         // ==========================
@@ -27,7 +28,8 @@ namespace Project_CNPM.Controller
         //Private Constructor.
         private AppController()
         {
-
+            appSocketController = new AppSocketController();
+           
         }
         // Singleton Patter: Surely this class is unique
         private static AppController instance = null;
@@ -45,7 +47,7 @@ namespace Project_CNPM.Controller
         // Destructor . Delete Socket.
         ~AppController()
         {
-
+            appSocketController.close();
         }
 
         // Main Calling
@@ -167,10 +169,21 @@ namespace Project_CNPM.Controller
         [STAThread]
         static void Main()
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainView());
+            AppController appController = new AppController();
+            if(appController.appSocketController.connectToServer())
+            {
+                // Connect Succesful
+                Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainView());
+            } else
+            {
+                // Connect Fail
+                MessageBox.Show("Connection Errors", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+
         }
     }
 }

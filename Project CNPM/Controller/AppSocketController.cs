@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Project_CNPM.Controller
 {
@@ -18,7 +19,7 @@ namespace Project_CNPM.Controller
         public AppSocketController()
         {
             this.serverIPAddr = "127.0.0.1"; //Localhost IP
-            this.serverPort = 2015; //Default server Port
+            this.serverPort = 2020; //Default server Port
 
             createSocket(); //Create a socket
         }
@@ -33,12 +34,10 @@ namespace Project_CNPM.Controller
         {
             clientSocket = new Socket(AddressFamily.InterNetwork,
             SocketType.Stream, ProtocolType.Tcp);
-
-      
             return 0;
         }
         // connect to Server no parameter ( Local )
-        public int connectToServer()
+        public bool connectToServer()
         {
             IPAddress  ipAddress = IPAddress.Parse(serverIPAddr);
             IPEndPoint  ServerIPEndPoint = new IPEndPoint(ipAddress, serverPort);
@@ -50,14 +49,14 @@ namespace Project_CNPM.Controller
             catch (Exception e)
 	        {
                 // Display Error Here
-                return 1;
+                return false;
             }
 
-            return 0;
+            return true;
 
         }
         // connect to Server have parameter 
-        public int connectToServer(string serverIPAddr, int serverPort)
+        public bool connectToServer(string serverIPAddr, int serverPort)
         {
             this.serverIPAddr = serverIPAddr;
             this.serverPort = serverPort;
@@ -85,5 +84,10 @@ namespace Project_CNPM.Controller
         {
             // Not thing
         }
+        public void close()
+        {
+            this.clientSocket.Close();
+        }
+
     }
 }

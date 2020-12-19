@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Server.Controller
@@ -9,7 +11,9 @@ namespace Server.Controller
     class ServerController
     {
         private SocketController socketController;
-
+        private Thread threadListenClient;
+        private List<Socket> clientList;
+        private int serverPort;
 
         //===================
         //View Class Here........
@@ -22,9 +26,13 @@ namespace Server.Controller
         {
             // Create Socket LocalHost
             socketController = new SocketController();
+            this.serverPort = 2020;
+            this.mutiSocket(socketController.serverSocket);
         }
+
         // Singleton Patter: Surely this class is unique
         private static ServerController instance = null;
+        
         public static ServerController Instance
         {
             get
@@ -158,8 +166,57 @@ namespace Server.Controller
             // Implement Here
             return 0;
         }
+        // Function Listen Message Client
+        public void ListenClientMessage(object obj)
+        {
+            Socket client = obj as Socket;
 
-       
+            while(true)
+            {
+                try
+                {
+
+                }
+                catch
+                {
+
+                }
+            }
+        }
+        // Function Muti Socket
+        public void mutiSocket(Socket s)
+        {
+            Socket server = s;
+            clientList = new List<Socket>();
+            threadListenClient = new Thread(() =>
+            {
+                try
+                {
+                    while (true)
+                    {
+
+                        server.Listen(100);
+                        Socket client = server.Accept();
+                        clientList.Add(client);
+                        
+                        Thread receive = new Thread(ListenClientMessage);
+                        receive.IsBackground = true;
+                        receive.Start();
+                    }
+                }
+                catch
+                {
+                    server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    server.Bind(new IPEndPoint(IPAddress.Any, serverPort));
+
+                }
+
+            });
+            threadListenClient.IsBackground = true;
+            threadListenClient.Start();
+        }
+
+
 
         //Others
         List<string> getListClient()
@@ -189,6 +246,8 @@ namespace Server.Controller
         [STAThread]
         static void Main()
         {
+            ServerController server = new ServerController();
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

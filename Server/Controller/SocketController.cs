@@ -10,7 +10,7 @@ namespace Server.Controller
     {
         private string serverIPAddr;
         private int serverPort;
-        public Socket clientSocket;
+        public Socket serverSocket;
 
         // no parameter constructor ( local ) 
         public SocketController()

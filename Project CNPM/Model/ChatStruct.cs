@@ -5,9 +5,16 @@ using System.Collections;
 
 namespace Project_CNPM.Model
 {
-    interface ChatStruct
+    abstract class ChatStruct
     {
-        byte[] pack();
-        ChatStruct unpack(byte[] buff);
+        public enum MessageType
+        {
+            LoginNotificationStruct, LogoutNotificationStruct, PrivateFileStruct, PrivateGroupMessageStruct, PublicFileGroupStruct,
+            PublicGroupMessageStruct, RequestCreateGroupStruct, RequestLoginStruct, ResponseLoginStruct, ResposeCreateGroupStruct,
+            ResposeProfileStruct, ResposeSignupStruct, ResquestProfileStruct, ResquestSearchStruct, ResquestSignupStruct, ResponseSignupStruct
+        }
+        public MessageType messageType;
+        public abstract byte[] pack();
+        public abstract ChatStruct unpack(byte[] buff);
     }
 }

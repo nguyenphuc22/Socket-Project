@@ -7,22 +7,22 @@ namespace Project_CNPM.Model
 {
     class RequestCreateGroupStruct : ChatStruct
     {
-        public byte[] pack()
+        public override byte[] pack()
         {
             throw new NotImplementedException();
         }
 
-        public ArrayList readData()
+        public override ArrayList readData()
         {
             throw new NotImplementedException();
         }
 
-        public ChatStruct unpack(byte[] buff)
+        public override ChatStruct unpack(byte[] buff)
         {
             throw new NotImplementedException();
         }
 
-        public void writeData(ArrayList buff)
+        public override void writeData(ArrayList buff)
         {
             throw new NotImplementedException();
         }

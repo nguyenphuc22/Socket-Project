@@ -31,12 +31,12 @@ namespace Project_CNPM
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 373);
-            this.Name = "Form1";
+            this.Name = "MainView";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

@@ -319,7 +319,7 @@ namespace Server.Controller
                         
                         Thread receive = new Thread(ListenClientMessage);
                         receive.IsBackground = true;
-                        receive.Start();
+                        receive.Start(client);
                     }
                 }
                 catch

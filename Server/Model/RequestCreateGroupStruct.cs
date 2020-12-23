@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Text;
 
 namespace Project_CNPM.Model
@@ -77,8 +79,17 @@ namespace Project_CNPM.Model
             return this;
         }
 
-        public override ArrayList readData()
+        public override ArrayList readData(SQLiteConnection connectionData)
         {
+            string query = "SELECT * FROM Group";
+            
+            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+
+            DataTable dt = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            // data type table
+            adapter.Fill(dt);
+
             throw new NotImplementedException();
         }
 

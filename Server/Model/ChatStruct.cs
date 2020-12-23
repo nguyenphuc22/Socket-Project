@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections;
+using System.Data.SQLite;
 
 namespace Project_CNPM.Model
 {
@@ -17,6 +18,6 @@ namespace Project_CNPM.Model
         public abstract byte[] pack();
         public abstract ChatStruct unpack(byte[] buff);
         public abstract void writeData(ArrayList buff);
-        public abstract ArrayList readData();
+        public abstract ArrayList readData(SQLiteConnection connectionData);
     }
 }

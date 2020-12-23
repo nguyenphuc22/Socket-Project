@@ -9,22 +9,37 @@ namespace Project_CNPM.Model
     {
         string nameGroup;
         ArrayList groupUserName;
+        bool isSucc;
+        string msg;
 
         public ResposeCreateGroupStruct()
         {
-
+            this.groupUserName = new ArrayList();
         }
 
-        public ResposeCreateGroupStruct(string nameGroup,ArrayList groupUserName)
+        public ResposeCreateGroupStruct(string nameGroup,ArrayList groupUserName,bool isSucc,string msg)
         {
             this.nameGroup = nameGroup;
             this.groupUserName = new ArrayList(groupUserName);
+            this.isSucc = isSucc;
+            this.msg = msg;
         }
 
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
             data.Add(Convert.ToByte(Convert.ToInt32(MessageType.ResposeCreateGroupStruct)));
+            data.AddRange(BitConverter.GetBytes(isSucc));
+
+            if (this.nameGroup != null)
+            {
+                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.msg)));
+                data.AddRange(Encoding.UTF8.GetBytes(msg));
+            }
+            else
+                data.AddRange(BitConverter.GetBytes(0));
+
+
             if (this.nameGroup != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.nameGroup)));
@@ -34,7 +49,7 @@ namespace Project_CNPM.Model
                 data.AddRange(BitConverter.GetBytes(0));
             if (groupUserName != null)
             {
-                data.Add(Convert.ToByte(this.groupUserName.Count));
+                data.AddRange(BitConverter.GetBytes(this.groupUserName.Count));
                 for (int i = 0; i < groupUserName.Count; i++)
                 {
                     data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.groupUserName[i].ToString())));
@@ -50,7 +65,17 @@ namespace Project_CNPM.Model
         public override ChatStruct unpack(byte[] buff)
         {
             int offset = 4; //Skip messageType
-            int sizeArr,sizeNameGroup,sizeUserName;
+            int sizeArr,sizeNameGroup,sizeUserName,sizeMsg;
+
+            this.isSucc = BitConverter.ToBoolean(buff, offset);
+            offset += 1; //Update Offset
+
+            sizeMsg = BitConverter.ToInt32(buff, offset);
+            offset += 4; //Update Offset
+            if (sizeMsg > 0)
+                this.msg = Encoding.UTF8.GetString(buff, offset, sizeMsg);
+
+            offset += sizeMsg; //Update offset
 
             sizeNameGroup = BitConverter.ToInt32(buff, offset);
             offset += 4; //Update Offset

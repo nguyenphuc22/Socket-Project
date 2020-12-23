@@ -1,6 +1,7 @@
 ﻿using Project_CNPM.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Server.Controller
         private Thread threadListenClient;
         private List<Socket> clientList;
         private int serverPort;
+        SQLiteConnection connnectData;
 
         //===================
         //View Class Here........

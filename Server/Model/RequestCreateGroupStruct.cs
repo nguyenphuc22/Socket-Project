@@ -90,6 +90,14 @@ namespace Project_CNPM.Model
             // data type table
             adapter.Fill(dt);
 
+            this.nameGroup = dt.Rows[0]["NameGroup"].ToString();
+
+
+            foreach(DataRow row in dt.Rows)
+            {
+                this.groupUserName.Add(row["UserName"].ToString());
+            }
+
             throw new NotImplementedException();
         }
 

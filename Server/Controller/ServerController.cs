@@ -1,6 +1,7 @@
 ﻿using Project_CNPM.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -11,10 +12,12 @@ namespace Server.Controller
 {
     class ServerController
     {
+        private string path = @"C:\Users\Asus\source\repos\Project CNPM\Server\Data\database.db";
         private SocketController socketController;
         private Thread threadListenClient;
         private List<Socket> clientList;
         private int serverPort;
+        SQLiteConnection connnectData;
 
         //===================
         //View Class Here........
@@ -29,6 +32,8 @@ namespace Server.Controller
             socketController = new SocketController();
             this.serverPort = 2020;
             this.mutiSocket(socketController.serverSocket);
+            this.connnectData = new SQLiteConnection(path);
+            connnectData.Open();
         }
 
         // Singleton Patter: Surely this class is unique

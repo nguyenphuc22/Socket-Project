@@ -1,10 +1,11 @@
 ﻿using Project_CNPM.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-
+using System.Data.SQLite;
 
 namespace Project_CNPM.Controller
 {
@@ -19,7 +20,7 @@ namespace Project_CNPM.Controller
         public string userName;
         public Thread threadListenClient;
         AppSocketController appSocketController;
-
+        
         // Function Support
         // ==========================
 
@@ -280,13 +281,13 @@ namespace Project_CNPM.Controller
             return 0;
         }
         // Function response Profile;
-        public int responseCreateGroup(string userName, bool isAccept)
+        public int responseCreateGroup(string groupName, bool isAccept)
         {
             // Implement Here
             return 0;
         }
         // Function request Profile;
-        public int requestCreateGroup(string userName)
+        public int requestCreateGroup(string groupName,ArrayList arrUserName)
         {
             // Implement Here
             return 0;

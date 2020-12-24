@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Text;
 
 namespace Project_CNPM.Model
@@ -12,7 +13,7 @@ namespace Project_CNPM.Model
             throw new NotImplementedException();
         }
 
-        public override ArrayList readData()
+        public override ArrayList readData(SQLiteConnection connectionData)
         {
             throw new NotImplementedException();
         }

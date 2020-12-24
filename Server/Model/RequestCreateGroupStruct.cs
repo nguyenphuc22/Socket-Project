@@ -98,6 +98,7 @@ namespace Project_CNPM.Model
             {
                 this.groupUserName.Add(row["UserName"].ToString());
             }
+            return null;
         }
 
         

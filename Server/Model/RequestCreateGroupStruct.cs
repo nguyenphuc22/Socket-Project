@@ -79,7 +79,7 @@ namespace Project_CNPM.Model
             return this;
         }
 
-        public override ArrayList readData(SQLiteConnection connectionData)
+        public override void readData(SQLiteConnection connectionData)
         {
             string query = "SELECT * FROM Group";
             
@@ -91,14 +91,11 @@ namespace Project_CNPM.Model
             adapter.Fill(dt);
 
             this.nameGroup = dt.Rows[0]["NameGroup"].ToString();
-
-
+            
             foreach(DataRow row in dt.Rows)
             {
                 this.groupUserName.Add(row["UserName"].ToString());
             }
-
-            throw new NotImplementedException();
         }
 
         

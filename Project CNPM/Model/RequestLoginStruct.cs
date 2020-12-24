@@ -11,7 +11,8 @@ namespace Project_CNPM.Model
         string passWord;
         public RequestLoginStruct()
         {
-
+            this.userName = "";
+            this.passWord = "";
         }
         public RequestLoginStruct(string userName,string passWord)
         {

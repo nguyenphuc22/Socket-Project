@@ -234,7 +234,7 @@ namespace Server.Controller
                         case ChatStruct.MessageType.RequestLoginStruct:
                             {
                                 RequestLoginStruct RequestLogin = (RequestLoginStruct)msgReceived;
-                                // Write Action Function here.........
+                                
                                 break;
 
                             }

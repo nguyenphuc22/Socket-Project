@@ -17,7 +17,7 @@ namespace Project_CNPM.Model
         public MessageType messageType;
         public abstract byte[] pack();
         public abstract ChatStruct unpack(byte[] buff);
-        public abstract void writeData(ArrayList buff);
+        public abstract void writeData(SQLiteConnection connectionData);
         public abstract void readData(SQLiteConnection connectionData);
     }
 }

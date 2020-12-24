@@ -100,9 +100,15 @@ namespace Project_CNPM.Model
 
         
 
-        public override void writeData(ArrayList buff)
+        public override void writeData(SQLiteConnection connectionData)
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM Group";
+
+            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+
+ 
         }
     }
 }

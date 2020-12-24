@@ -23,7 +23,7 @@ namespace Project_CNPM.Model
             throw new NotImplementedException();
         }
 
-        public override void writeData(ArrayList buff)
+        public override void writeData(SQLiteConnection connectionData)
         {
             throw new NotImplementedException();
         }

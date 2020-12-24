@@ -105,7 +105,7 @@ namespace Project_CNPM.Model
         }
 
 
-        public override void readData(SQLiteConnection connectionData)
+        public override ArrayList readData(SQLiteConnection connectionData)
         {
             throw new NotImplementedException();
         }

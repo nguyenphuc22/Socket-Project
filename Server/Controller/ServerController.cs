@@ -1,5 +1,6 @@
 ﻿using Project_CNPM.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Net;
@@ -71,10 +72,13 @@ namespace Server.Controller
             return 0;
         }
         // Function Login:
-        public int login(string userName, string passWord)
+        public int login(RequestLoginStruct requestLogin)
         {
-            // Implement Here
-            return 0;
+            ArrayList data = requestLogin.readData(connnectData);
+            if (data != null && requestLogin.isPassword(data[1].ToString()))
+                return 1;
+            else
+                return 0;
         }
         // Function SignUp:
         public int signup(string userName, string passWord)

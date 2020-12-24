@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Text;
 
@@ -41,10 +42,23 @@ namespace Project_CNPM.Model
             return data.ToArray();
         }
 
-        public override void readData(SQLiteConnection connectionData)
+        public override ArrayList readData(SQLiteConnection connectionData)
         {
-            string query = "SELECT * FROM UserData WHERE " + userName + ;
-
+            string query = "SELECT * FROM UserData Where userName = '" + this.userName + "'";
+            ArrayList data = new ArrayList();
+            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+            DataTable dt = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            adapter.Fill(dt);
+            
+            if (dt.Rows.Count == 0)
+                return null;
+            else
+            {
+                data.Add(dt.Columns["userName"].ToString());
+                data.Add(dt.Columns["passWord"].ToString());
+                return data;
+            }
         }
 
         public override ChatStruct unpack(byte[] buff)
@@ -70,6 +84,13 @@ namespace Project_CNPM.Model
         public override void writeData(SQLiteConnection connectionData)
         {
             throw new NotImplementedException();
+        }
+
+        public bool isPassword(string passWord)
+        {
+            if (this.passWord == passWord)
+                return true;
+            return false;
         }
     }
 }

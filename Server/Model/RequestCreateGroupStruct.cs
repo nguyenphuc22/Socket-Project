@@ -79,13 +79,15 @@ namespace Project_CNPM.Model
             return this;
         }
 
-        public override void readData(SQLiteConnection connectionData)
+        public override ArrayList readData(SQLiteConnection connectionData)
         {
-            string query = "SELECT * FROM Group";
+            
+            string query = "SELECT * FROM GroupChat";
             
             SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
 
             DataTable dt = new DataTable();
+
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
             // data type table
             adapter.Fill(dt);

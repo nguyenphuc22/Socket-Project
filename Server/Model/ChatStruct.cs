@@ -18,6 +18,6 @@ namespace Project_CNPM.Model
         public abstract byte[] pack();
         public abstract ChatStruct unpack(byte[] buff);
         public abstract void writeData(SQLiteConnection connectionData);
-        public abstract void readData(SQLiteConnection connectionData);
+        public abstract ArrayList readData(SQLiteConnection connectionData);
     }
 }

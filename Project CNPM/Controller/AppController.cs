@@ -73,6 +73,7 @@ namespace Project_CNPM.Controller
                     Application.Exit();
                 }
                 ChatStruct msgReceived = ChatController.unpack(buff);
+
                 switch (msgReceived.messageType)
                 {
                     case ChatStruct.MessageType.LoginNotificationStruct:
@@ -289,6 +290,8 @@ namespace Project_CNPM.Controller
         // Function request Profile;
         public int requestCreateGroup(string groupName,ArrayList arrUserName)
         {
+            RequestCreateGroupStruct request = new RequestCreateGroupStruct(groupName, arrUserName);
+            appSocketController.sendMessage(request.pack());
             // Implement Here
             return 0;
         }

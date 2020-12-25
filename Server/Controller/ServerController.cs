@@ -12,7 +12,7 @@ namespace Server.Controller
 {
     class ServerController
     {
-        private string path = @"C:\Users\Asus\source\repos\Project CNPM\Server\Data\database.db";
+        private string path = @"Data Source=C:\Users\Asus\source\repos\Project CNPM\Server\Data\database.db";
         private SocketController socketController;
         private Thread threadListenClient;
         private List<Socket> clientList;
@@ -33,6 +33,7 @@ namespace Server.Controller
             this.serverPort = 2020;
             this.mutiSocket(socketController.serverSocket);
             this.connnectData = new SQLiteConnection(path);
+
             connnectData.Open();
         }
 

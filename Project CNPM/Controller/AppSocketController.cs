@@ -22,7 +22,6 @@ namespace Project_CNPM.Controller
             this.serverIPAddr = "127.0.0.1"; //Localhost IP
             this.serverPort = 2020; //Default server Port
 
-            createSocket(); //Create a socket
         }
         // have parameter constructor
         public AppSocketController(string serverIPAddr, int serverPort)
@@ -40,9 +39,9 @@ namespace Project_CNPM.Controller
         // connect to Server no parameter ( Local )
         public bool connectToServer()
         {
-            IPAddress  ipAddress = IPAddress.Parse(serverIPAddr);
+            createSocket(); //Create a socket
+            IPAddress ipAddress = IPAddress.Parse(serverIPAddr);
             IPEndPoint  ServerIPEndPoint = new IPEndPoint(ipAddress, serverPort);
-
             try
             {
                 clientSocket.Connect(ServerIPEndPoint);
@@ -71,6 +70,7 @@ namespace Project_CNPM.Controller
             
             if(clientSocket != null)
                 return clientSocket.Send(buff, buff.Length, SocketFlags.None); //Sent bytes
+            
             return 0;
         }
         // send Message to server
@@ -86,10 +86,6 @@ namespace Project_CNPM.Controller
         {
             // Not thing
         }
-        public void close()
-        {
-            this.clientSocket.Close();
-        }
-
+        
     }
 }

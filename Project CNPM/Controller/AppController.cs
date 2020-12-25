@@ -6,20 +6,21 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using Project_CNPM.View;
+using System.Net.Sockets;
 
 namespace Project_CNPM.Controller
 {
     class AppController
     {
-        public AppController appController;
-
         //===================
         //View Class Here........
+        public LoginView loginView = null; 
         //===================
 
         public string userName;
         public Thread threadListenClient;
-        AppSocketController appSocketController;
+        public AppSocketController appSocketController;
         
         // Function Support
         // ==========================
@@ -31,14 +32,14 @@ namespace Project_CNPM.Controller
         //Private Constructor.
         private AppController()
         {
+            
             appSocketController = new AppSocketController();
-           
+            
         }
         // Singleton Patter: Surely this class is unique
         private static AppController instance = null;
-        public static AppController Instance
+        public static AppController getObject()
         {
-            get
             {
                 if (instance == null)
                 {
@@ -50,20 +51,22 @@ namespace Project_CNPM.Controller
         // Destructor . Delete Socket.
         ~AppController()
         {
-            appSocketController.close();
+            //appSocketController.close();
         }
 
         // Main Calling
         // Function Listen Message From Server:
         public void listenMessageFromServer(object obj)
         {
+            Socket client = obj as Socket;
             while (true)
             {
                 byte[] buff = new byte[1024];
-                int revc;
+                int revc = -1;
+
                 try
                 {
-                    revc = this.appSocketController.clientSocket.Receive(buff);
+                    revc = client.Receive(buff);
 
                 }
                 catch
@@ -132,7 +135,7 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResponseLoginStruct:
                         {
                             ResponseLoginStruct ResponseLogin = (ResponseLoginStruct)msgReceived;
-                            // Write Action Function here.........
+                            AppController.getObject().loginView.Change_subtitle(ResponseLogin.getMsg());
                             break;
 
                         }
@@ -195,13 +198,12 @@ namespace Project_CNPM.Controller
             // Implement Here
             Thread listen = new Thread(listenMessageFromServer);
             listen.IsBackground = true;
-            listen.Start();
+            listen.Start(this.appSocketController.clientSocket);
         }
         // Function Login:
-        public int login(string userName, string passWord)
+        public void login(RequestLoginStruct request)
         {
-            // Implement Here
-            return 0;
+            this.appSocketController.sendMessage(request.pack());
         }
         // Function SignUp:
         public int signup(string userName, string passWord)
@@ -311,20 +313,22 @@ namespace Project_CNPM.Controller
         [STAThread]
         static void Main()
         {
-            AppController appController = new AppController();
+            AppController appController = getObject();
             if(appController.appSocketController.connectToServer())
             {
                 // Connect Succesful
                 appController.createThreadListenMessageFromServer();
-                
+
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainView());
+                Application.Run(new LoginView());
+                
             } else
             {
                 // Connect Fail
                 MessageBox.Show("Connection Errors", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
             
 

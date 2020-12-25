@@ -9,7 +9,10 @@ namespace Project_CNPM.Model
     {
         string userName;
         string passWord;
-        
+        public ResquestSignupStruct()
+        {
+
+        }
         public ResquestSignupStruct(string userName, string passWord)
         {
             this.userName = userName;

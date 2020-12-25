@@ -1,5 +1,6 @@
 ﻿using Project_CNPM.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Net;
@@ -13,7 +14,7 @@ namespace Server.Controller
     class ServerController
     {
         private string path = @"Data Source=C:\Users\Asus\source\repos\Project CNPM\Server\Data\database.db";
-        private SocketController socketController;
+        public SocketController socketController;
         private Thread threadListenClient;
         private List<Socket> clientList;
         private int serverPort;
@@ -30,26 +31,25 @@ namespace Server.Controller
         {
             // Create Socket LocalHost
             socketController = new SocketController();
+            this.connnectData = new SQLiteConnection(path);
+            connnectData.Open();
             this.serverPort = 2020;
             this.mutiSocket(socketController.serverSocket);
-            this.connnectData = new SQLiteConnection(path);
-
-            connnectData.Open();
+            
         }
 
         // Singleton Patter: Surely this class is unique
         private static ServerController instance = null;
         
-        public static ServerController Instance
+        public static ServerController getObject()
         {
-            get
-            {
+            
                 if (instance == null)
                 {
                     instance = new ServerController();
                 }
                 return instance;
-            }
+            
         }
         // Destructor . Delete Socket.
         ~ServerController()
@@ -72,10 +72,26 @@ namespace Server.Controller
             return 0;
         }
         // Function Login:
-        public int login(string userName, string passWord)
+        public void login(RequestLoginStruct request,Socket socket)
         {
-            // Implement Here
-            return 0;
+            ResponseLoginStruct response;
+
+            ArrayList array = new ArrayList(request.readData(connnectData));
+            
+            if (array.Count != 0)
+            {
+                // Dang nhap thanh cong
+                response = new ResponseLoginStruct(true, "Login Success");
+    
+            }
+            else
+            {
+                // Dang nhap that bai
+                response = new ResponseLoginStruct(false,"Login Fail");
+
+            }
+            socket.Send(response.pack());
+            
         }
         // Function SignUp:
         public int signup(string userName, string passWord)
@@ -183,6 +199,7 @@ namespace Server.Controller
                 try
                 {
                     byte[] buff = new byte[1024];
+                    client.Receive(buff);
                     ChatStruct msgReceived = ChatController.unpack(buff);
                     switch (msgReceived.messageType)
                     {
@@ -235,7 +252,7 @@ namespace Server.Controller
                         case ChatStruct.MessageType.RequestLoginStruct:
                             {
                                 RequestLoginStruct RequestLogin = (RequestLoginStruct)msgReceived;
-                                // Write Action Function here.........
+                                login(RequestLogin,client);
                                 break;
 
                             }
@@ -302,8 +319,8 @@ namespace Server.Controller
                 catch
                 {
                     // Check error if client close socket.
-                    clientList.Remove(client);
-                    client.Close();
+                    //clientList.Remove(client);
+                    //client.Close();
                 }
             }
         }
@@ -318,7 +335,6 @@ namespace Server.Controller
                 {
                     while (true)
                     {
-                        
                         server.Listen(100);
                         Socket client = server.Accept();
                         clientList.Add(client);
@@ -330,8 +346,8 @@ namespace Server.Controller
                 }
                 catch
                 {
-                    server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                    server.Bind(new IPEndPoint(IPAddress.Any, serverPort));
+                    //server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    //server.Bind(new IPEndPoint(IPAddress.Any, serverPort));
 
                 }
 
@@ -370,7 +386,9 @@ namespace Server.Controller
         [STAThread]
         static void Main()
         {
-            ServerController server = new ServerController();
+            ServerController server = getObject();
+
+            
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +15,15 @@ namespace Server
     {
         public MainView()
         {
-            CheckForIllegalCrossThreadCalls = false;
+            
             InitializeComponent();
+
+            CheckForIllegalCrossThreadCalls = false;
         }
 
+        private void MainView_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

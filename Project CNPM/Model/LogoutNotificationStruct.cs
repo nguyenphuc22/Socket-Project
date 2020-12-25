@@ -14,7 +14,7 @@ namespace Project_CNPM.Model
 
         public override ChatStruct unpack(byte[] buff)
         {
-            throw new NotImplementedException();
+            return this;
         }
     }
 }

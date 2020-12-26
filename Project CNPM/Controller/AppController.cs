@@ -15,7 +15,8 @@ namespace Project_CNPM.Controller
     {
         //===================
         //View Class Here........
-        public LoginView loginView = null; 
+        public LoginView loginView = null;
+        public MainView mainView = null;
         //===================
 
         public string userName;
@@ -136,6 +137,17 @@ namespace Project_CNPM.Controller
                         {
                             ResponseLoginStruct ResponseLogin = (ResponseLoginStruct)msgReceived;
                             AppController.getObject().loginView.Change_subtitle(ResponseLogin.getMsg());
+
+                            if (ResponseLogin.isSuccess())
+                            {
+                                AppController.getObject().loginView.Close_form();
+                                Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                                Application.EnableVisualStyles();
+                                Application.SetCompatibleTextRenderingDefault(false);
+                                Application.Run(new MainView());
+
+                            }
+                            
                             break;
 
                         }

@@ -39,9 +39,10 @@ namespace Server
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(27, 27);
+            this.button1.Location = new System.Drawing.Point(31, 36);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(749, 56);
+            this.button1.Size = new System.Drawing.Size(856, 75);
             this.button1.TabIndex = 0;
             this.button1.Text = "OFF";
             this.button1.UseVisualStyleBackColor = true;
@@ -53,9 +54,10 @@ namespace Server
             this.Name,
             this.Status});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(27, 102);
+            this.listView1.Location = new System.Drawing.Point(31, 136);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(371, 336);
+            this.listView1.Size = new System.Drawing.Size(423, 447);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -76,9 +78,10 @@ namespace Server
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Message});
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(405, 103);
+            this.listView2.Location = new System.Drawing.Point(463, 137);
+            this.listView2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(370, 334);
+            this.listView2.Size = new System.Drawing.Size(422, 444);
             this.listView2.TabIndex = 2;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -90,14 +93,16 @@ namespace Server
             // 
             // MainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 600);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
-            //this.Name = "MainView";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+
             this.Text = "ChatServer";
+            this.Load += new System.EventHandler(this.MainView_Load);
             this.ResumeLayout(false);
 
         }

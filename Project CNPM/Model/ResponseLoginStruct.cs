@@ -54,7 +54,10 @@ namespace Project_CNPM.Model
 
             return this;
         }
-
+        public bool isSuccess()
+        {
+            return this.isSucc;
+        }
         public string getMsg()
         {
             if (isSucc)

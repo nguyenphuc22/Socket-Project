@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project_CNPM.Model;
 
 namespace Server
 {
@@ -16,6 +17,7 @@ namespace Server
         {
             CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -100,6 +102,11 @@ namespace Server
         private void Clear_Log()
         {
             listView2.Items.Clear();
+        }
+
+        private void MainView_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

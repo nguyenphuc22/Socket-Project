@@ -29,3 +29,12 @@ C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\run
 C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Project CNPM\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.View.LoginView.resources
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.MainView.resources
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Project CNPM\obj\Debug\netcoreapp3.1\Client.csproj.GenerateResource.cache
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Project CNPM\obj\Debug\netcoreapp3.1\Client.AssemblyInfoInputs.cache
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Project CNPM\obj\Debug\netcoreapp3.1\Client.AssemblyInfo.cs
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Project CNPM\obj\Debug\netcoreapp3.1\Client.csproj.CoreCompileInputs.cache
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Project CNPM\obj\Debug\netcoreapp3.1\Client.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Project CNPM\obj\Debug\netcoreapp3.1\Client.pdb

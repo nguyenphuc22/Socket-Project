@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "E:\\COURSES\\NAM III\\SEMS 1\\INTRO. TO SE\\Project\\Socket-Project - Copy\\Server\\Server.csproj": {}
   },
   "projects": {
@@ -13,29 +12,12 @@
         "projectPath": "E:\\COURSES\\NAM III\\SEMS 1\\INTRO. TO SE\\Project\\Socket-Project - Copy\\Server\\Server.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
         "outputPath": "E:\\COURSES\\NAM III\\SEMS 1\\INTRO. TO SE\\Project\\Socket-Project - Copy\\Server\\obj\\",
-=======
-    "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Server\\Server.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Server\\Server.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Server\\Server.csproj",
-        "projectName": "Server",
-        "projectPath": "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Server\\Server.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Server\\obj\\",
->>>>>>> cd608fdc1c77bdeaa89956faf70523f85bbf5f13
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> cd608fdc1c77bdeaa89956faf70523f85bbf5f13
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

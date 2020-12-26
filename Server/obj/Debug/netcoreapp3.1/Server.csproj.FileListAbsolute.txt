@@ -88,3 +88,33 @@ C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcorea
 C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.dll
 C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.pdb
 C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\Server.exe
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\Server.deps.json
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.json
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.dev.json
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\Server.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\Server.pdb
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\EntityFramework.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.EF6.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.csprojAssemblyReference.cache
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.MainView.resources
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.csproj.GenerateResource.cache
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfoInputs.cache
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfo.cs
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.csproj.CoreCompileInputs.cache
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.csproj.CopyComplete
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.dll
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.pdb
+E:\COURSES\NAM III\SEMS 1\INTRO. TO SE\Project\Socket-Project - Copy\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache

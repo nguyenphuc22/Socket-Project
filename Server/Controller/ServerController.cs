@@ -72,6 +72,7 @@ namespace Server.Controller
             return 0;
         }
         // Function Login:
+<<<<<<< HEAD
         public void login(RequestLoginStruct request,Socket socket)
         {
             ResponseLoginStruct response;
@@ -92,6 +93,15 @@ namespace Server.Controller
             }
             socket.Send(response.pack());
             
+=======
+        public int login(RequestLoginStruct requestLogin)
+        {
+            ArrayList data = requestLogin.readData(connnectData);
+            if (data != null && requestLogin.isPassword(data[1].ToString()))
+                return 1;
+            else
+                return 0;
+>>>>>>> 112280c120a5bbf61d6604a20cac7482b3f2f4a2
         }
         // Function SignUp:
         public int signup(string userName, string passWord)
@@ -252,7 +262,11 @@ namespace Server.Controller
                         case ChatStruct.MessageType.RequestLoginStruct:
                             {
                                 RequestLoginStruct RequestLogin = (RequestLoginStruct)msgReceived;
+<<<<<<< HEAD
                                 login(RequestLogin,client);
+=======
+                                
+>>>>>>> 112280c120a5bbf61d6604a20cac7482b3f2f4a2
                                 break;
 
                             }

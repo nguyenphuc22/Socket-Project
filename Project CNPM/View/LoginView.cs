@@ -34,6 +34,7 @@ namespace Project_CNPM.View
             {
                 user.Username = textBox1.Text;
                 user.Password = textBox2.Text;
+                AppController.getObject().signup(new ResquestSignupStruct(user.Username, user.Password));
             }
         }
 

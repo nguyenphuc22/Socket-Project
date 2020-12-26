@@ -34,7 +34,7 @@ namespace Project_CNPM.View
             {
                 user.Username = textBox1.Text;
                 user.Password = textBox2.Text;
-                
+                AppController.getObject().signup(new ResquestSignupStruct(user.Username, user.Password));
             }
         }
 
@@ -60,6 +60,11 @@ namespace Project_CNPM.View
         private void LoginView_Load(object sender, EventArgs e)
         {
             
+        }
+
+        public void Close_form()
+        {
+            System.Windows.Forms.Application.ExitThread();
         }
     }
 }

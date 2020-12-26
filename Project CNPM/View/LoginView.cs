@@ -34,7 +34,6 @@ namespace Project_CNPM.View
             {
                 user.Username = textBox1.Text;
                 user.Password = textBox2.Text;
-                
             }
         }
 

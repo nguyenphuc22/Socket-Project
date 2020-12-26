@@ -184,8 +184,9 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResponseSignupStruct:
                         {
                             ResponseSignupStruct ResponseSignup = (ResponseSignupStruct)msgReceived;
-                            // Write Action Function here.........
+                            AppController.getObject().loginView.Change_subtitle(ResponseSignup.getMsg());
                             break;
+                            // Write Action Function here.........dd
 
                         }
                     default:
@@ -206,10 +207,11 @@ namespace Project_CNPM.Controller
             appSocketController.sendMessage(request.pack());
         }
         // Function SignUp:
-        public int signup(string userName, string passWord)
+        public void signup(ResquestSignupStruct request)
         {
             // Implement Here
-            return 0;
+            appSocketController.sendMessage(request.pack());
+
         }
         // Function Send Message Group:
         public int sendGroupMessage(string message,string idGroup)

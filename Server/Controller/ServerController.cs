@@ -95,11 +95,22 @@ namespace Server.Controller
         }    
 
             // Function SignUp:
-            public int signup(string userName, string passWord)
+        public void signup(ResquestSignupStruct request, Socket socket)
+        {
+            ResponseSignupStruct response;
+            ArrayList data = new ArrayList(request.readData(connnectData));
+            if (data.Count==0)
             {
-                // Implement Here
-                return 0;
+                response = new ResponseSignupStruct(true, "Signup Success");
+                request.writeData(connnectData);
             }
+            else
+            {
+                response = new ResponseSignupStruct(false, "Username available!");
+              
+            }
+            socket.Send(response.pack());
+        }
             // Function Send Message Group:
             public int sendGroupMessage(string message, string idGroup)
             {
@@ -303,7 +314,8 @@ namespace Server.Controller
                             case ChatStruct.MessageType.ResquestSignupStruct:
                                 {
                                     ResquestSignupStruct ResquestSignup = (ResquestSignupStruct)msgReceived;
-                                    // Write Action Function here.........
+                                    signup(ResquestSignup, client);
+                                    // Write Action Function ere.........
                                     break;
 
                                 }

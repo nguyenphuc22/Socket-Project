@@ -203,13 +203,7 @@ namespace Project_CNPM.Controller
         // Function Login:
         public void login(RequestLoginStruct request)
         {
-<<<<<<< HEAD
-            this.appSocketController.sendMessage(request.pack());
-=======
-            RequestLoginStruct requestLogin = new RequestLoginStruct(userName, passWord);
-            appSocketController.sendMessage(requestLogin.pack());
-            return 0;
->>>>>>> 112280c120a5bbf61d6604a20cac7482b3f2f4a2
+            appSocketController.sendMessage(request.pack());
         }
         // Function SignUp:
         public int signup(string userName, string passWord)

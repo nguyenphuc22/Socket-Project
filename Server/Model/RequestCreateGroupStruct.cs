@@ -26,7 +26,7 @@ namespace Project_CNPM.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.Add(Convert.ToByte(Convert.ToInt32(MessageType.ResposeCreateGroupStruct)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResposeCreateGroupStruct)));
             if (this.nameGroup != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.nameGroup)));
@@ -82,7 +82,7 @@ namespace Project_CNPM.Model
         public override ArrayList readData(SQLiteConnection connectionData)
         {
             
-            string query = "SELECT * FROM GroupChat";
+            string query = String.Format( "SELECT * FROM GroupChat Where NameGroup = '{0}'",this.nameGroup );
             
             SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
 
@@ -92,13 +92,16 @@ namespace Project_CNPM.Model
             // data type table
             adapter.Fill(dt);
 
-            this.nameGroup = dt.Rows[0]["NameGroup"].ToString();
-            
+            ArrayList data = new ArrayList();
+
+            data.Add(this.nameGroup);
+
             foreach(DataRow row in dt.Rows)
             {
-                this.groupUserName.Add(row["UserName"].ToString());
+                data.Add(row["NameGroup"]);
             }
-            return null;
+            
+            return data;
         }
 
         

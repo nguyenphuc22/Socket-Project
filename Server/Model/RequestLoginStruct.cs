@@ -79,7 +79,7 @@ namespace Project_CNPM.Model
             // Columns không trả lại object. nên không get list được.
             //var a = dt.Columns["NameGroup"];
             // Lấy như mảng hai chiều bình thường. b = {Working,phucvr}
-            //var b = dt.Rows[0];
+            //var b = dt.Rows[0]["Name Columns"];
             foreach(DataRow row in dt.Rows)
             {
                 array.Add(row.ToString());

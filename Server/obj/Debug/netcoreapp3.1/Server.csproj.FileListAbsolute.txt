@@ -28,3 +28,33 @@ C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\
 C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.csproj.CopyComplete
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.exe
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.deps.json
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.json
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.dev.json
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.pdb
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.EF6.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csprojAssemblyReference.cache
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.MainView.resources
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.GenerateResource.cache
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfoInputs.cache
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfo.cs
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.CoreCompileInputs.cache
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.CopyComplete
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.dll
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.pdb
+C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache

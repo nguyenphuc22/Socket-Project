@@ -61,6 +61,11 @@ namespace Project_CNPM.View
         {
             
         }
+
+        public void Close_form()
+        {
+            System.Windows.Forms.Application.ExitThread();
+        }
     }
 }
 

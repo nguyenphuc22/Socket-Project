@@ -13,7 +13,7 @@ namespace Server.Controller
 {
     class ServerController
     {
-        private string path = @"Data Source=C:\Users\Asus\source\repos\Project CNPM\Server\Data\database.db";
+        private string path = @"Data Source=C:\Users\USER\OneDrive\Documents\GitHub\Socket-Project\Server\Data\database.db";
         public SocketController socketController;
         private Thread threadListenClient;
         private List<Socket> clientList;

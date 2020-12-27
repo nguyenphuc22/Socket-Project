@@ -140,6 +140,7 @@ namespace Project_CNPM.Controller
 
                             if (ResponseLogin.isSuccess())
                             {
+                                
                                 AppController.getObject().loginView.Close_form();
                                 AppController.getObject().loginView.Hide();
 
@@ -148,7 +149,7 @@ namespace Project_CNPM.Controller
                                 Application.EnableVisualStyles();
                                 Application.SetCompatibleTextRenderingDefault(false);
                                 Application.Run(new MainView());
-
+                                
                             }
                             
                             break;
@@ -200,6 +201,8 @@ namespace Project_CNPM.Controller
                         {
                             ResponseSignupStruct ResponseSignup = (ResponseSignupStruct)msgReceived;
                             AppController.getObject().loginView.Change_subtitle(ResponseSignup.getMsg());
+
+                            
                             break;
                             // Write Action Function here.........dd
 
@@ -207,6 +210,17 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResposeSearchStruct:
                         {
                             ResponseSearchStruct responseSearch = (ResponseSearchStruct)msgReceived;
+                            break;
+                        }
+                    case ChatStruct.MessageType.RequestChatStruct:
+                        {
+                            RequestChatStruct requestChat = (RequestChatStruct)msgReceived;
+                            // call function set msg view
+                            break;
+                        }
+                    case ChatStruct.MessageType.ResponseChatStruct:
+                        {
+                            ResponseChatStruct responseSearch = (ResponseChatStruct)msgReceived;
                             break;
                         }
                     default:
@@ -232,7 +246,7 @@ namespace Project_CNPM.Controller
         {
             // Implement Here
             appSocketController.sendMessage(request.pack());
-
+            
         }
         // Function Send Message Group:
         public int sendGroupMessage(string message,string idGroup)
@@ -241,8 +255,9 @@ namespace Project_CNPM.Controller
             return 0;
         }
         // Function Send Message Private:
-        public int sendPrivateMessage(string toUsername, String message)
+        public int sendPrivateMessage(RequestChatStruct request)
         {
+            appSocketController.sendMessage(request.pack());
             // Implement Here
             return 0;
         }

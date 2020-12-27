@@ -23,28 +23,66 @@ namespace Project_CNPM.Model
         }
         public override byte[] pack()
         {
-            throw new NotImplementedException();
+            List<byte> data = new List<byte>();
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestLoginStruct)));
+            data.Add(Convert.ToByte(Convert.ToInt32(MessageType.RequestLoginStruct)));
+            if (userName != null)
+            {
+                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(userName)));
+                data.AddRange(Encoding.UTF8.GetBytes(userName));
+            }
+            else
+                data.AddRange(BitConverter.GetBytes(0));
+            if (this.search != null)
+            {
+                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.search)));
+                data.AddRange(Encoding.UTF8.GetBytes(this.search));
+            }
+            else
+                data.AddRange(BitConverter.GetBytes(0));
+            return data.ToArray();
         }
 
         public override ArrayList readData(SQLiteConnection connectionData)
         {
             ArrayList array = new ArrayList();
 
-            string queryUser = String.Format("SELECT * FROM UserData Where userName = '{0}'", this.userName);
+            string queryUser = String.Format("SELECT * FROM PrivateBox Where userName1 = '{0}' and userName2 = '{1}'"
+                , this.userName, this.search);
             SQLiteCommand cmdUser = new SQLiteCommand(queryUser, connectionData);
 
             DataTable dtUser = new DataTable();
 
-            SQLiteDataAdapter adapterUser = new SQLiteDataAdapter(cmdUser);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmdUser);
             // data type table
-            adapterUser.Fill(dtUser);
+            adapter.Fill(dtUser);
 
-            foreach (DataRow row in dtUser.Rows)
+            if(dtUser.Rows.Count == 0)
             {
-                array.Add(row.ToString());
+                queryUser = String.Format("SELECT * FROM PrivateBox Where userName1 = '{0}' and userName2 = '{1}'"
+               , this.search, this.userName);
+                cmdUser = new SQLiteCommand(queryUser, connectionData);
+                adapter = new SQLiteDataAdapter(cmdUser);
+                // data type table
+                adapter.Fill(dtUser);
+
             }
 
-            string queryGroup = String.Format("SELECT DISTINCT * FROM GroupChat Where NameGroup = '{0}'", this.search);
+            foreach(DataRow row in dtUser.Rows)
+            {
+                array.Add(row["idBox"]);
+                if(this.userName == row["userName1"].ToString())
+                {
+                    array.Add(row["userName2"]);
+                } else
+                {
+                    array.Add(row["userName1"]);
+                }
+            }
+
+            string queryGroup = String.Format("SELECT * FROM GroupMessage Where nameGroup = '{0}' and sender = '{1}'"
+                , this.search, this.userName);
+
             SQLiteCommand cmdGroup = new SQLiteCommand(queryGroup, connectionData);
 
             DataTable dtGroup = new DataTable();
@@ -53,9 +91,9 @@ namespace Project_CNPM.Model
             // data type table
             adapterGroup.Fill(dtGroup);
 
-            foreach (DataRow row in dtGroup.Rows)
+            if(dtGroup.Rows.Count != 0)
             {
-                array.Add(row.ToString());
+                array.Add(this.search);
             }
 
             return array;

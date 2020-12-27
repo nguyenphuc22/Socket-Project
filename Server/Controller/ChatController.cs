@@ -1,4 +1,5 @@
 ﻿using Project_CNPM.Model;
+using Server.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -131,6 +132,13 @@ namespace Server.Controller
                     {
                         result = new ResponseSignupStruct();
                         result.messageType = ChatStruct.MessageType.ResponseSignupStruct;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.ResposeSearchStruct:
+                    {
+                        result = new ResponseSearchStruct();
+                        result.messageType = ChatStruct.MessageType.ResposeSearchStruct;
                         result.unpack(buff);
                         break;
                     }

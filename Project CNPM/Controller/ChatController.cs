@@ -134,6 +134,13 @@ namespace Project_CNPM.Controller
                         result.unpack(buff);
                         break;
                     }
+                case ChatStruct.MessageType.ResposeSearchStruct:
+                    {
+                        result = new ResponseSearchStruct();
+                        result.messageType = ChatStruct.MessageType.ResposeSearchStruct;
+                        result.unpack(buff);
+                        break;
+                    }
                 default:
                     {
                         break;

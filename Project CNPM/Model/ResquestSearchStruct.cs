@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Text;
 
 namespace Project_CNPM.Model
@@ -30,10 +32,10 @@ namespace Project_CNPM.Model
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
-            if (search != null)
+            if (this.search != null)
             {
-                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(search)));
-                data.AddRange(Encoding.UTF8.GetBytes(search));
+                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.search)));
+                data.AddRange(Encoding.UTF8.GetBytes(this.search));
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
@@ -42,7 +44,24 @@ namespace Project_CNPM.Model
 
         public override ChatStruct unpack(byte[] buff)
         {
-            throw new NotImplementedException();
+            int offset = 4; //Skip messageType
+            int userNameLength, searchLength;
+
+            userNameLength = BitConverter.ToInt32(buff, offset);
+            offset += 4; //Update Offset
+            if (userNameLength > 0)
+                userName = Encoding.UTF8.GetString(buff, offset, userNameLength);
+
+            offset += userNameLength; //Update offset
+
+            searchLength = BitConverter.ToInt32(buff, offset);
+            offset += 4; //Update offset
+            if (searchLength > 0)
+                search = Encoding.UTF8.GetString(buff, offset, searchLength);
+
+            return this;
         }
+
+       
     }
 }

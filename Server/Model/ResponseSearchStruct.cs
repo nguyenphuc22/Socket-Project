@@ -10,27 +10,42 @@ namespace Server.Model
     
     class ResponseSearchStruct : ChatStruct
     {
-        bool isInUserData;
-        bool isInGroupChat;
-        string userName;
-        string groupName;
+        ArrayList userArr;
+        string nameGroup;
+
         public ResponseSearchStruct()
         {
-            this.isInUserData = false;
-            this.isInGroupChat = false;
-            this.userName = "";
-            this.groupName = "";
+            userArr = new ArrayList();
+            nameGroup = "Nick";
         }
-        public ResponseSearchStruct(bool isInUserData, bool isInGroupChat, string userName, string groupName)
+        public ResponseSearchStruct(ArrayList userArr,string nameGroup)
         {
-            this.isInUserData = isInUserData;
-            this.isInGroupChat = isInGroupChat;
-            this.userName = userName;
-            this.groupName = groupName;
+            this.userArr = new ArrayList(userArr);
+            this.nameGroup = nameGroup;
         }
         public override byte[] pack()
         {
-            throw new NotImplementedException();
+            List<byte> data = new List<byte>();
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResposeSearchStruct)));
+
+            if (this.nameGroup != null)
+            {
+                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.nameGroup)));
+                data.AddRange(Encoding.UTF8.GetBytes(this.nameGroup));
+            }
+            else
+                data.AddRange(BitConverter.GetBytes(0));
+
+            data.AddRange(BitConverter.GetBytes(this.userArr.Count));
+
+            foreach(string userName in userArr)
+            {
+                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(userName.ToString())));
+                data.AddRange(Encoding.UTF8.GetBytes(userName.ToString()));
+            }
+
+
+            return data.ToArray();
         }
 
         public override ArrayList readData(SQLiteConnection connectionData)
@@ -41,16 +56,27 @@ namespace Server.Model
         public override ChatStruct unpack(byte[] buff)
         {
             int offset = 4; //Skip messageType
-            int userNameLength;
+            int nameGroupInt, sizeArr,nameUserSize;
 
-            this.isInUserData = BitConverter.ToBoolean(buff, offset);
-            offset += 1; //Update Offset
-
-            userNameLength = BitConverter.ToInt32(buff, offset);
+            nameGroupInt = BitConverter.ToInt32(buff, offset);
             offset += 4; //Update Offset
-            if (userNameLength > 0)
-                this.userName = Encoding.UTF8.GetString(buff, offset, userNameLength);
+            if (nameGroupInt > 0)
+                this.nameGroup = Encoding.UTF8.GetString(buff, offset, nameGroupInt);
 
+            offset += nameGroupInt; //Update offset
+
+            sizeArr = BitConverter.ToInt32(buff, offset);
+            offset += 4; //Update Offset
+
+            for(int i = 0; i < sizeArr; i++)
+            {
+                nameUserSize = BitConverter.ToInt32(buff, offset);
+                offset += 4; //Update Offset
+                if (nameUserSize > 0)
+                    this.userArr.Add(Encoding.UTF8.GetString(buff, offset, nameUserSize));
+
+                offset += nameUserSize; //Update offset
+            }
 
             return this;
         }

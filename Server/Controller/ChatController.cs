@@ -142,6 +142,13 @@ namespace Server.Controller
                         result.unpack(buff);
                         break;
                     }
+                case ChatStruct.MessageType.RequestChatStruct:
+                    {
+                        result = new RequestChatStruct();
+                        result.messageType = ChatStruct.MessageType.RequestChatStruct;
+                        result.unpack(buff);
+                        break;
+                    }
                 default:
                     {
                         break;

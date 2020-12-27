@@ -141,6 +141,20 @@ namespace Project_CNPM.Controller
                         result.unpack(buff);
                         break;
                     }
+                case ChatStruct.MessageType.RequestChatStruct:
+                    {
+                        result = new RequestChatStruct();
+                        result.messageType = ChatStruct.MessageType.RequestChatStruct;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.ResponseChatStruct:
+                    {
+                        result = new ResponseChatStruct();
+                        result.messageType = ChatStruct.MessageType.ResponseChatStruct;
+                        result.unpack(buff);
+                        break;
+                    }
                 default:
                     {
                         break;

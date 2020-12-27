@@ -14,10 +14,11 @@ namespace Server.Controller
 {
     class ServerController
     {
-        private string path = @"Data Source=C:\Users\Asus\source\repos\Project CNPM\Server\Data\database.db";
+        private string path = @"Data Source=C:\Users\ADMIN\Desktop\phần mềm\Server\Data\database.db";
         public SocketController socketController;
         private Thread threadListenClient;
         private List<Socket> clientList;
+        private List<ClientInfor> clientInforList = new List<ClientInfor>();
         private int serverPort;
         SQLiteConnection connnectData;
 
@@ -73,26 +74,26 @@ namespace Server.Controller
             return 0;
         }
         // Function Login:
-        public void login(RequestLoginStruct request, Socket socket)
+        public bool login(RequestLoginStruct request, Socket socket)
         {
             ResponseLoginStruct response;
-
+            bool islogin = false;
             ArrayList array = new ArrayList(request.readData(connnectData));
 
             if (array.Count != 0)
             {
                 // Dang nhap thanh cong
                 response = new ResponseLoginStruct(true, "Login Success");
-
+                islogin = true;
             }
             else
             {
                 // Dang nhap that bai
                 response = new ResponseLoginStruct(false, "Login Fail");
-
+                islogin = false;
             }
             socket.Send(response.pack());
-
+            return islogin;
         }    
 
             // Function SignUp:
@@ -118,10 +119,11 @@ namespace Server.Controller
                 // Implement Here
                 return 0;
             }
-            // Function Send Message Private:
-            public int sendPrivateMessage(string toUsername, string message)
+            // Function Send Message Private: Gui di cho thang client khac
+            public int sendPrivateMessage(RequestChatStruct request)
             {
-                // Implement Here
+                request.writeData(connnectData);
+                getSocketByUsername(request.getRecUserName()).Send(request.pack());
                 return 0;
             }
             // Function Request List Online:
@@ -271,7 +273,10 @@ namespace Server.Controller
                             case ChatStruct.MessageType.RequestLoginStruct:
                                 {
                                     RequestLoginStruct RequestLogin = (RequestLoginStruct)msgReceived;
-                                    login(RequestLogin, client);
+                                    if(login(RequestLogin, client))
+                                    {
+                                        clientInforList.Add(new ClientInfor(RequestLogin.getUserName(), client));
+                                    }
                                 
                                     break;
 
@@ -333,8 +338,18 @@ namespace Server.Controller
                                     break;  
 
                                 }
-                            
-                            default:
+                            case ChatStruct.MessageType.RequestChatStruct:
+                                {
+                                    RequestChatStruct RequestChat = (RequestChatStruct)msgReceived;
+                                    this.sendPrivateMessage(RequestChat);
+                                    break;
+                                }
+                            case ChatStruct.MessageType.ResponseChatStruct:
+                                {
+                                    ResponseChatStruct ResponseChat = (ResponseChatStruct)msgReceived;
+                                    break;
+                                }
+                        default:
                                 break;
                         }
                     }
@@ -395,6 +410,11 @@ namespace Server.Controller
             }
             Socket getSocketByUsername(string userName)
             {
+                foreach (ClientInfor client in clientInforList)
+                {
+                    if (client.isUserName(userName))
+                        return client.getSocket();
+                }
                 return null;
             }
             void removeClientInfoByUsername(string userName)

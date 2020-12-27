@@ -12,7 +12,7 @@ namespace Project_CNPM.Model
             LoginNotificationStruct, LogoutNotificationStruct, PrivateFileStruct, PrivateGroupMessageStruct, PublicFileGroupStruct,
             PublicGroupMessageStruct, RequestCreateGroupStruct, RequestLoginStruct, ResponseLoginStruct, ResposeCreateGroupStruct,
             ResposeProfileStruct, ResposeSignupStruct, ResquestProfileStruct, ResquestSearchStruct, ResquestSignupStruct, ResponseSignupStruct,
-            ResposeSearchStruct
+            ResposeSearchStruct, RequestChatStruct, ResponseChatStruct
         }
         public MessageType messageType;
         public abstract byte[] pack();

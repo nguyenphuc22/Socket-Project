@@ -103,5 +103,10 @@ namespace Project_CNPM.Model
             }
             return false;
         }
+
+        public string getUserName()
+        {
+            return this.userName;
+        }
     }
 }

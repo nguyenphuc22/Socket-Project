@@ -114,9 +114,14 @@ namespace Server.Controller
             socket.Send(response.pack());
         }
             // Function Send Message Group:
-            public int sendGroupMessage(string message, string idGroup)
+            public int sendGroupMessage(RequestChatGroupStruct request)
             {
-                // Implement Here
+                request.writeData(connnectData);
+                ArrayList listUserNameGroup = request.readData(connnectData);
+                for(int i = 0; i < listUserNameGroup.Count; i++)
+                {
+                    getSocketByUsername(listUserNameGroup[i].ToString()).Send(request.pack());
+                }
                 return 0;
             }
             // Function Send Message Private: Gui di cho thang client khac
@@ -347,6 +352,11 @@ namespace Server.Controller
                             case ChatStruct.MessageType.ResponseChatStruct:
                                 {
                                     ResponseChatStruct ResponseChat = (ResponseChatStruct)msgReceived;
+                                    break;
+                                }
+                            case ChatStruct.MessageType.RequestChatGroupStruct:
+                                {
+                                   RequestChatGroupStruct requestChatGroup = (RequestChatGroupStruct)msgReceived;
                                     break;
                                 }
                         default:

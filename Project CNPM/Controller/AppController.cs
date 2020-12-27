@@ -223,6 +223,11 @@ namespace Project_CNPM.Controller
                             ResponseChatStruct responseSearch = (ResponseChatStruct)msgReceived;
                             break;
                         }
+                    case ChatStruct.MessageType.RequestChatGroupStruct:
+                        {
+                            RequestChatGroupStruct requestChatGroup = (RequestChatGroupStruct)msgReceived;
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -249,9 +254,9 @@ namespace Project_CNPM.Controller
             
         }
         // Function Send Message Group:
-        public int sendGroupMessage(string message,string idGroup)
+        public int sendGroupMessage(RequestChatGroupStruct request)
         {
-            // Implement Here
+            appSocketController.sendMessage(request.pack());
             return 0;
         }
         // Function Send Message Private:

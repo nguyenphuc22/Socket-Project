@@ -9,16 +9,16 @@ namespace Project_CNPM.Model
 {
     class ResquestSearchStruct : ChatStruct
     {
-        
+        string userName;
         string search;
         public ResquestSearchStruct()
         {
-            
+            this.userName = "";
             this.search = "";
         }
-        public ResquestSearchStruct( string search)
+        public ResquestSearchStruct( string search , string userName)
         {
-            
+            this.userName = userName;
             this.search = search;
         }
         public override byte[] pack()
@@ -30,6 +30,13 @@ namespace Project_CNPM.Model
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.search)));
                 data.AddRange(Encoding.UTF8.GetBytes(this.search));
+            }
+            else
+                data.AddRange(BitConverter.GetBytes(0));
+            if (this.search != null)
+            {
+                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.userName)));
+                data.AddRange(Encoding.UTF8.GetBytes(this.userName));
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
@@ -64,8 +71,8 @@ namespace Project_CNPM.Model
             }
             if(this.search != "all")
             {
-                queryUser = String.Format("SELECT DISTINCT nameGroup FROM GroupChat Where nameGroup like '{0}%'"
-               , this.search);
+                queryUser = String.Format("SELECT DISTINCT nameGroup FROM GroupChat Where NameGroup like '{0}%' and UserName = '{1}'"
+               , this.search,this.userName);
             } else
             {
                 queryUser = String.Format("SELECT * FROM GroupChat");
@@ -81,7 +88,7 @@ namespace Project_CNPM.Model
 
             foreach (DataRow row in dtUser.Rows)
             {
-                array.Add(row["NameGroup"]);
+                array.Add("Group:"+row["NameGroup"].ToString());
             }
 
             return array;
@@ -90,12 +97,17 @@ namespace Project_CNPM.Model
         public override ChatStruct unpack(byte[] buff)
         {
             int offset = 4; //Skip messageType
-            int  searchLength;
+            int  searchLength,userNameLength;
 
             searchLength = BitConverter.ToInt32(buff, offset);
             offset += 4; //Update offset
             if (searchLength > 0)
                 search = Encoding.UTF8.GetString(buff, offset, searchLength);
+
+            userNameLength = BitConverter.ToInt32(buff, offset);
+            offset += 4; //Update offset
+            if (userNameLength > 0)
+                this.userName = Encoding.UTF8.GetString(buff, offset, userNameLength);
 
             return this;
         }

@@ -58,7 +58,7 @@ namespace Project_CNPM.Controller
         // Main Calling
         // Function Listen Message From Server:
         public void listenMessageFromServer(object obj)
-        {
+            {
             Socket client = obj as Socket;
             while (true)
             {

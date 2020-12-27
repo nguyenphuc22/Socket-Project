@@ -45,9 +45,17 @@ namespace Project_CNPM.Model
         public override ArrayList readData(SQLiteConnection connectionData)
         {
             ArrayList array = new ArrayList();
+            string queryUser;
+            if (this.search != "all")
+            {
+               queryUser = String.Format("SELECT * FROM UserData Where userName like '{0}%'"
+                                , this.search);
 
-            string queryUser = String.Format("SELECT * FROM PrivateBox Where userName1 = '{0}' and userName2 = '{1}'"
-                , this.userName, this.search);
+            } else
+            {
+                queryUser = String.Format("SELECT * FROM UserData");
+            }
+
             SQLiteCommand cmdUser = new SQLiteCommand(queryUser, connectionData);
 
             DataTable dtUser = new DataTable();
@@ -56,43 +64,30 @@ namespace Project_CNPM.Model
             // data type table
             adapter.Fill(dtUser);
 
-            if(dtUser.Rows.Count == 0)
-            {
-                queryUser = String.Format("SELECT * FROM PrivateBox Where userName1 = '{0}' and userName2 = '{1}'"
-               , this.search, this.userName);
-                cmdUser = new SQLiteCommand(queryUser, connectionData);
-                adapter = new SQLiteDataAdapter(cmdUser);
-                // data type table
-                adapter.Fill(dtUser);
-
-            }
-
             foreach(DataRow row in dtUser.Rows)
             {
-                array.Add(row["idBox"]);
-                if(this.userName == row["userName1"].ToString())
-                {
-                    array.Add(row["userName2"]);
-                } else
-                {
-                    array.Add(row["userName1"]);
-                }
+                array.Add(row["userName"]);
+            }
+            if(this.search != "all")
+            {
+                queryUser = String.Format("SELECT DISTINCT nameGroup FROM GroupChat Where nameGroup like '{0}%'"
+               , this.search);
+            } else
+            {
+                queryUser = String.Format("SELECT * FROM GroupChat");
             }
 
-            string queryGroup = String.Format("SELECT * FROM GroupMessage Where nameGroup = '{0}' and sender = '{1}'"
-                , this.search, this.userName);
+            cmdUser = new SQLiteCommand(queryUser, connectionData);
 
-            SQLiteCommand cmdGroup = new SQLiteCommand(queryGroup, connectionData);
+            dtUser = new DataTable();
 
-            DataTable dtGroup = new DataTable();
-
-            SQLiteDataAdapter adapterGroup = new SQLiteDataAdapter(cmdGroup);
+            adapter = new SQLiteDataAdapter(cmdUser);
             // data type table
-            adapterGroup.Fill(dtGroup);
+            adapter.Fill(dtUser);
 
-            if(dtGroup.Rows.Count != 0)
+            foreach (DataRow row in dtUser.Rows)
             {
-                array.Add(this.search);
+                array.Add(row["NameGroup"]);
             }
 
             return array;

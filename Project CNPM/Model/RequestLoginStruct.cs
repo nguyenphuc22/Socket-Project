@@ -59,5 +59,9 @@ namespace Project_CNPM.Model
 
             return this;
         }
+        public string getUserName()
+        {
+            return this.userName;
+        }
     }
 }

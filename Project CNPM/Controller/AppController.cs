@@ -141,6 +141,9 @@ namespace Project_CNPM.Controller
                             if (ResponseLogin.isSuccess())
                             {
                                 AppController.getObject().loginView.Close_form();
+                                AppController.getObject().loginView.Hide();
+
+
                                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
                                 Application.EnableVisualStyles();
                                 Application.SetCompatibleTextRenderingDefault(false);
@@ -201,6 +204,11 @@ namespace Project_CNPM.Controller
                             // Write Action Function here.........dd
 
                         }
+                    case ChatStruct.MessageType.ResposeSearchStruct:
+                        {
+                            ResponseSearchStruct responseSearch = (ResponseSearchStruct)msgReceived;
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -216,6 +224,7 @@ namespace Project_CNPM.Controller
         // Function Login:
         public void login(RequestLoginStruct request)
         {
+            this.userName = request.getUserName();
             appSocketController.sendMessage(request.pack());
         }
         // Function SignUp:
@@ -318,7 +327,10 @@ namespace Project_CNPM.Controller
             return 0;
         }
 
-        
+        public void search(ResquestSearchStruct resquest) 
+        {
+            this.appSocketController.sendMessage(resquest.pack());
+        }
 
 
         /// <summary>

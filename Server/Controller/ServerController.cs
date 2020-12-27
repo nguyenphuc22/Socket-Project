@@ -1,4 +1,5 @@
 ﻿using Project_CNPM.Model;
+using Server.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -201,6 +202,12 @@ namespace Server.Controller
                 // Implement Here
                 return 0;
             }
+            public void search(ResquestSearchStruct resquest, Socket socket)
+            {
+                ArrayList data = resquest.readData(connnectData);
+                ResponseSearchStruct response = new ResponseSearchStruct(data);
+                socket.Send(response.pack());
+            }
             // Function Listen Message Client
             public void ListenClientMessage(object obj)
             {
@@ -307,7 +314,7 @@ namespace Server.Controller
                             case ChatStruct.MessageType.ResquestSearchStruct:
                                 {
                                     ResquestSearchStruct ResquestSearch = (ResquestSearchStruct)msgReceived;
-                                    // Write Action Function here.........
+                                    search(ResquestSearch, client);
                                     break;
 
                                 }
@@ -326,6 +333,7 @@ namespace Server.Controller
                                     break;
 
                                 }
+                            
                             default:
                                 break;
                         }

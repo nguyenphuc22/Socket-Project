@@ -368,8 +368,8 @@ namespace Server.Controller
                     }
                     catch
                     {
-                        //server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                        //server.Bind(new IPEndPoint(IPAddress.Any, serverPort));
+                        server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                        server.Bind(new IPEndPoint(IPAddress.Any, serverPort));
 
                     }
 

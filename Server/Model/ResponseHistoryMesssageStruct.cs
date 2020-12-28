@@ -18,13 +18,13 @@ namespace Server.Model
 
         public ResponseHistoryMesssageStruct(ArrayList mesArr)
         {
-            this.messArr = new ArrayList(messArr);
+            this.messArr = new ArrayList(mesArr);
         }
 
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResposeSearchStruct)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResponseHistoryMesssage)));
 
             data.AddRange(BitConverter.GetBytes(this.messArr.Count));
 

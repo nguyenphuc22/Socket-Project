@@ -10,6 +10,11 @@ namespace Project_CNPM.Model
         string recGroupName;
         string message;
 
+        public string getMessage()
+        {
+            return this.sendUserName + ":" + this.message;
+        }
+
         public RequestChatGroupStruct()
         {
             this.message = "";
@@ -27,7 +32,7 @@ namespace Project_CNPM.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestChatStruct)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestChatGroupStruct)));
             if (sendUserName != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(sendUserName)));

@@ -24,7 +24,7 @@ namespace Project_CNPM.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestLoginStruct)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestHistoryMessage)));
             if (this.recUserName != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.recUserName)));

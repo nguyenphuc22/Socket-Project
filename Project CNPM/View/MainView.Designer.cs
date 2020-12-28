@@ -49,6 +49,7 @@ namespace Project_CNPM
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader0 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -115,9 +116,9 @@ namespace Project_CNPM
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(333, 495);
+            this.textBox2.Location = new System.Drawing.Point(388, 495);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(485, 23);
+            this.textBox2.Size = new System.Drawing.Size(430, 23);
             this.textBox2.TabIndex = 4;
             // 
             // button6
@@ -129,6 +130,7 @@ namespace Project_CNPM
             this.button6.TabIndex = 5;
             this.button6.Text = "▶";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // panel2
             // 
@@ -210,6 +212,7 @@ namespace Project_CNPM
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Name
             // 
@@ -222,11 +225,12 @@ namespace Project_CNPM
             this.columnHeader0,
             this.columnHeader1});
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(333, 79);
+            this.listView2.Location = new System.Drawing.Point(333, 78);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(555, 399);
             this.listView2.TabIndex = 11;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader0
             // 
@@ -238,11 +242,23 @@ namespace Project_CNPM
             this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader1.Width = 280;
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(333, 483);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(49, 46);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "📎";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(889, 530);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView2);
@@ -286,6 +302,7 @@ namespace Project_CNPM
         private System.Windows.Forms.ColumnHeader Name;
         private System.Windows.Forms.ColumnHeader columnHeader0;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

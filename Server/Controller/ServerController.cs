@@ -120,7 +120,11 @@ namespace Server.Controller
                 ArrayList listUserNameGroup = request.readData(connnectData);
                 for(int i = 0; i < listUserNameGroup.Count; i++)
                 {
-                    getSocketByUsername(listUserNameGroup[i].ToString()).Send(request.pack());
+                    if(getSocketByUsername(listUserNameGroup[i].ToString()) != null)
+                    {
+                        getSocketByUsername(listUserNameGroup[i].ToString()).Send(request.pack());
+
+                    }
                 }
                 return 0;
             }
@@ -363,6 +367,7 @@ namespace Server.Controller
                             case ChatStruct.MessageType.RequestChatGroupStruct:
                                 {
                                     RequestChatGroupStruct requestChatGroup = (RequestChatGroupStruct)msgReceived;
+                                this.sendGroupMessage(requestChatGroup);
                                     break;
                                 }
                             case ChatStruct.MessageType.RequestHistoryMessage:

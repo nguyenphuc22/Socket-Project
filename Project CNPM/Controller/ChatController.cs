@@ -162,6 +162,20 @@ namespace Project_CNPM.Controller
                         result.unpack(buff);
                         break;
                     }
+                case ChatStruct.MessageType.RequestHistoryMessage:
+                    {
+                        result = new RequestHistoryMessageStruct();
+                        result.messageType = ChatStruct.MessageType.RequestHistoryMessage;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.ResponseHistoryMesssage:
+                    {
+                        result = new ResponseHistoryMesssageStruct();
+                        result.messageType = ChatStruct.MessageType.ResponseHistoryMesssage;
+                        result.unpack(buff);
+                        break;
+                    }
                 default:
                     {
                         break;

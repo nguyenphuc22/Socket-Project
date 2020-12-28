@@ -349,6 +349,11 @@ namespace Project_CNPM.Controller
             this.appSocketController.sendMessage(resquest.pack());
         }
 
+        public void loadMessage(RequestHistoryMessageStruct request)
+        {
+            this.appSocketController.sendMessage(request.pack());
+        }
+
 
         /// <summary>
         ///  The main entry point for the application.

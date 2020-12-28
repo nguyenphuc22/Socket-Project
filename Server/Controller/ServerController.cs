@@ -215,6 +215,12 @@ namespace Server.Controller
                 ResponseSearchStruct response = new ResponseSearchStruct(data);
                 socket.Send(response.pack());
             }
+            public void historyMessage(RequestHistoryMessageStruct request, Socket socket)
+            {
+                ArrayList data = request.readData(connnectData);
+                ResponseHistoryMesssageStruct response = new ResponseHistoryMesssageStruct(data);
+                socket.Send(response.pack());
+            }
             // Function Listen Message Client
             public void ListenClientMessage(object obj)
             {
@@ -356,7 +362,13 @@ namespace Server.Controller
                                 }
                             case ChatStruct.MessageType.RequestChatGroupStruct:
                                 {
-                                   RequestChatGroupStruct requestChatGroup = (RequestChatGroupStruct)msgReceived;
+                                    RequestChatGroupStruct requestChatGroup = (RequestChatGroupStruct)msgReceived;
+                                    break;
+                                }
+                            case ChatStruct.MessageType.RequestHistoryMessage:
+                                {
+                                    RequestHistoryMessageStruct requestHistoryMessage = (RequestHistoryMessageStruct)msgReceived;
+                                    historyMessage(requestHistoryMessage,client);
                                     break;
                                 }
                         default:

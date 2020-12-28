@@ -48,15 +48,43 @@ namespace Server.Model
 
         public override ArrayList readData(SQLiteConnection connectionData)
         {
-            string query = String.Format("SELECT * FROM PrivateBox Where (userName1 = '{0}' or userName1='{1}') and (userName2 ='{1}' or userName2='{0}') ",
-                this.sendUserName, this.recUserName);
-            ArrayList array = new ArrayList();
             ArrayList data = new ArrayList();
-            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+            string query;
+            ArrayList array;
+            SQLiteCommand cmd;
+            DataTable dt;
+            SQLiteDataAdapter adapter;
+            if(this.recUserName.Contains("Nhom:"))
+            {
+                query = String.Format("SELECT * FROM GroupMessage Where nameGroup = '{0}'",this.recUserName);
+                array = new ArrayList();
+                cmd = new SQLiteCommand(query, connectionData);
 
-            DataTable dt = new DataTable();
+                dt = new DataTable();
 
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+                adapter = new SQLiteDataAdapter(cmd);
+                // data type table
+                adapter.Fill(dt);
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string message;
+                    
+                    message = row["sender"].ToString() + ":" + row["message"].ToString();
+                    
+                    data.Add(message);
+                }
+                return data;
+            }
+
+            query = String.Format("SELECT * FROM PrivateBox Where (userName1 = '{0}' or userName1='{1}') and (userName2 ='{1}' or userName2='{0}') ",
+                this.sendUserName, this.recUserName);
+            array = new ArrayList();
+            cmd = new SQLiteCommand(query, connectionData);
+
+            dt = new DataTable();
+
+            adapter = new SQLiteDataAdapter(cmd);
             // data type table
             adapter.Fill(dt);
 
@@ -86,13 +114,9 @@ namespace Server.Model
                 foreach(DataRow row in dt.Rows)
                 {
                     string message;
-                    if (row["sender"].ToString() == this.sendUserName)
-                    {
-                        message = this.sendUserName + ":" + row["message"].ToString();
-                    }else
-                    {
-                        message = this.recUserName + ":" + row["message"].ToString();
-                    }
+                    
+                    message = row["sender"] + ":" + row["message"].ToString();
+                    
                     data.Add(message);
                 }
 

@@ -17,6 +17,7 @@ namespace Project_CNPM.Controller
         //View Class Here........
         public LoginView loginView = null;
         public MainView mainView = null;
+        public OpenFileDialog open = null;
         //===================
 
         public string userName;
@@ -212,17 +213,25 @@ namespace Project_CNPM.Controller
                         {
                             RequestChatStruct requestChat = (RequestChatStruct)msgReceived;
                             // call function set msg view
-                            
+                            getObject().mainView.SetListItem2_send_msg(requestChat.getMessage());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseChatStruct:
                         {
                             ResponseChatStruct responseSearch = (ResponseChatStruct)msgReceived;
+                            getObject().mainView.SetListItem2_send_msg(responseSearch.getMessage());
                             break;
                         }
                     case ChatStruct.MessageType.RequestChatGroupStruct:
                         {
                             RequestChatGroupStruct requestChatGroup = (RequestChatGroupStruct)msgReceived;
+                            getObject().mainView.SetListItem2_send_msg(requestChatGroup.getMessage());
+                            break;
+                        }
+                    case ChatStruct.MessageType.ResponseHistoryMesssage:
+                        {
+                            ResponseHistoryMesssageStruct responseHistoryMesssage = (ResponseHistoryMesssageStruct)msgReceived;
+                            AppController.getObject().mainView.SetListView2(responseHistoryMesssage.getData());
                             break;
                         }
                     default:

@@ -28,7 +28,7 @@ namespace Server.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestLoginStruct)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestHistoryMessage)));
             if (this.recUserName != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.recUserName)));
@@ -54,7 +54,7 @@ namespace Server.Model
             SQLiteCommand cmd;
             DataTable dt;
             SQLiteDataAdapter adapter;
-            if(this.recUserName.Contains("Nhom:"))
+            if(this.recUserName.Contains("Group:"))
             {
                 query = String.Format("SELECT * FROM GroupMessage Where nameGroup = '{0}'",this.recUserName);
                 array = new ArrayList();
@@ -98,10 +98,9 @@ namespace Server.Model
             }
             // neu khong tim thay ai thi array se return lai voi mang bang 0
 
-            foreach (int idBox in array)
+            for (int i = 0; i < array.Count; i++)
             {
-                query = String.Format("SELECT * FROM PrivateMessage Where idBox = {0}",idBox);
-                
+                query = String.Format("SELECT * FROM PrivateMessage Where idBox = {0} ORDER BY time ", array[i]);
 
                 cmd = new SQLiteCommand(query, connectionData);
 
@@ -111,16 +110,18 @@ namespace Server.Model
                 // data type table
                 adapter.Fill(dt);
 
-                foreach(DataRow row in dt.Rows)
+                foreach (DataRow row in dt.Rows)
                 {
                     string message;
-                    
+
                     message = row["sender"] + ":" + row["message"].ToString();
-                    
+
                     data.Add(message);
                 }
 
             }
+
+           
 
             return data;
         }

@@ -10,6 +10,11 @@ namespace Project_CNPM.Model
         string sendUserName;
         string recUserName;
         string message;
+
+        public string getMessage()
+        {
+            return this.sendUserName + ":" + this.message;
+        }
         public ResponseChatStruct()
         {
             this.sendUserName = "";

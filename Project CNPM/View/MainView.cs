@@ -24,6 +24,7 @@ namespace Project_CNPM
         private void Form1_Load(object sender, EventArgs e)
         {
             AppController.getObject().createThreadListenMessageFromServer();
+            AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
         }
 
         public string s_msg;
@@ -50,6 +51,7 @@ namespace Project_CNPM
 
         public void SetListView(ArrayList user_data)
         {
+            listView1.Items.Clear();
             for(int i = 0; i < user_data.Count; i++)
             {
                 listView1.Items.Add(user_data[i].ToString());

@@ -26,7 +26,7 @@ namespace Project_CNPM.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox1.Text))
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text))
             {
                 label4.Text = "Empty Username or Password!";
             }
@@ -40,7 +40,7 @@ namespace Project_CNPM.View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox1.Text))
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text))
             {
                 label4.Text = "Empty Username or Password!";
             }

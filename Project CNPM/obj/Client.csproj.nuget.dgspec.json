@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj": {}
+    "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Project CNPM\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj": {
+    "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Project CNPM\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Project CNPM\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\obj\\",
+        "projectPath": "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Project CNPM\\Client.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\OneDrive\\Documents\\GitHub\\Socket-Project\\Project CNPM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -34,7 +34,7 @@ namespace Project_CNPM.Model
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
-            if (this.search != null)
+            if (this.userName != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.userName)));
                 data.AddRange(Encoding.UTF8.GetBytes(this.userName));

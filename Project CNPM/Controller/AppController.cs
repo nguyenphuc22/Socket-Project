@@ -141,14 +141,9 @@ namespace Project_CNPM.Controller
                             if (ResponseLogin.isSuccess())
                             {
                                 
-                                AppController.getObject().loginView.Close_form();
                                 AppController.getObject().loginView.Hide();
-
-
-                                Application.SetHighDpiMode(HighDpiMode.SystemAware);
-                                Application.EnableVisualStyles();
-                                Application.SetCompatibleTextRenderingDefault(false);
-                                Application.Run(new MainView());
+                                AppController.getObject().mainView = new MainView();
+                                AppController.getObject().mainView.ShowDialog();
                                 
                             }
                             
@@ -210,12 +205,14 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResposeSearchStruct:
                         {
                             ResponseSearchStruct responseSearch = (ResponseSearchStruct)msgReceived;
+                            this.mainView.SetListView(responseSearch.getData());
                             break;
                         }
                     case ChatStruct.MessageType.RequestChatStruct:
                         {
                             RequestChatStruct requestChat = (RequestChatStruct)msgReceived;
                             // call function set msg view
+                            
                             break;
                         }
                     case ChatStruct.MessageType.ResponseChatStruct:

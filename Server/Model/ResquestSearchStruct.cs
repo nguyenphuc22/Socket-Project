@@ -33,13 +33,15 @@ namespace Project_CNPM.Model
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
-            if (this.search != null)
+
+            if (this.userName != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.userName)));
                 data.AddRange(Encoding.UTF8.GetBytes(this.userName));
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
+
             return data.ToArray();
         }
 
@@ -103,6 +105,8 @@ namespace Project_CNPM.Model
             offset += 4; //Update offset
             if (searchLength > 0)
                 search = Encoding.UTF8.GetString(buff, offset, searchLength);
+
+            offset += searchLength; //Update offset
 
             userNameLength = BitConverter.ToInt32(buff, offset);
             offset += 4; //Update offset

@@ -23,6 +23,7 @@ namespace Project_CNPM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            AppController.getObject().createThreadListenMessageFromServer();
         }
 
         public string s_msg;
@@ -72,7 +73,7 @@ namespace Project_CNPM
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             close_panel1();
-            AppController.getObject().search(new ResquestSearchStruct(AppController.getObject().userName, textBox1.Text));
+            AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
         }
 
         private void button2_Click(object sender, EventArgs e)

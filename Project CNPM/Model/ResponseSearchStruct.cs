@@ -9,7 +9,10 @@ namespace Project_CNPM.Model
     {
         ArrayList userArr;
 
-
+        public ArrayList getData()
+        {
+            return this.userArr;
+        }
         public ResponseSearchStruct()
         {
             userArr = new ArrayList();

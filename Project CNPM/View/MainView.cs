@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_CNPM.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project_CNPM.Model;
+using System.Collections;
 
 namespace Project_CNPM
 {
@@ -44,6 +47,14 @@ namespace Project_CNPM
             this.panel2.Size = new Size(this.panel2.Width, 72);
         }
 
+        public void SetListView(ArrayList user_data)
+        {
+            for(int i = 0; i < user_data.Count; i++)
+            {
+                listView1.Items.Add(user_data[i].ToString());
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if(this.panel1.Size.Height == 72)
@@ -61,6 +72,7 @@ namespace Project_CNPM
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             close_panel1();
+            AppController.getObject().search(new ResquestSearchStruct(AppController.getObject().userName, textBox1.Text));
         }
 
         private void button2_Click(object sender, EventArgs e)

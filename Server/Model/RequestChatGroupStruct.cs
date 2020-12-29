@@ -108,7 +108,7 @@ namespace Server.Model
         { 
             DateTime time = DateTime.Now;
             string query = String.Format("INSERT INTO GroupMessage (nameGroup, sender, time,message) values ('{0}','{1}', '{2}', '{3}')",
-                this.recGroupName, this.sendUserName, time.ToString(), this.message);
+                this.recGroupName, this.sendUserName, time.ToString("yyyy'-'MM'-'dd' 'HH'.'mm'.'ss' 'tt"), this.message);
             SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
             cmd.ExecuteNonQuery();
         }

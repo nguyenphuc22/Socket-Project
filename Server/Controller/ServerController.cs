@@ -15,13 +15,10 @@ namespace Server.Controller
 {
     class ServerController
     {
-<<<<<<< HEAD
-        private string path = @"Data Source=C:\Users\Asus\source\repos\Project CNPM\Server\Data\database.db";
-=======
         public string dataSource = "Data Source=";
-        public string path = @"C:\Users\ADMIN\Desktop\phần mềm\Server\Data\";
+        public string path = @"C:\Users\Asus\source\repos\Project CNPM\Server\Data\";
         public string fileName = "database.db";
->>>>>>> 9d0b6eb04984eba502a25df647e3a1451944b3ec
+        int filesize = 1024 * 1024 * 25;
         public SocketController socketController;
         private Thread threadListenClient;
         private List<Socket> clientList;
@@ -162,8 +159,8 @@ namespace Server.Controller
                     getSocketByUsername(response.getrecUserName()).Send(response.pack());
 
                 }
-            // Implement Here
-            return 0;
+                // Implement Here
+                return 0;
             }
             // Function ReponseSend File Private
             public int responseSendFilePrivate(string toUsername, bool isAccept)
@@ -260,7 +257,7 @@ namespace Server.Controller
                 {
                     try
                     {
-                        byte[] buff = new byte[1024];
+                        byte[] buff = new byte[filesize];
                         client.Receive(buff);
                         ChatStruct msgReceived = ChatController.unpack(buff);
                         switch (msgReceived.messageType)
@@ -407,6 +404,12 @@ namespace Server.Controller
                                 {
                                     RequestRecFile requestRec = (RequestRecFile)msgReceived;
                                     requestRecFile(requestRec, client);
+                                    break;
+                                }
+                            case ChatStruct.MessageType.RequestSendFileStruct:
+                                {
+                                    RequestSendFileStruct request = (RequestSendFileStruct)msgReceived;
+                                    this.requestSendFilePrivate(request, client);
                                     break;
                                 }
                         default:

@@ -179,7 +179,12 @@ namespace Project_CNPM.Model
                 Directory.CreateDirectory(storePath);
                 File.WriteAllBytes(filepath, this.fileSize);
             }
-
+            if (idbox.Count == 0)
+                return;
+            string query = String.Format("INSERT INTO PrivateMessage (idBox, sender, time,message) values ({0},'{1}', '{2}', '{3}')",
+                idbox[0], this.sendUserName, time.ToString("yyyy'-'MM'-'dd' 'HH'.'mm'.'ss' 'tt"), this.filePath);
+            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+            cmd.ExecuteNonQuery();
         }
     }
 }

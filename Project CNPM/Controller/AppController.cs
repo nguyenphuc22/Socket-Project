@@ -20,7 +20,7 @@ namespace Project_CNPM.Controller
         public OpenFileDialog open = null;
         public int sizeFile = 1024 * 1024 * 25;
         //===================
-        string Path = @"C:\Users\ADMIN\Desktop\phần mềm\Project CNPM\Data";
+        string Path = @"C:\Users\Asus\source\repos\Project CNPM\Project CNPM\Data\";
         public string userName;
         public Thread threadListenClient;
         public AppSocketController appSocketController;

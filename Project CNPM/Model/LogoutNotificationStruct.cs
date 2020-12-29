@@ -9,11 +9,11 @@ namespace Project_CNPM.Model
     {
         string userName;
 
-        LogoutNotificationStruct()
+        public LogoutNotificationStruct()
         {
             this.userName = "";
         }
-        LogoutNotificationStruct(string userName)
+        public LogoutNotificationStruct(string userName)
         {
             this.userName = userName;
         }

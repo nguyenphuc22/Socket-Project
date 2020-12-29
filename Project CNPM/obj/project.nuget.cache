@@ -1,6 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "a15/xQ+70kIcGFusJstq6/S8gtkxbt1jq6Ue4atw+JZW7GzqkqVO1T3oI1vyYdUDZnQMWXzbcy3nUIm2Nwci2A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj",
@@ -28,35 +27,13 @@
     "C:\\Users\\Asus\\.nuget\\packages\\system.security.permissions\\4.6.0\\system.security.permissions.4.6.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.security.principal.windows\\4.6.0\\system.security.principal.windows.4.6.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.windows.extensions\\4.6.0\\system.windows.extensions.4.6.0.nupkg.sha512"
-=======
-  "dgSpecHash": "Ydt7UpxJBkGtkFFdUAYTEMPRqpaKdOgcAwxyhzffMi2HfpbAew2o8DwilL36pjT+/+cUcIHHPLXmIJ9L83lPqg==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\ADMIN\\Desktop\\phần mềm\\Project CNPM\\Client.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\ADMIN\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.platforms\\3.0.0\\microsoft.netcore.platforms.3.0.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.registry\\4.6.0\\microsoft.win32.registry.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.systemevents\\4.6.0\\microsoft.win32.systemevents.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.6.0\\runtime.native.system.data.sqlclient.sni.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.113.1\\stub.system.data.sqlite.core.netstandard.1.0.113.1.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.codedom\\4.6.0\\system.codedom.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.componentmodel.annotations\\4.6.0\\system.componentmodel.annotations.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.configuration.configurationmanager\\4.6.0\\system.configuration.configurationmanager.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.data.sqlclient\\4.7.0\\system.data.sqlclient.4.7.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.data.sqlite\\1.0.113.6\\system.data.sqlite.1.0.113.6.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.data.sqlite.core\\1.0.113.6\\system.data.sqlite.core.1.0.113.6.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.data.sqlite.ef6\\1.0.113\\system.data.sqlite.ef6.1.0.113.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.drawing.common\\4.6.0\\system.drawing.common.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.security.accesscontrol\\4.6.0\\system.security.accesscontrol.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.6.0\\system.security.cryptography.protecteddata.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.security.permissions\\4.6.0\\system.security.permissions.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.security.principal.windows\\4.6.0\\system.security.principal.windows.4.6.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.windows.extensions\\4.6.0\\system.windows.extensions.4.6.0.nupkg.sha512"
->>>>>>> 9d0b6eb04984eba502a25df647e3a1451944b3ec
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

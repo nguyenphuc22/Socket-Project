@@ -8,7 +8,7 @@ namespace Project_CNPM.Model
     class ResquestProfileStruct : ChatStruct
     {
         string userName;
-        ResquestProfileStruct()
+        public ResquestProfileStruct()
         {
             this.userName = "";
         }

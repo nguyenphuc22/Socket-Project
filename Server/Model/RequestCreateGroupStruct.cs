@@ -72,6 +72,7 @@ namespace Project_CNPM.Model
                     {
                         offset += 4; //Update offset
                         this.groupUserName.Add(Encoding.UTF8.GetString(buff, offset, sizeUserName));
+                        offset += sizeUserName;
                     }
 
                 }
@@ -82,7 +83,7 @@ namespace Project_CNPM.Model
         public override ArrayList readData(SQLiteConnection connectionData)
         {
             
-            string query = String.Format( "SELECT * FROM GroupChat Where NameGroup = '{0}'",this.nameGroup );
+            string query = String.Format("SELECT distinct NameGroup FROM GroupChat Where NameGroup = '{0}'", this.nameGroup );
             
             SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
 
@@ -108,13 +109,14 @@ namespace Project_CNPM.Model
 
         public override void writeData(SQLiteConnection connectionData)
         {
-            string query = "SELECT * FROM Group";
+            for(int i = 0; i < this.groupUserName.Count; i++)
+            {
+                string query = String.Format("INSERT INTO GroupChat (NameGroup,UserName) VALUES ('{0}','{1}'); ", this.nameGroup, this.groupUserName[i].ToString());
 
-            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+                SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
 
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
-
- 
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

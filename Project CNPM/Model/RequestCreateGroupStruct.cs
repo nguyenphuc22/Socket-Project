@@ -70,6 +70,7 @@ namespace Project_CNPM.Model
                     {
                         offset += 4; //Update offset
                         this.groupUserName.Add(Encoding.UTF8.GetString(buff, offset, sizeUserName));
+                        offset += sizeUserName;
                     }
 
                 }

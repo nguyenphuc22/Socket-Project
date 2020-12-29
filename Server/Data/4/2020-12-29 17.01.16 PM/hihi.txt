@@ -1,0 +1,18 @@
+public override ArrayList readData(SQLiteConnection connectionData)
+        {
+            string query = "SELECT * FROM UserData Where userName = '" + this.userName + "'";
+            ArrayList data = new ArrayList();
+            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+            DataTable dt = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            adapter.Fill(dt);
+            data.Add(dt.Rows.ToString());
+            return data;
+        }
+        public override void writeData(SQLiteConnection connectionData)
+            {
+                string query = "insert into UserData(userName,passWord) values ('" + this.userName + " , " + this.passWord + " ')";
+                SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+                cmd.ExecuteNonQuery();
+            }
+        }

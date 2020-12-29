@@ -170,6 +170,34 @@ namespace Server.Controller
                         result.unpack(buff);
                         break;
                     }
+                case ChatStruct.MessageType.RequestSendFileStruct:
+                    {
+                        result = new RequestSendFileStruct();
+                        result.messageType = ChatStruct.MessageType.RequestSendFileStruct;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.ResponseSendFileStruct:
+                    {
+                        result = new ResponseSendFileStruct();
+                        result.messageType = ChatStruct.MessageType.ResponseSendFileStruct;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.RequestRecFile:
+                    {
+                        result = new RequestRecFile();
+                        result.messageType = ChatStruct.MessageType.RequestRecFile;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.ResponseRecFile:
+                    {
+                        result = new ResponseRecFile();
+                        result.messageType = ChatStruct.MessageType.ResponseRecFile;
+                        result.unpack(buff);
+                        break;
+                    }
                 default:
                     {
                         break;

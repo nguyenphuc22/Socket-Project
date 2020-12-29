@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project_CNPM.Model;
 using System.Collections;
-
-
+using System.IO;
 
 namespace Project_CNPM
 {
@@ -54,7 +53,7 @@ namespace Project_CNPM
         public void SetListView(ArrayList user_data)
         {
             listView1.Items.Clear();
-            for(int i = 0; i < user_data.Count; i++)
+            for (int i = 0; i < user_data.Count; i++)
             {
                 listView1.Items.Add(user_data[i].ToString());
             }
@@ -62,7 +61,7 @@ namespace Project_CNPM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(this.panel1.Size.Height == 72)
+            if (this.panel1.Size.Height == 72)
             {
                 open_panel1();
                 button1.Text = "▼";
@@ -85,7 +84,7 @@ namespace Project_CNPM
             close_panel1();
         }
 
-        
+
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -115,41 +114,77 @@ namespace Project_CNPM
             listView2.Items.Clear();
             for (int i = 0; i < message_data.Count; i++)
             {
-                if (message_data[i].ToString().Contains(AppController.getObject().userName))
+                if (message_data[i].ToString().Contains(AppController.getObject().userName + ":"))
                 {
-                    ListViewItem sender = new ListViewItem("");
-                    sender.SubItems.Add(message_data[i].ToString());
-                    listView2.Items.Add(sender);
+                    if (message_data[i].ToString().Contains(":\\"))
+                    {
+                        ListViewItem sender = new ListViewItem("");
+                        sender.SubItems.Add(message_data[i].ToString());
+                        listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
+                    }
+                    else
+                    {
+                        ListViewItem sender = new ListViewItem("");
+                        sender.SubItems.Add(message_data[i].ToString());
+                        listView2.Items.Add(sender);
+                    }
                 }
                 else
                 {
-                    ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
-                    recievcer.SubItems.Add("");
-                    listView2.Items.Add(recievcer);
+                    if (message_data[i].ToString().Contains(":\\"))
+                    {
+                        ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
+                        recievcer.SubItems.Add("");
+                        listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
+                    }
+                    else
+                    {
+                        ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
+                        recievcer.SubItems.Add("");
+                        listView2.Items.Add(recievcer);
+                    }
                 }
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if(!label1.Text.Contains("Group:"))
+            if (!label1.Text.Contains("Group:"))
             {
-                AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text ,textBox2.Text));
+                AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text);
-            }else
+            }
+            else
             {
-                AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6),textBox2.Text));
+                AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text);
             }
         }
 
         public void SetListItem2_send_msg(string message_data)
         {
-                if (message_data.ToString().Contains(AppController.getObject().userName+":"))
+            if (message_data.ToString().Contains(AppController.getObject().userName + ":"))
+            {
+                if (message_data.ToString().Contains(":\\"))
+                {
+                    ListViewItem sender = new ListViewItem("");
+                    sender.SubItems.Add(message_data.ToString());
+                    listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
+                }
+                else
                 {
                     ListViewItem sender = new ListViewItem("");
                     sender.SubItems.Add(message_data.ToString());
                     listView2.Items.Add(sender);
+                }
+            }
+            else
+            {
+                if (message_data.ToString().Contains(":\\"))
+                {
+                    ListViewItem recievcer = new ListViewItem(message_data.ToString());
+                    recievcer.SubItems.Add("");
+                    listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
                 }
                 else
                 {
@@ -157,7 +192,8 @@ namespace Project_CNPM
                     recievcer.SubItems.Add("");
                     listView2.Items.Add(recievcer);
                 }
-            
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -169,7 +205,46 @@ namespace Project_CNPM
             {
                 string strfilename = openFileDialog1.FileName;
 
-                MessageBox.Show(strfilename);
+                if (label1.Text.Contains("Group:"))
+                {
+
+                }
+                else
+                {
+                    SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename);
+                    AppController.getObject().sendPrivateFile(new RequestSendFileStruct(AppController.getObject().userName, label1.Text, strfilename,
+                        File.ReadAllBytes(strfilename)));
+
+                }
+            }
+        }
+
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count >= 1)
+            {
+                if (listView1.SelectedItems[0].SubItems.Count >= 1)
+                {
+                    if (listView2.SelectedItems[0].SubItems[0].Text != "")
+                    {
+                        if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                        {
+                            int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
+                            string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
+                            AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                        }
+                    }
+                    if (listView2.SelectedItems[0].SubItems[1].Text != "")
+                    {
+                        if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                        {
+                            int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
+                            string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
+                            AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                        }
+                    }
+                }
             }
         }
     }

@@ -18,8 +18,9 @@ namespace Project_CNPM.Controller
         public LoginView loginView = null;
         public MainView mainView = null;
         public OpenFileDialog open = null;
+        public int sizeFile = 1024 * 1024 * 25;
         //===================
-
+        string Path = @"C:\Users\ADMIN\Desktop\phần mềm\Project CNPM\Data";
         public string userName;
         public Thread threadListenClient;
         public AppSocketController appSocketController;
@@ -63,7 +64,7 @@ namespace Project_CNPM.Controller
             Socket client = obj as Socket;
             while (true)
             {
-                byte[] buff = new byte[1024];
+                byte[] buff = new byte[sizeFile];
                 int revc = -1;
 
                 try
@@ -234,6 +235,18 @@ namespace Project_CNPM.Controller
                             AppController.getObject().mainView.SetListView2(responseHistoryMesssage.getData());
                             break;
                         }
+                    case ChatStruct.MessageType.ResponseRecFile:
+                        {
+                            ResponseRecFile responseRec = (ResponseRecFile)msgReceived;
+                            responseRec.writeData(this.Path);
+                            break;
+                        }
+                    case ChatStruct.MessageType.ResponseSendFileStruct:
+                        {
+                            ResponseSendFileStruct response = (ResponseSendFileStruct)msgReceived;
+                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName());
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -303,8 +316,9 @@ namespace Project_CNPM.Controller
             return 0;
         }
         // Function Send File Private
-        public int sendPrivateFile(string toUsername, string fileName, string filePath)
+        public int sendPrivateFile(RequestSendFileStruct request)
         {
+            appSocketController.sendMessage(request.pack());
             // Implement Here
             return 0;
         }
@@ -362,7 +376,10 @@ namespace Project_CNPM.Controller
         {
             this.appSocketController.sendMessage(request.pack());
         }
-
+        public void requestRecFile(RequestRecFile request)
+        {
+            this.appSocketController.sendMessage(request.pack());
+        }
 
         /// <summary>
         ///  The main entry point for the application.

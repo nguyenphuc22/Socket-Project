@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -14,7 +15,13 @@ namespace Server.Controller
 {
     class ServerController
     {
+<<<<<<< HEAD
         private string path = @"Data Source=C:\Users\Asus\source\repos\Project CNPM\Server\Data\database.db";
+=======
+        public string dataSource = "Data Source=";
+        public string path = @"C:\Users\ADMIN\Desktop\phần mềm\Server\Data\";
+        public string fileName = "database.db";
+>>>>>>> 9d0b6eb04984eba502a25df647e3a1451944b3ec
         public SocketController socketController;
         private Thread threadListenClient;
         private List<Socket> clientList;
@@ -33,7 +40,7 @@ namespace Server.Controller
         {
             // Create Socket LocalHost
             socketController = new SocketController();
-            connnectData = new SQLiteConnection(path);
+            connnectData = new SQLiteConnection(dataSource+path+fileName);
             connnectData.Open();
             serverPort = 2020;
             this.mutiSocket(socketController.serverSocket);
@@ -132,8 +139,12 @@ namespace Server.Controller
             public int sendPrivateMessage(RequestChatStruct request)
             {
                 request.writeData(connnectData);
-                getSocketByUsername(request.getRecUserName()).Send(request.pack());
-                return 0;
+                if (getSocketByUsername(request.getRecUserName().ToString()) != null)
+                {
+                    getSocketByUsername(request.getRecUserName().ToString()).Send(request.pack());
+
+                }
+            return 0;
             }
             // Function Request List Online:
             public int requestListOnlineUsers()
@@ -142,10 +153,17 @@ namespace Server.Controller
                 return 0;
             }
             // Function Request Send File Private:
-            public int requestSendFilePrivate(string toUsername, string fileName, int iFileSize)
+            public int requestSendFilePrivate(RequestSendFileStruct request,Socket socket)
             {
-                // Implement Here
-                return 0;
+                request.writeData(connnectData);
+                ResponseSendFileStruct response = new ResponseSendFileStruct(request.getsendUserName(), request.getrecUserName(), request.getPath());
+                if (getSocketByUsername(response.getrecUserName().ToString()) != null)
+                {
+                    getSocketByUsername(response.getrecUserName()).Send(response.pack());
+
+                }
+            // Implement Here
+            return 0;
             }
             // Function ReponseSend File Private
             public int responseSendFilePrivate(string toUsername, bool isAccept)
@@ -225,8 +243,16 @@ namespace Server.Controller
                 ResponseHistoryMesssageStruct response = new ResponseHistoryMesssageStruct(data);
                 socket.Send(response.pack());
             }
-            // Function Listen Message Client
-            public void ListenClientMessage(object obj)
+            public void requestRecFile(RequestRecFile request, Socket socket)
+            {
+                string[] splitedPath = request.getPath().Split(@"\");
+                string fileName = splitedPath[splitedPath.Length - 1];
+                byte[] data = File.ReadAllBytes(request.getPath());
+                ResponseRecFile response = new ResponseRecFile(fileName, data);
+                socket.Send(response.pack());
+            }
+        // Function Listen Message Client
+        public void ListenClientMessage(object obj)
             {
                 Socket client = obj as Socket;
 
@@ -375,6 +401,12 @@ namespace Server.Controller
                                 {
                                     RequestHistoryMessageStruct requestHistoryMessage = (RequestHistoryMessageStruct)msgReceived;
                                     historyMessage(requestHistoryMessage,client);
+                                    break;
+                                }
+                            case ChatStruct.MessageType.RequestRecFile:
+                                {
+                                    RequestRecFile requestRec = (RequestRecFile)msgReceived;
+                                    requestRecFile(requestRec, client);
                                     break;
                                 }
                         default:

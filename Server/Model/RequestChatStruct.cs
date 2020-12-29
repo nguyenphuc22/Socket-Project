@@ -76,7 +76,7 @@ namespace Project_CNPM.Model
                 cmd = new SQLiteCommand(writeQuery, connectionData);
                 cmd.ExecuteNonQuery();
 
-                query = String.Format("SELECT * FROM PrivateBox Where (userName1 = '{0}' or userName2='{1}) and (userName2 ='{1}' or userName2='{0}) ",
+                query = String.Format("SELECT * FROM PrivateBox Where (userName1 = '{0}' or userName2='{1}') and (userName2 ='{1}' or userName2='{0}') ",
                 this.sendUserName, this.recUserName);
                 array = new ArrayList();
                 cmd = new SQLiteCommand(query, connectionData);
@@ -127,7 +127,7 @@ namespace Project_CNPM.Model
             if (idbox.Count == 0)
                 return;
             string query = String.Format("INSERT INTO PrivateMessage (idBox, sender, time,message) values ({0},'{1}', '{2}', '{3}')",
-                idbox[0], this.sendUserName, time.ToString(), this.message);
+                idbox[0], this.sendUserName, time.ToString("yyyy'-'MM'-'dd' 'HH'.'mm'.'ss' 'tt"), this.message);
             SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
             cmd.ExecuteNonQuery();
             

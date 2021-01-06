@@ -113,37 +113,58 @@ namespace Project_CNPM
 
         public void SetListView2(ArrayList message_data)
         {
+            bool Chatting = false;
             listView2.Items.Clear();
             for (int i = 0; i < message_data.Count; i++)
             {
-                if (message_data[i].ToString().Contains(AppController.getObject().userName + ":"))
+                if (message_data[i].ToString().Contains(label1.Text))
                 {
-                    if (message_data[i].ToString().Contains(":\\"))
+                    Chatting = true;
+                }
+            }
+            if (Chatting) {
+                for (int i = 0; i < message_data.Count; i++)
+                {
+                    if (message_data[i].ToString().Contains(AppController.getObject().userName + ":"))
                     {
-                        ListViewItem sender = new ListViewItem("");
-                        sender.SubItems.Add(message_data[i].ToString());
-                        listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
+                        if (message_data[i].ToString().Contains(":\\"))
+                        {
+                            ListViewItem sender = new ListViewItem("");
+                            sender.SubItems.Add(message_data[i].ToString());
+                            listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
+                        }
+                        else
+                        {
+                            ListViewItem sender = new ListViewItem("");
+                            sender.SubItems.Add(message_data[i].ToString());
+                            listView2.Items.Add(sender);
+                        }
                     }
                     else
                     {
-                        ListViewItem sender = new ListViewItem("");
-                        sender.SubItems.Add(message_data[i].ToString());
-                        listView2.Items.Add(sender);
+                        if (message_data[i].ToString().Contains(":\\"))
+                        {
+                            ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
+                            recievcer.SubItems.Add("");
+                            listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
+                        }
+                        else
+                        {
+                            ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
+                            recievcer.SubItems.Add("");
+                            listView2.Items.Add(recievcer);
+                        }
                     }
                 }
-                else
+            }
+            else
+            {
+                for (int j = 0; j < listView1.Items.Count; j++)
                 {
-                    if (message_data[i].ToString().Contains(":\\"))
+                    if (listView1.Items[j].SubItems[0].Text.Contains(label1.Text))
                     {
-                        ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
-                        recievcer.SubItems.Add("");
-                        listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
-                    }
-                    else
-                    {
-                        ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
-                        recievcer.SubItems.Add("");
-                        listView2.Items.Add(recievcer);
+                        Font n_font = new Font(listView1.Items[j].SubItems[0].Font, FontStyle.Bold);
+                        listView1.Items[j].SubItems[0].Font = n_font;
                     }
                 }
             }

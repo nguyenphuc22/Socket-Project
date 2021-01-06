@@ -14,7 +14,7 @@ namespace Project_CNPM.Model
         byte[] fileSize;
         public string getRecGroupName()
         {
-            return "Group:" + this.recGroupName;
+            return "Group:" +    this.recGroupName;
         }
 
         public string getFileName()

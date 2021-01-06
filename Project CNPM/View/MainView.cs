@@ -26,6 +26,8 @@ namespace Project_CNPM
         {
             AppController.getObject().createThreadListenMessageFromServer();
             AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
+            label2.Text = AppController.getObject().userName;
+            panel1.Height = 72;
         }
 
         public string s_msg;
@@ -153,11 +155,13 @@ namespace Project_CNPM
             {
                 AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text);
+                textBox2.Clear();
             }
             else
             {
                 AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text);
+                textBox2.Clear();
             }
         }
 

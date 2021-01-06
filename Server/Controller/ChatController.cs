@@ -198,6 +198,35 @@ namespace Server.Controller
                         result.unpack(buff);
                         break;
                     }
+                case ChatStruct.MessageType.RequestSendFileGroupStruct:
+                    {
+                        result = new RequestSendFileGroupStruct();
+                        result.messageType = ChatStruct.MessageType.RequestSendFileGroupStruct;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.ResponseSendFileGroupStruct:
+                    {
+                        result = new ResponseSendFileGroupStruct();
+                        result.messageType = ChatStruct.MessageType.ResponseSendFileGroupStruct;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.RequestRecFileGroup:
+                    {
+                        result = new RequestRecFileGroup();
+                        result.messageType = ChatStruct.MessageType.RequestRecFileGroup;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.ResponseRecFileGroup:
+                    {
+                        result = new ResponseRecFileGroup();
+                        result.messageType = ChatStruct.MessageType.ResponseRecFileGroup;
+                        result.unpack(buff);
+                        break;
+                    }
+
                 default:
                     {
                         break;

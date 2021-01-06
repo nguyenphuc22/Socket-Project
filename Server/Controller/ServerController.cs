@@ -169,9 +169,19 @@ namespace Server.Controller
                 return 0;
             }
             // Function Request Send File Group:
-            public int requestSendFileGroup(string toIdGroup, string fileName, int iFileSize)
+            public int requestSendFileGroup(RequestSendFileGroupStruct request, Socket socket)
             {
-                // Implement Here
+                request.writeData(connnectData);
+                ResponseSendFileGroupStruct response = new ResponseSendFileGroupStruct(request.getSend(),request.getrecGroupName(),request.getfile());
+                ArrayList listUserName = response.readData(connnectData);
+                for(int i = 0; i < listUserName.Count; i++)
+                {
+                    if (getSocketByUsername(listUserName[i].ToString()) != null)
+                    {
+                        getSocketByUsername(listUserName[i].ToString()).Send(response.pack());
+
+                    }
+                }
                 return 0;
             }
             // Function ReponseSend File Group
@@ -248,6 +258,15 @@ namespace Server.Controller
                 ResponseRecFile response = new ResponseRecFile(fileName, data);
                 socket.Send(response.pack());
             }
+            public void requestRecFileGroup(RequestRecFileGroup request, Socket socket)
+            {
+                string[] splitedPath = request.getPath().Split(@"\");
+                string fileName = splitedPath[splitedPath.Length - 1];
+                byte[] data = File.ReadAllBytes(request.getPath());
+                ResponseRecFileGroup response = new ResponseRecFileGroup(fileName, data);
+                socket.Send(response.pack());
+            }
+
         // Function Listen Message Client
         public void ListenClientMessage(object obj)
             {
@@ -412,6 +431,19 @@ namespace Server.Controller
                                     this.requestSendFilePrivate(request, client);
                                     break;
                                 }
+                            case ChatStruct.MessageType.RequestRecFileGroup:
+                                {
+                                    RequestRecFileGroup requestRec = (RequestRecFileGroup)msgReceived;
+                                    requestRecFileGroup(requestRec, client);
+                                    break;
+                                }
+                            case ChatStruct.MessageType.RequestSendFileGroupStruct:
+                                {
+                                    RequestSendFileGroupStruct request = (RequestSendFileGroupStruct)msgReceived;
+                                    this.requestSendFileGroup(request,client);
+                                    break;
+                                }
+
                         default:
                                 break;
                         }

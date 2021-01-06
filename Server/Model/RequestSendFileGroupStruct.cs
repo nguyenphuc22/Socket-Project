@@ -22,6 +22,14 @@ namespace Server.Model
         {
             return this.recGroupName;
         }
+        public string getSend()
+        {
+            return this.sendUserName;
+        }
+        public string getfile()
+        {
+            return this.filePath;
+        }
         public RequestSendFileGroupStruct()
         {
             this.fileName = "";

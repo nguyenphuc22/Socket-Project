@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Project_CNPM.Model
@@ -8,32 +9,28 @@ namespace Project_CNPM.Model
     {
         string sendUserName;
         string recGroupName;
-        string filePath;
+        string fileName;
 
-        public string getUserName()
+        byte[] fileSize;
+
+        public string getFileName()
         {
-            return this.sendUserName;
+            return this.fileName;
         }
 
-        public string getrecUserName()
-        {
-            return this.recGroupName;
-        }
         public ResponseSendFileGroupStruct()
         {
-
-            this.filePath = "";
+            this.fileName = "";
             this.sendUserName = "";
             this.recGroupName = "";
-
+            this.fileSize = new byte[0];
         }
-        public ResponseSendFileGroupStruct(string sendusername, string recGroupName, string filepath)
+        public ResponseSendFileGroupStruct(string sendusername, string recGroupName, string filename, byte[] filesize)
         {
             this.sendUserName = sendusername;
-            this.filePath = filepath;
             this.recGroupName = recGroupName;
-
-
+            this.fileName = filename;
+            this.fileSize = filesize;
         }
         public override byte[] pack()
         {
@@ -53,24 +50,33 @@ namespace Project_CNPM.Model
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
-            if (filePath != null)
+            if (fileName != null)
             {
-                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(filePath)));
-                data.AddRange(Encoding.UTF8.GetBytes(filePath));
+                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(fileName)));
+                data.AddRange(Encoding.UTF8.GetBytes(fileName));
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
 
 
+            this.fileSize = File.ReadAllBytes(fileName);
 
+            if (fileSize != null)
+            {
+
+                data.AddRange(BitConverter.GetBytes((fileSize.GetLength(0))));
+                data.AddRange(fileSize);
+
+            }
+            else
+                data.AddRange(BitConverter.GetBytes(0));
             return data.ToArray();
         }
 
-        
         public override ChatStruct unpack(byte[] buff)
         {
             int offset = 4; //Skip messageType
-            int sendUserNameLength, recUserNameLength, filepathLength;
+            int sendUserNameLength, recUserNameLength, fileNameLength, fileSizeLength;
 
             sendUserNameLength = BitConverter.ToInt32(buff, offset);
             offset += 4; //Update Offset
@@ -86,16 +92,26 @@ namespace Project_CNPM.Model
 
             offset += recUserNameLength;
 
-            filepathLength = BitConverter.ToInt32(buff, offset);
+            fileNameLength = BitConverter.ToInt32(buff, offset);
             offset += 4;
-            if (filepathLength > 0)
-                this.filePath = Encoding.UTF8.GetString(buff, offset, filepathLength);
+            if (fileNameLength > 0)
+                fileName = Encoding.UTF8.GetString(buff, offset, fileNameLength);
 
+            offset += fileNameLength;
+
+            fileSizeLength = BitConverter.ToInt32(buff, offset);
+            offset += 4;
+            if (fileSizeLength > 0)
+            {
+                this.fileSize = new byte[fileSizeLength];
+                Array.Copy(buff, offset, fileSize, 0, fileSizeLength);
+            }
             return this;
         }
-        // Remember to change the path( where you store the data0
+        public void Download(string path)
+        {
+            File.WriteAllBytes(path + @"\" + this.fileName, this.fileSize);
+        }
 
-
-        
     }
 }

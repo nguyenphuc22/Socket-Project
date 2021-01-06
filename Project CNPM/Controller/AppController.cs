@@ -241,9 +241,21 @@ namespace Project_CNPM.Controller
                             responseRec.writeData(this.Path);
                             break;
                         }
+                    case ChatStruct.MessageType.ResponseRecFileGroup:
+                        {
+                            ResponseRecFileGroup responseRec = (ResponseRecFileGroup)msgReceived;
+                            responseRec.writeData(this.Path);
+                            break;
+                        }
                     case ChatStruct.MessageType.ResponseSendFileStruct:
                         {
                             ResponseSendFileStruct response = (ResponseSendFileStruct)msgReceived;
+                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName());
+                            break;
+                        }
+                    case ChatStruct.MessageType.ResponseSendFileGroupStruct:
+                        {
+                            ResponseSendFileGroupStruct response = (ResponseSendFileGroupStruct)msgReceived;
                             AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName());
                             break;
                         }
@@ -323,8 +335,9 @@ namespace Project_CNPM.Controller
             return 0;
         }
         // Function Send File Group
-        public int sendGroupFile(string toIdGroup, string fileName, string filePath)
+        public int sendGroupFile(RequestSendFileGroupStruct request)
         {
+            appSocketController.sendMessage(request.pack());
             // Implement Here
             return 0;
         }

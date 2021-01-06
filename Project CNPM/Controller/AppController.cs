@@ -393,6 +393,10 @@ namespace Project_CNPM.Controller
         {
             this.appSocketController.sendMessage(request.pack());
         }
+        public void requestRecFileGroup(RequestRecFileGroup request)
+        {
+            this.appSocketController.sendMessage(request.pack());
+        }
 
         /// <summary>
         ///  The main entry point for the application.

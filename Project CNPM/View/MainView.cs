@@ -232,7 +232,11 @@ namespace Project_CNPM
 
                 if (label1.Text.Contains("Group:"))
                 {
-
+                    SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename);
+                    int indexNumber = label1.Text.IndexOf(":");
+                    string nameGroup = Text.Substring(indexNumber + 1);
+                    AppController.getObject().sendGroupFile(new RequestSendFileGroupStruct(AppController.getObject().userName, nameGroup, strfilename,
+                        File.ReadAllBytes(strfilename)));
                 }
                 else
                 {
@@ -251,22 +255,46 @@ namespace Project_CNPM
             {
                 if (listView1.SelectedItems[0].SubItems.Count >= 1)
                 {
-                    if (listView2.SelectedItems[0].SubItems[0].Text != "")
+                    if (label1.Text.Contains("Group:"))
                     {
-                        if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                        if (listView2.SelectedItems[0].SubItems[0].Text != "")
                         {
-                            int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
-                            string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
-                            AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                            {
+                                int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
+                                string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
+                                AppController.getObject().requestRecFileGroup(new RequestRecFileGroup(AppController.getObject().userName, path));
+                            }
+                        }
+                        if (listView2.SelectedItems[0].SubItems[1].Text != "")
+                        {
+                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                            {
+                                int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
+                                string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
+                                AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            }
                         }
                     }
-                    if (listView2.SelectedItems[0].SubItems[1].Text != "")
+                    else
                     {
-                        if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                        if (listView2.SelectedItems[0].SubItems[0].Text != "")
                         {
-                            int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
-                            string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
-                            AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                            {
+                                int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
+                                string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
+                                AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            }
+                        }
+                        if (listView2.SelectedItems[0].SubItems[1].Text != "")
+                        {
+                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                            {
+                                int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
+                                string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
+                                AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            }
                         }
                     }
                 }

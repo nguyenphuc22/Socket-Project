@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Project_CNPM.Model;
 using System.Collections;
 using System.IO;
+using Microsoft.VisualBasic;
 
 namespace Project_CNPM
 {
@@ -311,6 +312,14 @@ namespace Project_CNPM
                     }
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AppController.getObject().change = new View.ChangePassForm();
+            AppController.getObject().change.ShowDialog();
+            //chuyen form sang doi pass
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Project_CNPM.Controller
         public LoginView loginView = null;
         public MainView mainView = null;
         public OpenFileDialog open = null;
+        public ChangePassForm change = null;
         public int sizeFile = 1024 * 1024 * 25;
         //===================
         string Path = @"C:\Users\Asus\source\repos\Project CNPM\Project CNPM\Data\";

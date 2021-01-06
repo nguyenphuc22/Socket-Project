@@ -1,5 +1,4 @@
-﻿
-namespace Project_CNPM
+﻿namespace Project_CNPM
 {
     partial class MainView
     {
@@ -30,6 +29,7 @@ namespace Project_CNPM
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -50,7 +50,6 @@ namespace Project_CNPM
             this.columnHeader0 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -69,6 +68,15 @@ namespace Project_CNPM
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(327, 305);
             this.panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "label2";
             // 
             // button5
             // 
@@ -94,8 +102,9 @@ namespace Project_CNPM
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(327, 72);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Profile (coming soon)";
+            this.button3.Text = "Change password";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 
@@ -258,15 +267,6 @@ namespace Project_CNPM
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -281,7 +281,6 @@ namespace Project_CNPM
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.panel3);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            //this.Name = "MainView";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);

@@ -119,7 +119,7 @@ namespace Project_CNPM
             listView2.Items.Clear();
             for (int i = 0; i < message_data.Count; i++)
             {
-                if (message_data[i].ToString().Contains(label1.Text) || label1.Text.Contains("Group:"))
+                if (label1.Text == listView1.SelectedItems[0].SubItems[0].Text)
                 {
                     Chatting = true;
                 }
@@ -261,9 +261,9 @@ namespace Project_CNPM
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count >= 1)
+            if (listView2.SelectedItems.Count >= 1)
             {
-                if (listView1.SelectedItems[0].SubItems.Count >= 1)
+                if (listView2.SelectedItems[0].SubItems.Count >= 1)
                 {
                     if (label1.Text.Contains("Group:"))
                     {

@@ -1,9 +1,14 @@
-﻿using System;
+﻿using Project_CNPM.Model;
+using Server.Controller;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.IO;
 using System.Text;
 
-namespace Project_CNPM.Model
+namespace Server.Model
 {
     class RequestSendFileGroupStruct : ChatStruct
     {
@@ -111,6 +116,51 @@ namespace Project_CNPM.Model
                 Array.Copy(buff, offset, fileSize, 0, fileSizeLength);
             }
             return this;
+        }
+
+        public override void writeData(SQLiteConnection connectionData)
+        {
+            string ogpath = ServerController.getObject().path;
+            ArrayList arrUser = this.readData(connectionData);
+            DateTime time = DateTime.Now;
+            string idBoxPath = String.Format(@"{0}{1}", ogpath, this.recGroupName.ToString()); /// '....\data\idbox
+            string storePath = idBoxPath + @"\" + time.ToString("yyyy'-'MM'-'dd' 'HH'.'mm'.'ss' 'tt");  /////....\data\idbox\time
+            string filepath = storePath + @"\" + fileName;//// ....\data\idbox\time\filename
+            
+            if (Directory.Exists(idBoxPath))
+            {
+                Directory.CreateDirectory(storePath);
+                File.WriteAllBytes(filepath, this.fileSize);
+            }
+            else
+            {
+                Directory.CreateDirectory(idBoxPath);
+                Directory.CreateDirectory(storePath);
+                File.WriteAllBytes(filepath, this.fileSize);
+            }
+            string query = String.Format("INSERT INTO GroupMessage (nameGroup, sender, time,message) values ({0},'{1}', '{2}', '{3}')",
+                this.recGroupName, this.sendUserName, time.ToString("yyyy'-'MM'-'dd' 'HH'.'mm'.'ss' 'tt"), this.filePath);
+            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+            cmd.ExecuteNonQuery();
+        }
+
+        public override ArrayList readData(SQLiteConnection connectionData)
+        {
+            string query = String.Format("SELECT UserName FROM GroupChat WHERE nameGroup = '{0}'",this.recGroupName);
+
+            ArrayList array = new ArrayList();
+            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+            DataTable dt = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+
+            adapter.Fill(dt);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                array.Add(row["UserName"]);
+            }
+
+            return array;
         }
     }
 }

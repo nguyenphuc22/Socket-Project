@@ -10,6 +10,11 @@ namespace Project_CNPM.Model
         string recGroupName;
         string message;
 
+        public string getRecGroupName()
+        {
+            return "Group:" + this.recGroupName;
+        }
+
         public string getMessage()
         {
             return this.sendUserName + ":" + this.message;

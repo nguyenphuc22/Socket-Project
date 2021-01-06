@@ -29,7 +29,7 @@ namespace Server.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestRecFile)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestRecFileGroup)));
             if (sendGroupName != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(sendGroupName)));

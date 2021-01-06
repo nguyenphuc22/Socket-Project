@@ -12,6 +12,10 @@ namespace Project_CNPM.Model
         string fileName;
 
         byte[] fileSize;
+        public string getRecGroupName()
+        {
+            return this.recGroupName;
+        }
 
         public string getFileName()
         {
@@ -35,7 +39,7 @@ namespace Project_CNPM.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResponseSendFileStruct)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResponseSendFileGroupStruct)));
             if (sendUserName != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(sendUserName)));

@@ -56,7 +56,8 @@ namespace Server.Model
             SQLiteDataAdapter adapter;
             if(this.recUserName.Contains("Group:"))
             {
-                query = String.Format("SELECT * FROM GroupMessage Where nameGroup = '{0}'",this.recUserName);
+                string nameGroup = this.recUserName.Substring(this.recUserName.IndexOf(":") + 1);
+                query = String.Format("SELECT * FROM GroupMessage Where nameGroup = '{0}'",nameGroup);
                 array = new ArrayList();
                 cmd = new SQLiteCommand(query, connectionData);
 

@@ -119,7 +119,7 @@ namespace Project_CNPM
             listView2.Items.Clear();
             for (int i = 0; i < message_data.Count; i++)
             {
-                if (message_data[i].ToString().Contains(label1.Text))
+                if (message_data[i].ToString().Contains(label1.Text) || label1.Text.Contains("Group:"))
                 {
                     Chatting = true;
                 }
@@ -177,18 +177,18 @@ namespace Project_CNPM
             if (!label1.Text.Contains("Group:"))
             {
                 AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
-                SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text);
+                SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
                 textBox2.Clear();
             }
             else
             {
                 AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
-                SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text);
+                SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
                 textBox2.Clear();
             }
         }
 
-        public void SetListItem2_send_msg(string message_data)
+        public void SetListItem2_send_msg(string message_data,string recMessage)
         {
             if (message_data.ToString().Contains(AppController.getObject().userName + ":"))
             {
@@ -234,15 +234,15 @@ namespace Project_CNPM
 
                 if (label1.Text.Contains("Group:"))
                 {
-                    SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename);
+                    SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename, label1.Text);
                     int indexNumber = label1.Text.IndexOf(":");
-                    string nameGroup = Text.Substring(indexNumber + 1);
+                    string nameGroup = label1.Text.Substring(indexNumber + 1);
                     AppController.getObject().sendGroupFile(new RequestSendFileGroupStruct(AppController.getObject().userName, nameGroup, strfilename,
                         File.ReadAllBytes(strfilename)));
                 }
                 else
                 {
-                    SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename);
+                    SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename, label1.Text);
                     AppController.getObject().sendPrivateFile(new RequestSendFileStruct(AppController.getObject().userName, label1.Text, strfilename,
                         File.ReadAllBytes(strfilename)));
 
@@ -265,7 +265,8 @@ namespace Project_CNPM
                             {
                                 int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
                                 string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
-                                AppController.getObject().requestRecFileGroup(new RequestRecFileGroup(AppController.getObject().userName, path));
+                                string nameGroup = label1.Text.Substring(label1.Text.IndexOf(":") + 1);
+                                AppController.getObject().requestRecFileGroup(new RequestRecFileGroup(nameGroup, path));
                             }
                         }
                         if (listView2.SelectedItems[0].SubItems[1].Text != "")
@@ -274,7 +275,8 @@ namespace Project_CNPM
                             {
                                 int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
                                 string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
-                                AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                                string nameGroup = label1.Text.Substring(label1.Text.IndexOf(":") + 1);
+                                AppController.getObject().requestRecFileGroup(new RequestRecFileGroup(nameGroup, path));
                             }
                         }
                     }

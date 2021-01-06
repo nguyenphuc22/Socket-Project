@@ -13,7 +13,10 @@ namespace Project_CNPM.Model
         string fileName;
         
         byte[] fileSize;
-
+        public string getRecUserName()
+        {
+            return this.recUserName;
+        }
         public string getFileName()
         {
             return this.fileName;

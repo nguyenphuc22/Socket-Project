@@ -26,7 +26,7 @@ namespace Server.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResponseRecFile)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResponseRecFileGroup)));
 
             if (fileName != null)
             {

@@ -281,7 +281,7 @@ namespace Project_CNPM
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.panel3);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "MainView";
+            //this.Name = "MainView";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);

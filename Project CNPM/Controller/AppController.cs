@@ -214,19 +214,19 @@ namespace Project_CNPM.Controller
                         {
                             RequestChatStruct requestChat = (RequestChatStruct)msgReceived;
                             // call function set msg view
-                            getObject().mainView.SetListItem2_send_msg(requestChat.getMessage());
+                            getObject().mainView.SetListItem2_send_msg(requestChat.getMessage(),requestChat.getRecUserName());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseChatStruct:
                         {
                             ResponseChatStruct responseSearch = (ResponseChatStruct)msgReceived;
-                            getObject().mainView.SetListItem2_send_msg(responseSearch.getMessage());
+                            getObject().mainView.SetListItem2_send_msg(responseSearch.getMessage(),responseSearch.getRecUserName());
                             break;
                         }
                     case ChatStruct.MessageType.RequestChatGroupStruct:
                         {
                             RequestChatGroupStruct requestChatGroup = (RequestChatGroupStruct)msgReceived;
-                            getObject().mainView.SetListItem2_send_msg(requestChatGroup.getMessage());
+                            getObject().mainView.SetListItem2_send_msg(requestChatGroup.getMessage(),requestChatGroup.getRecGroupName());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseHistoryMesssage:
@@ -250,13 +250,13 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResponseSendFileStruct:
                         {
                             ResponseSendFileStruct response = (ResponseSendFileStruct)msgReceived;
-                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName());
+                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName(), response.getRecUserName());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseSendFileGroupStruct:
                         {
                             ResponseSendFileGroupStruct response = (ResponseSendFileGroupStruct)msgReceived;
-                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName());
+                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName(),response.getRecGroupName());
                             break;
                         }
                     default:

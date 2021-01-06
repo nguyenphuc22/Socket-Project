@@ -67,7 +67,7 @@ namespace Project_CNPM
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(327, 72);
+            this.panel1.Size = new System.Drawing.Size(327, 305);
             this.panel1.TabIndex = 0;
             // 
             // button5

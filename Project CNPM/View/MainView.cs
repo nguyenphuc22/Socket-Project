@@ -155,11 +155,13 @@ namespace Project_CNPM
             {
                 AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text);
+                textBox2.Clear();
             }
             else
             {
                 AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text);
+                textBox2.Clear();
             }
         }
 

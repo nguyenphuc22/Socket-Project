@@ -106,6 +106,8 @@ namespace Project_CNPM
         {
             if (listView1.SelectedItems.Count >= 1)
             {
+                Font n_font = new Font(listView1.SelectedItems[0].SubItems[0].Font, FontStyle.Regular);
+                listView1.SelectedItems[0].SubItems[0].Font = n_font;
                 label1.Text = listView1.SelectedItems[0].SubItems[0].Text;
                 AppController.getObject().loadMessage(new RequestHistoryMessageStruct(AppController.getObject().userName, listView1.SelectedItems[0].SubItems[0].Text));
             }
@@ -113,37 +115,58 @@ namespace Project_CNPM
 
         public void SetListView2(ArrayList message_data)
         {
+            bool Chatting = false;
             listView2.Items.Clear();
             for (int i = 0; i < message_data.Count; i++)
             {
-                if (message_data[i].ToString().Contains(AppController.getObject().userName + ":"))
+                if (message_data[i].ToString().Contains(label1.Text))
                 {
-                    if (message_data[i].ToString().Contains(":\\"))
+                    Chatting = true;
+                }
+            }
+            if (Chatting) {
+                for (int i = 0; i < message_data.Count; i++)
+                {
+                    if (message_data[i].ToString().Contains(AppController.getObject().userName + ":"))
                     {
-                        ListViewItem sender = new ListViewItem("");
-                        sender.SubItems.Add(message_data[i].ToString());
-                        listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
+                        if (message_data[i].ToString().Contains(":\\"))
+                        {
+                            ListViewItem sender = new ListViewItem("");
+                            sender.SubItems.Add(message_data[i].ToString());
+                            listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
+                        }
+                        else
+                        {
+                            ListViewItem sender = new ListViewItem("");
+                            sender.SubItems.Add(message_data[i].ToString());
+                            listView2.Items.Add(sender);
+                        }
                     }
                     else
                     {
-                        ListViewItem sender = new ListViewItem("");
-                        sender.SubItems.Add(message_data[i].ToString());
-                        listView2.Items.Add(sender);
+                        if (message_data[i].ToString().Contains(":\\"))
+                        {
+                            ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
+                            recievcer.SubItems.Add("");
+                            listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
+                        }
+                        else
+                        {
+                            ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
+                            recievcer.SubItems.Add("");
+                            listView2.Items.Add(recievcer);
+                        }
                     }
                 }
-                else
+            }
+            else
+            {
+                for (int j = 0; j < listView1.Items.Count; j++)
                 {
-                    if (message_data[i].ToString().Contains(":\\"))
+                    if (listView1.Items[j].SubItems[0].Text.Contains(label1.Text))
                     {
-                        ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
-                        recievcer.SubItems.Add("");
-                        listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
-                    }
-                    else
-                    {
-                        ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
-                        recievcer.SubItems.Add("");
-                        listView2.Items.Add(recievcer);
+                        Font n_font = new Font(listView1.Items[j].SubItems[0].Font, FontStyle.Bold);
+                        listView1.Items[j].SubItems[0].Font = n_font;
                     }
                 }
             }
@@ -211,7 +234,11 @@ namespace Project_CNPM
 
                 if (label1.Text.Contains("Group:"))
                 {
-
+                    SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename);
+                    int indexNumber = label1.Text.IndexOf(":");
+                    string nameGroup = Text.Substring(indexNumber + 1);
+                    AppController.getObject().sendGroupFile(new RequestSendFileGroupStruct(AppController.getObject().userName, nameGroup, strfilename,
+                        File.ReadAllBytes(strfilename)));
                 }
                 else
                 {
@@ -230,22 +257,46 @@ namespace Project_CNPM
             {
                 if (listView1.SelectedItems[0].SubItems.Count >= 1)
                 {
-                    if (listView2.SelectedItems[0].SubItems[0].Text != "")
+                    if (label1.Text.Contains("Group:"))
                     {
-                        if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                        if (listView2.SelectedItems[0].SubItems[0].Text != "")
                         {
-                            int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
-                            string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
-                            AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                            {
+                                int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
+                                string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
+                                AppController.getObject().requestRecFileGroup(new RequestRecFileGroup(AppController.getObject().userName, path));
+                            }
+                        }
+                        if (listView2.SelectedItems[0].SubItems[1].Text != "")
+                        {
+                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                            {
+                                int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
+                                string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
+                                AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            }
                         }
                     }
-                    if (listView2.SelectedItems[0].SubItems[1].Text != "")
+                    else
                     {
-                        if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                        if (listView2.SelectedItems[0].SubItems[0].Text != "")
                         {
-                            int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
-                            string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
-                            AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                            {
+                                int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
+                                string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
+                                AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            }
+                        }
+                        if (listView2.SelectedItems[0].SubItems[1].Text != "")
+                        {
+                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
+                            {
+                                int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
+                                string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
+                                AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
+                            }
                         }
                     }
                 }

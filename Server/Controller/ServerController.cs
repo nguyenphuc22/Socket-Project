@@ -390,7 +390,7 @@ namespace Server.Controller
                             case ChatStruct.MessageType.RequestChatGroupStruct:
                                 {
                                     RequestChatGroupStruct requestChatGroup = (RequestChatGroupStruct)msgReceived;
-                                this.sendGroupMessage(requestChatGroup);
+                                    this.sendGroupMessage(requestChatGroup);
                                     
                                 break;
                                 }

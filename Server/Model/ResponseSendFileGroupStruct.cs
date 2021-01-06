@@ -1,44 +1,43 @@
-﻿using Server.Controller;
+﻿using Project_CNPM.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.IO;
 using System.Text;
-//I'LL DO THIS TASK LATER ^^!
-namespace Project_CNPM.Model
+
+namespace Server.Model
 {
-    class ResponseSendFileStruct : ChatStruct
+    class ResponseSendFileGroupStruct : ChatStruct
     {
         string sendUserName;
-        string recUserName;
+        string recGroupName;
         string filePath;
 
         public string getUserName()
         {
-            return this.recUserName;
+            return this.recGroupName;
         }
 
         public string getrecUserName()
         {
-            return this.recUserName;
+            return this.recGroupName;
         }
-        public ResponseSendFileStruct()
+        public ResponseSendFileGroupStruct()
         {
-           
+
             this.filePath = "";
             this.sendUserName = "";
-            this.recUserName = "";
-           
+            this.recGroupName = "";
+
         }
-        public ResponseSendFileStruct(string sendusername, string recusername, string filepath)
+        public ResponseSendFileGroupStruct(string sendusername, string recGroupName, string filepath)
         {
             this.sendUserName = sendusername;
             this.filePath = filepath;
-            this.recUserName = recusername;
-            
-            
+            this.recGroupName = recGroupName;
+
+
         }
         public override byte[] pack()
         {
@@ -51,10 +50,10 @@ namespace Project_CNPM.Model
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
-            if (recUserName != null)
+            if (recGroupName != null)
             {
-                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(recUserName)));
-                data.AddRange(Encoding.UTF8.GetBytes(recUserName));
+                data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(recGroupName)));
+                data.AddRange(Encoding.UTF8.GetBytes(recGroupName));
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
@@ -67,14 +66,14 @@ namespace Project_CNPM.Model
                 data.AddRange(BitConverter.GetBytes(0));
 
 
-           
+
             return data.ToArray();
         }
 
         public override ArrayList readData(SQLiteConnection connectionData)
         {
-            string query = String.Format("SELECT * FROM PrivateBox Where (userName1 = '{0}' or userName1='{1}') and (userName2 ='{1}' or userName2='{0}') ",
-                this.sendUserName, this.recUserName);
+            string query = String.Format("SELECT UserName FROM GroupChat WHERE nameGroup = '{0}'", this.recGroupName);
+
             ArrayList array = new ArrayList();
             SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
             DataTable dt = new DataTable();
@@ -82,24 +81,9 @@ namespace Project_CNPM.Model
 
             adapter.Fill(dt);
 
-            if (dt.Rows.Count == 0)
-            {
-                string writeQuery = String.Format("INSERT INTO PrivateBox (userName1, userName2) values ('{0}','{1}')", this.sendUserName, this.recUserName);
-                cmd = new SQLiteCommand(writeQuery, connectionData);
-                cmd.ExecuteNonQuery();
-
-                query = String.Format("SELECT * FROM PrivateBox Where (userName1 = '{0}' or userName2='{1}') and (userName2 ='{1}' or userName2='{0}') ",
-                this.sendUserName, this.recUserName);
-                array = new ArrayList();
-                cmd = new SQLiteCommand(query, connectionData);
-                dt = new DataTable();
-                adapter = new SQLiteDataAdapter(cmd);
-                adapter.Fill(dt);
-            }
-
             foreach (DataRow row in dt.Rows)
             {
-                array.Add(row["idBox"]);
+                array.Add(row["UserName"]);
             }
 
             return array;
@@ -120,7 +104,7 @@ namespace Project_CNPM.Model
             recUserNameLength = BitConverter.ToInt32(buff, offset);
             offset += 4; //Update offset
             if (recUserNameLength > 0)
-                recUserName = Encoding.UTF8.GetString(buff, offset, recUserNameLength);
+                recGroupName = Encoding.UTF8.GetString(buff, offset, recUserNameLength);
 
             offset += recUserNameLength;
 
@@ -136,12 +120,11 @@ namespace Project_CNPM.Model
 
         public override void writeData(SQLiteConnection connectionData)
         {
-            ArrayList idbox = this.readData(connectionData);
+            ArrayList arrUserName = this.readData(connectionData);
             DateTime time = DateTime.Now;
-            if (idbox.Count == 0)
-                return;
-            string query = String.Format("INSERT INTO PrivateMessage (idBox, sender, time,message) values ({0},'{1}', '{2}', '{3}')",
-                idbox[0], this.sendUserName, time.ToString("yyyy'-'MM'-'dd' 'HH'.'mm'.'ss' 'tt"), this.filePath);
+
+            string query = String.Format("INSERT INTO GroupMessage (nameGroup, sender, time,message) values ('{0}','{1}', '{2}', '{3}')",
+                this.recGroupName, this.sendUserName, time.ToString(), this.filePath);
             SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
             cmd.ExecuteNonQuery();
         }

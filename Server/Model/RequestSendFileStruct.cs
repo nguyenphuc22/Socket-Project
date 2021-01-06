@@ -103,7 +103,7 @@ namespace Project_CNPM.Model
                 cmd = new SQLiteCommand(writeQuery, connectionData);
                 cmd.ExecuteNonQuery();
 
-                query = String.Format("SELECT * FROM PrivateBox Where (userName1 = '{0}' or userName2='{1}) and (userName2 ='{1}' or userName2='{0}) ",
+                query = String.Format("SELECT * FROM PrivateBox Where (userName1 = '{0}' or userName2='{1}') and (userName2 ='{1}' or userName2='{0}') ",
                 this.sendUserName, this.recUserName);
                 array = new ArrayList();
                 cmd = new SQLiteCommand(query, connectionData);

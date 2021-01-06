@@ -138,7 +138,7 @@ namespace Server.Model
                 Directory.CreateDirectory(storePath);
                 File.WriteAllBytes(filepath, this.fileSize);
             }
-            string query = String.Format("INSERT INTO GroupMessage (nameGroup, sender, time,message) values ({0},'{1}', '{2}', '{3}')",
+            string query = String.Format("INSERT INTO GroupMessage (nameGroup, sender, time,message) values ('{0}','{1}', '{2}', '{3}')",
                 this.recGroupName, this.sendUserName, time.ToString("yyyy'-'MM'-'dd' 'HH'.'mm'.'ss' 'tt"), this.filePath);
             SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
             cmd.ExecuteNonQuery();

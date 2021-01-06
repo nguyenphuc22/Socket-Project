@@ -27,3 +27,4 @@ C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.cs
 C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.dll
 C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.pdb
 C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache
+C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.csprojAssemblyReference.cache

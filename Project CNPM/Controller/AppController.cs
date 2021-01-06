@@ -214,13 +214,13 @@ namespace Project_CNPM.Controller
                         {
                             RequestChatStruct requestChat = (RequestChatStruct)msgReceived;
                             // call function set msg view
-                            getObject().mainView.SetListItem2_send_msg(requestChat.getMessage(),requestChat.getRecUserName());
+                            getObject().mainView.SetListItem2_send_msg(requestChat.getMessage(),requestChat.getSendUserName());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseChatStruct:
                         {
                             ResponseChatStruct responseSearch = (ResponseChatStruct)msgReceived;
-                            getObject().mainView.SetListItem2_send_msg(responseSearch.getMessage(),responseSearch.getRecUserName());
+                            getObject().mainView.SetListItem2_send_msg(responseSearch.getMessage(),responseSearch.getrecUserName());
                             break;
                         }
                     case ChatStruct.MessageType.RequestChatGroupStruct:
@@ -250,7 +250,7 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResponseSendFileStruct:
                         {
                             ResponseSendFileStruct response = (ResponseSendFileStruct)msgReceived;
-                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName(), response.getRecUserName());
+                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName(), response.getSendUserName());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseSendFileGroupStruct:

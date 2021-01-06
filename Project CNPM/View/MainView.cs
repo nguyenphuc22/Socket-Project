@@ -161,14 +161,7 @@ namespace Project_CNPM
             }
             else
             {
-                for (int j = 0; j < listView1.Items.Count; j++)
-                {
-                    if (listView1.Items[j].SubItems[0].Text.Contains(label1.Text))
-                    {
-                        Font n_font = new Font(listView1.Items[j].SubItems[0].Font, FontStyle.Bold);
-                        listView1.Items[j].SubItems[0].Font = n_font;
-                    }
-                }
+                
             }
         }
 
@@ -190,36 +183,51 @@ namespace Project_CNPM
 
         public void SetListItem2_send_msg(string message_data,string recMessage)
         {
-            if (message_data.ToString().Contains(AppController.getObject().userName + ":"))
+            if(label1.Text == recMessage)
             {
-                if (message_data.ToString().Contains(":\\"))
+                if (message_data.ToString().Contains(AppController.getObject().userName + ":"))
                 {
-                    ListViewItem sender = new ListViewItem("");
-                    sender.SubItems.Add(message_data.ToString());
-                    listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
+                    if (message_data.ToString().Contains(":\\"))
+                    {
+                        ListViewItem sender = new ListViewItem("");
+                        sender.SubItems.Add(message_data.ToString());
+                        listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
+                    }
+                    else
+                    {
+                        ListViewItem sender = new ListViewItem("");
+                        sender.SubItems.Add(message_data.ToString());
+                        listView2.Items.Add(sender);
+                    }
                 }
                 else
                 {
-                    ListViewItem sender = new ListViewItem("");
-                    sender.SubItems.Add(message_data.ToString());
-                    listView2.Items.Add(sender);
+                    if (message_data.ToString().Contains(":\\"))
+                    {
+                        ListViewItem recievcer = new ListViewItem(message_data.ToString());
+                        recievcer.SubItems.Add("");
+                        listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
+                    }
+                    else
+                    {
+                        ListViewItem recievcer = new ListViewItem(message_data.ToString());
+                        recievcer.SubItems.Add("");
+                        listView2.Items.Add(recievcer);
+                    }
                 }
-            }
+            } 
             else
             {
-                if (message_data.ToString().Contains(":\\"))
+                for (int j = 0; j < listView1.Items.Count; j++)
                 {
-                    ListViewItem recievcer = new ListViewItem(message_data.ToString());
-                    recievcer.SubItems.Add("");
-                    listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
-                }
-                else
-                {
-                    ListViewItem recievcer = new ListViewItem(message_data.ToString());
-                    recievcer.SubItems.Add("");
-                    listView2.Items.Add(recievcer);
+                    if (listView1.Items[j].Text == recMessage)
+                    {
+                        Font n_font = new Font(listView1.Items[j].Font, FontStyle.Bold);
+                        listView1.Items[j].Font = n_font;
+                    }
                 }
             }
+            
 
         }
 

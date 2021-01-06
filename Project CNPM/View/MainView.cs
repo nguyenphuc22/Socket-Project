@@ -27,6 +27,7 @@ namespace Project_CNPM
             AppController.getObject().createThreadListenMessageFromServer();
             AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
             label2.Text = AppController.getObject().userName;
+            panel1.Height = 72;
         }
 
         public string s_msg;

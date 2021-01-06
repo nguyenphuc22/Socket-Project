@@ -106,6 +106,8 @@ namespace Project_CNPM
         {
             if (listView1.SelectedItems.Count >= 1)
             {
+                Font n_font = new Font(listView1.SelectedItems[0].SubItems[0].Font, FontStyle.Regular);
+                listView1.SelectedItems[0].SubItems[0].Font = n_font;
                 label1.Text = listView1.SelectedItems[0].SubItems[0].Text;
                 AppController.getObject().loadMessage(new RequestHistoryMessageStruct(AppController.getObject().userName, listView1.SelectedItems[0].SubItems[0].Text));
             }

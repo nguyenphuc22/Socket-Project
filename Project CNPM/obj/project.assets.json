@@ -1150,39 +1150,19 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
-=======
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
->>>>>>> 3030c0ee4a2209db7b0ec09e63b09e3f6af96faf
+    "C:\\Users\\Asus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\do an\\Socket-Project\\Project CNPM\\Client.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj",
       "projectName": "Client",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\do an\\Socket-Project\\Project CNPM\\Client.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\do an\\Socket-Project\\Project CNPM\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\Socket-Project\\Project CNPM\\Client.csproj",
-      "projectName": "Client",
-      "projectPath": "C:\\Users\\ADMIN\\Desktop\\Socket-Project\\Project CNPM\\Client.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADMIN\\Desktop\\Socket-Project\\Project CNPM\\obj\\",
->>>>>>> 3030c0ee4a2209db7b0ec09e63b09e3f6af96faf
+      "projectPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj",
+      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 3030c0ee4a2209db7b0ec09e63b09e3f6af96faf
+        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1194,6 +1174,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -1205,6 +1186,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "System.Data.SQLite": {
             "target": "Package",
@@ -1229,12 +1211,16 @@
             "privateAssets": "none"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
->>>>>>> 3030c0ee4a2209db7b0ec09e63b09e3f6af96faf
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

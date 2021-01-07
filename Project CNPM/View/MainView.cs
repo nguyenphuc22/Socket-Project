@@ -31,6 +31,20 @@ namespace Project_CNPM
             panel1.Height = 85;
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (string.Equals((sender as Button).Name, @"CloseButton"))
+            {
+                AppController.getObject().logout(new RequestLogout(AppController.getObject().userName));
+
+            }
+            else
+            {
+                // Then assume that X has been clicked and act accordingly.
+                AppController.getObject().logout(new RequestLogout(AppController.getObject().userName));
+            }
+        }
+
         public string s_msg;
 
         public void open_panel1()

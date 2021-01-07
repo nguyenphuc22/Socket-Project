@@ -16,7 +16,7 @@ namespace Server.Controller
     class ServerController
     {
         public string dataSource = "Data Source=";
-        public string path = @"C:\Users\Admin\Desktop\do an\Socket-Project\Server\Data\";
+        public string path = @"C:\Users\Asus\source\repos\Project CNPM\Server\Data\";
         public string fileName = "database.db";
         int filesize = 1024 * 1024 * 25;
         public SocketController socketController;
@@ -306,10 +306,12 @@ namespace Server.Controller
         }
         public void logout(string userName)
         {
-            foreach(ClientInfor client in clientInforList)
+            
+            foreach (ClientInfor client in clientInforList)
             {
                 if(client.isUserName(userName))
                 {
+                    clientList.Remove(client.getSocket());
                     clientInforList.Remove(client);
                     client.close();
                 }
@@ -508,6 +510,14 @@ namespace Server.Controller
                     {
                         // Check error if client close socket.
                         clientList.Remove(client);
+                    
+                        foreach(ClientInfor clientInfor in clientInforList)
+                        {
+                            if(client == clientInfor.getSocket())
+                            {
+                                clientInforList.Remove(clientInfor);
+                            }
+                        }
                         client.Close();
                     }
                 }

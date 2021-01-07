@@ -55,7 +55,7 @@ namespace Project_CNPM.Controller
         // Destructor . Delete Socket.
         ~AppController()
         {
-            //appSocketController.close();
+            logout(new RequestLogout(userName));
         }
 
         // Main Calling

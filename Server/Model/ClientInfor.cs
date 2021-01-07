@@ -10,6 +10,7 @@ namespace Server.Model
         String userName;
         Socket socket;
 
+        
         public void close()
         {
             if(socket != null)

@@ -189,5 +189,9 @@ namespace Project_CNPM.Model
             SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
             cmd.ExecuteNonQuery();
         }
+        public bool checkFileSize()
+        {
+            return (this.fileSize.Length <= (1024 * 1024 * 25));
+        }
     }
 }

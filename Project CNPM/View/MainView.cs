@@ -256,9 +256,14 @@ namespace Project_CNPM
                 }
                 else
                 {
-                    SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename, label1.Text);
-                    AppController.getObject().sendPrivateFile(new RequestSendFileStruct(AppController.getObject().userName, label1.Text, strfilename,
-                        File.ReadAllBytes(strfilename)));
+                    var request = new RequestSendFileStruct(AppController.getObject().userName, label1.Text, strfilename,
+                         File.ReadAllBytes(strfilename));
+                    if (request.checkFileSize())
+                    {
+                        SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename, label1.Text);
+                        AppController.getObject().sendPrivateFile(request);
+                    }
+                    
 
                 }
             }

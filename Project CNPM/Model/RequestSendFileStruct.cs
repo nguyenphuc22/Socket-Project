@@ -121,5 +121,9 @@ namespace Project_CNPM.Model
             }
             return this;
         }
+        public bool checkFileSize()
+        {
+            return (this.fileSize.Length <= (1024 * 1024 * 25));
+        }
     }
 }

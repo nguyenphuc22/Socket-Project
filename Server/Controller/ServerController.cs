@@ -18,7 +18,7 @@ namespace Server.Controller
         public string dataSource = "Data Source=";
         public string path = @"C:\Users\ADMIN\Desktop\Socket-Project\Server\Data\";
         public string fileName = "database.db";
-        int filesize = 1024 * 1024 * 25;
+        int filesize = 1024*1024*1024;
         public SocketController socketController;
         private Thread threadListenClient;
         private List<Socket> clientList;
@@ -172,8 +172,8 @@ namespace Server.Controller
             // Function Request Send File Private:
             public int requestSendFilePrivate(RequestSendFileStruct request,Socket socket)
             {
-
-
+            
+            {
                 request.writeData(connnectData);
                 ResponseSendFileStruct response = new ResponseSendFileStruct(request.getsendUserName(), request.getrecUserName(), request.getPath());
                 if (getSocketByUsername(response.getrecUserName().ToString()) != null)
@@ -181,7 +181,7 @@ namespace Server.Controller
                     getSocketByUsername(response.getrecUserName()).Send(response.pack());
 
                 }
-                // Implement Here
+            }
                 return 0;
             }
             // Function ReponseSend File Private

@@ -10,6 +10,9 @@ namespace Project_CNPM.Model
     class RequestChatStruct : ChatStruct
     {
 
+
+
+
         string sendUserName;
         string recUserName;
         string message;

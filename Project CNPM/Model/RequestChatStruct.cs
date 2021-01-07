@@ -11,6 +11,9 @@ namespace Project_CNPM.Model
         string recUserName;
         string message;
 
+
+
+
         public string getSendUserName()
         {
             return this.sendUserName;

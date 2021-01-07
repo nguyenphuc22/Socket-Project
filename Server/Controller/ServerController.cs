@@ -314,7 +314,7 @@ namespace Server.Controller
                                     // Write Action Function here.........
                                     break;
                                 }
-                            case ChatStruct.MessageType.LogoutNotificationStruct:
+                            case ChatStruct.MessageType.RequestLogoutStruct:
                                 {
                                     RequestLogout logoutNotification = (RequestLogout)msgReceived;
                                     // Write Action Function here.........
@@ -470,13 +470,13 @@ namespace Server.Controller
                                     this.requestSendFileGroup(request,client);
                                     break;
                                 }
-                        case ChatStruct.MessageType.RequestChangePass:
-                            {
-                                RequestChangePass request = (RequestChangePass)msgReceived;
-                                this.changePass(request, client);
+                            case ChatStruct.MessageType.RequestChangePass:
+                                {
+                                    RequestChangePass request = (RequestChangePass)msgReceived;
+                                    this.changePass(request, client);
 
-                                break;
-                            }
+                                    break;
+                                }
 
                         default:
                                 break;

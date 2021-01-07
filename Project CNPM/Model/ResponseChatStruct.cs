@@ -19,6 +19,9 @@ namespace Project_CNPM.Model
         {
             return this.sendUserName + ":" + this.message;
         }
+
+
+
         public ResponseChatStruct()
         {
             this.sendUserName = "";

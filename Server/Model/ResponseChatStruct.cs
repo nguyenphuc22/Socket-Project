@@ -24,6 +24,9 @@ namespace Project_CNPM.Model
             this.recUserName = recusername;
             this.message = message;
         }
+
+
+
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();

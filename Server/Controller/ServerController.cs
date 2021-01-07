@@ -294,6 +294,17 @@ namespace Server.Controller
             ResponseChangePass response = new ResponseChangePass("Change Password successfully!");
             socket.Send(response.pack());
         }
+        public void logout(string userName)
+        {
+            foreach(ClientInfor client in clientInforList)
+            {
+                if(client.isUserName(userName))
+                {
+                    clientInforList.Remove(client);
+                    client.close();
+                }
+            }
+        }
         // Function Listen Message Client
         public void ListenClientMessage(object obj)
             {

@@ -125,15 +125,20 @@ namespace Project_CNPM.Model
 
         public override void writeData(SQLiteConnection connectionData)
         {
-            ArrayList idbox = this.readData(connectionData);
-            DateTime time = DateTime.Now;
-            if (idbox.Count == 0)
+            string spaceMgs = this.message.Replace(" ", "");
+            if (this.message.Length!=0 && spaceMgs.Length!=0)
+            {
+                ArrayList idbox = this.readData(connectionData);
+                DateTime time = DateTime.Now;
+                if (idbox.Count == 0)
+                    return;
+                string query = String.Format("INSERT INTO PrivateMessage (idBox, sender, time,message) values ({0},'{1}', '{2}', '{3}')",
+                    idbox[0], this.sendUserName, time.ToString("yyyy'-'MM'-'dd' 'HH'.'mm'.'ss' 'tt"), this.message);
+                SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
+                cmd.ExecuteNonQuery();
+            }
+            else
                 return;
-            string query = String.Format("INSERT INTO PrivateMessage (idBox, sender, time,message) values ({0},'{1}', '{2}', '{3}')",
-                idbox[0], this.sendUserName, time.ToString("yyyy'-'MM'-'dd' 'HH'.'mm'.'ss' 'tt"), this.message);
-            SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
-            cmd.ExecuteNonQuery();
-            
         }
     }
 }

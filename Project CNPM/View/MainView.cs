@@ -170,9 +170,13 @@ namespace Project_CNPM
         {
             if (!label1.Text.Contains("Group:"))
             {
+                string spaceMsg = textBox2.Text.Replace(" ", "");
+                if (textBox2.Text.Length != 0 && spaceMsg.Length!=0)
+                { 
                 AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
                 textBox2.Clear();
+                } 
             }
             else
             {

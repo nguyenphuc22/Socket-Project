@@ -264,6 +264,7 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResponseChangePass:
                         {
                             ResponseChangePass response = (ResponseChangePass)msgReceived;
+                            AppController.getObject().change.changePassNotification(response.getMsg());
                             break;
                         }
                     default:

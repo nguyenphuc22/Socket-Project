@@ -45,14 +45,14 @@ namespace Project_CNPM.Model
             if (newPassWord != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(newPassWord)));
-                data.AddRange(Encoding.UTF8.GetBytes(passWord));
+                data.AddRange(Encoding.UTF8.GetBytes(newPassWord));
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
             if (reNewPassWord != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(reNewPassWord)));
-                data.AddRange(Encoding.UTF8.GetBytes(passWord));
+                data.AddRange(Encoding.UTF8.GetBytes(reNewPassWord));
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));

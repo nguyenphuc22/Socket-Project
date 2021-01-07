@@ -296,6 +296,8 @@ namespace Project_CNPM.Controller
         // Function Send Message Private:
         public int sendPrivateMessage(RequestChatStruct request)
         {
+
+
             appSocketController.sendMessage(request.pack());
             // Implement Here
             return 0;

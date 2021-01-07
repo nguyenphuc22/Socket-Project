@@ -138,6 +138,8 @@ namespace Server.Controller
             // Function Send Message Private: Gui di cho thang client khac
             public int sendPrivateMessage(RequestChatStruct request)
             {
+
+
                 request.writeData(connnectData);
                 if (getSocketByUsername(request.getRecUserName().ToString()) != null)
                 {

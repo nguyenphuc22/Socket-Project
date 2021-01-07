@@ -328,6 +328,7 @@ namespace Server.Controller
                             case ChatStruct.MessageType.RequestLogoutStruct:
                                 {
                                     RequestLogout logoutNotification = (RequestLogout)msgReceived;
+                                    logout(logoutNotification.getUserName());
                                     // Write Action Function here.........
                                     break;
                                 }
@@ -488,7 +489,7 @@ namespace Server.Controller
 
                                     break;
                                 }
-
+                            
                         default:
                                 break;
                         }

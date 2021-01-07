@@ -20,7 +20,7 @@ namespace Project_CNPM.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.LogoutNotificationStruct)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestLogoutStruct)));
             
             if (userName != null)
             {

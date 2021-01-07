@@ -326,6 +326,8 @@ namespace Project_CNPM
         private void button5_Click(object sender, EventArgs e)
         {
             AppController.getObject().logout(new RequestLogout(AppController.getObject().userName));
+            AppController.getObject().loginView.Show();
+            AppController.getObject().mainView.Close();
         }
     }
 }

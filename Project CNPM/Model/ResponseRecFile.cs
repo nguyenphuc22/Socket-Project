@@ -7,6 +7,9 @@ namespace Project_CNPM.Model
 {
     class ResponseRecFile : ChatStruct
     {
+
+
+
         string fileName;
         byte[] fileSize;
         

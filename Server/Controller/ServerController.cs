@@ -157,6 +157,8 @@ namespace Server.Controller
             // Function Request Send File Private:
             public int requestSendFilePrivate(RequestSendFileStruct request,Socket socket)
             {
+
+
                 request.writeData(connnectData);
                 ResponseSendFileStruct response = new ResponseSendFileStruct(request.getsendUserName(), request.getrecUserName(), request.getPath());
                 if (getSocketByUsername(response.getrecUserName().ToString()) != null)
@@ -257,6 +259,8 @@ namespace Server.Controller
             }
             public void requestRecFile(RequestRecFile request, Socket socket)
             {
+
+
                 string[] splitedPath = request.getPath().Split(@"\");
                 string fileName = splitedPath[splitedPath.Length - 1];
                 byte[] data = File.ReadAllBytes(request.getPath());

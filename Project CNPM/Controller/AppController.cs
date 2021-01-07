@@ -238,6 +238,7 @@ namespace Project_CNPM.Controller
                         }
                     case ChatStruct.MessageType.ResponseRecFile:
                         {
+
                             ResponseRecFile responseRec = (ResponseRecFile)msgReceived;
                             responseRec.writeData(this.Path);
                             break;
@@ -335,6 +336,7 @@ namespace Project_CNPM.Controller
         // Function Send File Private
         public int sendPrivateFile(RequestSendFileStruct request)
         {
+
             appSocketController.sendMessage(request.pack());
             // Implement Here
             return 0;
@@ -396,6 +398,7 @@ namespace Project_CNPM.Controller
         }
         public void requestRecFile(RequestRecFile request)
         {
+
             this.appSocketController.sendMessage(request.pack());
         }
         public void requestRecFileGroup(RequestRecFileGroup request)

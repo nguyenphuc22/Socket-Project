@@ -24,14 +24,14 @@ namespace Project_CNPM.Controller
             {
                 case ChatStruct.MessageType.LoginNotificationStruct:
                     {
-                        result = new LogoutNotificationStruct();
+                        result = new RequestLogout();
                         result.messageType = ChatStruct.MessageType.LoginNotificationStruct;
                         result.unpack(buff);
                         break;
                     }
                 case ChatStruct.MessageType.LogoutNotificationStruct:
                     {
-                        result = new LogoutNotificationStruct();
+                        result = new RequestLogout();
                         result.messageType = ChatStruct.MessageType.LogoutNotificationStruct;
                         result.unpack(buff);
                         break;

@@ -507,8 +507,8 @@ namespace Server.Controller
                     catch
                     {
                         // Check error if client close socket.
-                        //clientList.Remove(client);
-                        //client.Close();
+                        clientList.Remove(client);
+                        client.Close();
                     }
                 }
             }

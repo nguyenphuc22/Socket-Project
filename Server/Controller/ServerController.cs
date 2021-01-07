@@ -84,11 +84,21 @@ namespace Server.Controller
             bool islogin = false;
             ArrayList array = new ArrayList(request.readData(connnectData));
 
-            if (array.Count != 0)
+            
+
+            if (array.Count != 0 )
             {
                 // Dang nhap thanh cong
                 response = new ResponseLoginStruct(true, "Login Success");
                 islogin = true;
+                foreach (ClientInfor client in clientInforList)
+                {
+                    if (client.isUserName(array[0].ToString()))
+                    {
+                        response = new ResponseLoginStruct(false, "Account was login");
+                        islogin = false;
+                    }
+                }
             }
             else
             {

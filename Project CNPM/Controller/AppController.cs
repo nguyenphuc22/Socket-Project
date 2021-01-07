@@ -281,6 +281,8 @@ namespace Project_CNPM.Controller
         // Function SignUp:
         public void signup(ResquestSignupStruct request)
         {
+
+
             // Implement Here
             appSocketController.sendMessage(request.pack());
             

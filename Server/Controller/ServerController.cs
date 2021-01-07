@@ -103,6 +103,9 @@ namespace Server.Controller
             // Function SignUp:
         public void signup(ResquestSignupStruct request, Socket socket)
         {
+
+
+
             ResponseSignupStruct response;
             ArrayList data = new ArrayList(request.readData(connnectData));
             if (data.Count==0)

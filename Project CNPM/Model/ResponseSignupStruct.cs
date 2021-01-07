@@ -9,6 +9,8 @@ namespace Project_CNPM.Model
     {
         bool isSucc;
         string msg;
+
+
         public ResponseSignupStruct()
         {
 

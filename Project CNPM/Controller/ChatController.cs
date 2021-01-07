@@ -1,4 +1,5 @@
 ﻿using Project_CNPM.Model;
+using Server.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -243,6 +244,13 @@ namespace Project_CNPM.Controller
                     {
                         result = new ResponseChangePass();
                         result.messageType = ChatStruct.MessageType.ResponseChangePass;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.RequestOutGroup:
+                    {
+                        result = new RequestOutGroup();
+                        result.messageType = ChatStruct.MessageType.RequestOutGroup;
                         result.unpack(buff);
                         break;
                     }

@@ -6,6 +6,10 @@ using System.Text;
 
 namespace Project_CNPM.Model
 {
+
+
+
+
     class RequestRecFile : ChatStruct
     {
         string sendUserName;

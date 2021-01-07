@@ -9,6 +9,9 @@ using System.Text;
 //I'LL DO THIS TASK LATER ^^!
 namespace Project_CNPM.Model
 {
+
+
+
     class RequestSendFileStruct : ChatStruct
     {
         string sendUserName;

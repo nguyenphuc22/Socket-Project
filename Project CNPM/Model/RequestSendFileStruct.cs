@@ -11,6 +11,11 @@ namespace Project_CNPM.Model
 {
     class RequestSendFileStruct : ChatStruct
     {
+
+
+
+
+
         string sendUserName;
         string recUserName;
         string filePath;

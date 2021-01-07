@@ -180,6 +180,7 @@ namespace Project_CNPM
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
                 textBox2.Clear();
             }
+            textBox2.Clear();
         }
 
         public void SetListItem2_send_msg(string message_data,string recMessage)

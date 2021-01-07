@@ -85,7 +85,7 @@ namespace Project_CNPM.Controller
                 {
                     case ChatStruct.MessageType.LoginNotificationStruct:
                         {
-                            LoginNotificationStruct loginNotification = (LoginNotificationStruct)msgReceived;
+                            //LoginNotificationStruct loginNotification = (LoginNotificationStruct)msgReceived;
                             // Write Action Function here.........
                             break;
                         }

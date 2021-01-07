@@ -311,9 +311,8 @@ namespace Server.Controller
             {
                 if(client.isUserName(userName))
                 {
-                    clientList.Remove(client.getSocket());
                     clientInforList.Remove(client);
-                    client.close();
+                    
                 }
             }
         }
@@ -509,16 +508,8 @@ namespace Server.Controller
                     catch
                     {
                         // Check error if client close socket.
-                        clientList.Remove(client);
-                    
-                        foreach(ClientInfor clientInfor in clientInforList)
-                        {
-                            if(client == clientInfor.getSocket())
-                            {
-                                clientInforList.Remove(clientInfor);
-                            }
-                        }
-                        client.Close();
+                        //clientList.Remove(client);
+                        //client.Close();
                     }
                 }
             }

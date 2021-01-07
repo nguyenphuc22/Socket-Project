@@ -48,14 +48,14 @@ namespace Project_CNPM.Model
             if (newPassWord != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(newPassWord)));
-                data.AddRange(Encoding.UTF8.GetBytes(passWord));
+                data.AddRange(Encoding.UTF8.GetBytes(newPassWord));
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
             if (reNewPassWord != null)
             {
                 data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(reNewPassWord)));
-                data.AddRange(Encoding.UTF8.GetBytes(passWord));
+                data.AddRange(Encoding.UTF8.GetBytes(reNewPassWord));
             }
             else
                 data.AddRange(BitConverter.GetBytes(0));
@@ -115,7 +115,7 @@ namespace Project_CNPM.Model
         public override void writeData(SQLiteConnection connectionData)
         {
            
-                string query = String.Format("UPDATE UserData SET passWord={0} where useName={1}", this.reNewPassWord, this.userName);
+                string query = String.Format("UPDATE UserData SET passWord='{0}' where userName='{1}'", this.reNewPassWord, this.userName);
                 SQLiteCommand cmd = new SQLiteCommand(query, connectionData);
                 cmd.ExecuteNonQuery();
            

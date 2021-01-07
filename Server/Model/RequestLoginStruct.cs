@@ -83,7 +83,7 @@ namespace Project_CNPM.Model
             //var b = dt.Rows[0]["Name Columns"];
             foreach(DataRow row in dt.Rows)
             {
-                array.Add(row.ToString());
+                array.Add(row["userName"].ToString());
             }
             // neu khong tim thay ai thi array se return lai voi mang bang 0
             return array;

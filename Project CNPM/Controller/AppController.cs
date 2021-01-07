@@ -89,7 +89,7 @@ namespace Project_CNPM.Controller
                             // Write Action Function here.........
                             break;
                         }
-                    case ChatStruct.MessageType.LogoutNotificationStruct:
+                    case ChatStruct.MessageType.RequestLogoutStruct:
                         {
                             RequestLogout logoutNotification = (RequestLogout)msgReceived;
                             // Write Action Function here.........
@@ -264,6 +264,7 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResponseChangePass:
                         {
                             ResponseChangePass response = (ResponseChangePass)msgReceived;
+                            AppController.getObject().change.changePassNotification(response.getMsg());
                             break;
                         }
                     default:
@@ -302,7 +303,6 @@ namespace Project_CNPM.Controller
         // Function Send Message Private:
         public int sendPrivateMessage(RequestChatStruct request)
         {
-
 
             appSocketController.sendMessage(request.pack());
             // Implement Here
@@ -415,6 +415,10 @@ namespace Project_CNPM.Controller
             // Implement Here
             appSocketController.sendMessage(request.pack());
 
+        }
+        public void logout(RequestLogout request)
+        {
+            appSocketController.sendMessage(request.pack());
         }
 
         /// <summary>

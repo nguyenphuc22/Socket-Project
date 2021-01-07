@@ -28,29 +28,29 @@ namespace Project_CNPM
             AppController.getObject().createThreadListenMessageFromServer();
             AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
             label2.Text = AppController.getObject().userName;
-            panel1.Height = 72;
+            panel1.Height = 85;
         }
 
         public string s_msg;
 
         public void open_panel1()
         {
-            this.panel1.Size = new Size(this.panel1.Width, 303);
+            this.panel1.Size = new Size(this.panel1.Width, 500);
         }
 
         public void close_panel1()
         {
-            this.panel1.Size = new Size(this.panel1.Width, 72);
+            this.panel1.Size = new Size(this.panel1.Width, 85);
         }
 
         public void open_panel2()
         {
-            this.panel2.Size = new Size(this.panel2.Width, 303);
+            this.panel2.Size = new Size(this.panel2.Width, 500);
         }
 
         public void close_panel2()
         {
-            this.panel2.Size = new Size(this.panel2.Width, 72);
+            this.panel2.Size = new Size(this.panel2.Width, 85);
         }
 
         public void SetListView(ArrayList user_data)
@@ -64,7 +64,7 @@ namespace Project_CNPM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.panel1.Size.Height == 72)
+            if (this.panel1.Size.Height == 85)
             {
                 open_panel1();
                 button1.Text = "▼";
@@ -91,7 +91,7 @@ namespace Project_CNPM
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (this.panel2.Size.Height == 72)
+            if (this.panel2.Size.Height == 85)
             {
                 open_panel2();
                 button7.Text = "▼";
@@ -170,9 +170,13 @@ namespace Project_CNPM
         {
             if (!label1.Text.Contains("Group:"))
             {
+                string spaceMsg = textBox2.Text.Replace(" ", "");
+                if (textBox2.Text.Length != 0 && spaceMsg.Length!=0)
+                { 
                 AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
                 textBox2.Clear();
+                } 
             }
             else
             {
@@ -180,6 +184,7 @@ namespace Project_CNPM
                 SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
                 textBox2.Clear();
             }
+            textBox2.Clear();
         }
 
         public void SetListItem2_send_msg(string message_data,string recMessage)
@@ -320,6 +325,13 @@ namespace Project_CNPM
             AppController.getObject().change = new View.ChangePassForm();
             AppController.getObject().change.ShowDialog();
             //chuyen form sang doi pass
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AppController.getObject().logout(new RequestLogout(AppController.getObject().userName));
+            AppController.getObject().loginView.Show();
+            AppController.getObject().mainView.Close();
         }
     }
 }

@@ -14,7 +14,10 @@ namespace Project_CNPM.Model
         {
             msg = "";
         }
-
+        public string getMsg()
+        {
+            return msg;
+        }
         public ResponseChangePass(string msg)
         {
 

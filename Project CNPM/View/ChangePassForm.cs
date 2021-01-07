@@ -1,4 +1,5 @@
 ﻿using Project_CNPM.Controller;
+using Project_CNPM.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,14 +26,17 @@ namespace Project_CNPM.View
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string userName = AppController.getObject().userName;
+            string currentPass = textBox1.Text;
+            string newpassword = textBox2.Text;
+            string configpassword = textBox3.Text;
             if (textBox2.Text != "")
             {
                 if (textBox2.Text == textBox3.Text)
                 {
                     //Back_end here
-                    
-                    this.Hide();
-                    AppController.getObject().mainView.Show();
+                    RequestChangePass request = new RequestChangePass(userName, currentPass, newpassword, configpassword);
+                    AppController.getObject().changePass(request);
                 }
                 else
                 {
@@ -49,6 +53,16 @@ namespace Project_CNPM.View
         {
             this.Hide();
             AppController.getObject().mainView.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void changePassNotification(string msg)
+        {
+            label2.Text = msg;
         }
     }
 }

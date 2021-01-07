@@ -16,7 +16,7 @@ namespace Server.Controller
     class ServerController
     {
         public string dataSource = "Data Source=";
-        public string path = @"D:\Socket-Project\Server\Data\";
+        public string path = @"C:\Users\Admin\Desktop\do an\Socket-Project\Server\Data\";
         public string fileName = "database.db";
         int filesize = 1024 * 1024 * 25;
         public SocketController socketController;
@@ -84,11 +84,21 @@ namespace Server.Controller
             bool islogin = false;
             ArrayList array = new ArrayList(request.readData(connnectData));
 
-            if (array.Count != 0)
+            
+
+            if (array.Count != 0 )
             {
                 // Dang nhap thanh cong
                 response = new ResponseLoginStruct(true, "Login Success");
                 islogin = true;
+                foreach (ClientInfor client in clientInforList)
+                {
+                    if (client.isUserName(array[0].ToString()))
+                    {
+                        response = new ResponseLoginStruct(false, "Account was login");
+                        islogin = false;
+                    }
+                }
             }
             else
             {
@@ -294,6 +304,17 @@ namespace Server.Controller
             ResponseChangePass response = new ResponseChangePass("Change Password successfully!");
             socket.Send(response.pack());
         }
+        public void logout(string userName)
+        {
+            foreach(ClientInfor client in clientInforList)
+            {
+                if(client.isUserName(userName))
+                {
+                    clientInforList.Remove(client);
+                    client.close();
+                }
+            }
+        }
         // Function Listen Message Client
         public void ListenClientMessage(object obj)
             {
@@ -314,9 +335,10 @@ namespace Server.Controller
                                     // Write Action Function here.........
                                     break;
                                 }
-                            case ChatStruct.MessageType.LogoutNotificationStruct:
+                            case ChatStruct.MessageType.RequestLogoutStruct:
                                 {
                                     RequestLogout logoutNotification = (RequestLogout)msgReceived;
+                                    logout(logoutNotification.getUserName());
                                     // Write Action Function here.........
                                     break;
                                 }
@@ -470,14 +492,14 @@ namespace Server.Controller
                                     this.requestSendFileGroup(request,client);
                                     break;
                                 }
-                        case ChatStruct.MessageType.RequestChangePass:
-                            {
-                                RequestChangePass request = (RequestChangePass)msgReceived;
-                                this.changePass(request, client);
+                            case ChatStruct.MessageType.RequestChangePass:
+                                {
+                                    RequestChangePass request = (RequestChangePass)msgReceived;
+                                    this.changePass(request, client);
 
-                                break;
-                            }
-
+                                    break;
+                                }
+                            
                         default:
                                 break;
                         }
@@ -485,8 +507,8 @@ namespace Server.Controller
                     catch
                     {
                         // Check error if client close socket.
-                        //clientList.Remove(client);
-                        //client.Close();
+                        clientList.Remove(client);
+                        client.Close();
                     }
                 }
             }

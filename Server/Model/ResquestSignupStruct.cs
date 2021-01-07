@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Project_CNPM.Model
 {
@@ -101,6 +102,13 @@ namespace Project_CNPM.Model
 
             }
 
+        }
+        public bool checkSpecialCharacter()
+        {
+            var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+
+            return (regexItem.IsMatch(this.userName));
+               
         }
     }
 }

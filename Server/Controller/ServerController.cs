@@ -113,21 +113,26 @@ namespace Server.Controller
             // Function SignUp:
         public void signup(ResquestSignupStruct request, Socket socket)
         {
-
-
-
             ResponseSignupStruct response;
-            ArrayList data = new ArrayList(request.readData(connnectData));
-            if (data.Count==0)
+            if (!request.checkSpecialCharacter())
             {
-                response = new ResponseSignupStruct(true, "Signup Success");
-                request.writeData(connnectData);
+                response = new ResponseSignupStruct(false, "Username contains only letters and numbers !");
             }
             else
             {
-                response = new ResponseSignupStruct(false, "Username available!");
-              
-            }
+                ArrayList data = new ArrayList(request.readData(connnectData));
+
+                if (data.Count == 0)
+                {
+                    response = new ResponseSignupStruct(true, "Signup Success");
+                    request.writeData(connnectData);
+                }
+                else
+                {
+                    response = new ResponseSignupStruct(false, "Username available!");
+
+                }
+            }     
             socket.Send(response.pack());
         }
             // Function Send Message Group:

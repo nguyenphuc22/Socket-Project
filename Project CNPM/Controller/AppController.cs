@@ -91,7 +91,7 @@ namespace Project_CNPM.Controller
                         }
                     case ChatStruct.MessageType.LogoutNotificationStruct:
                         {
-                            LogoutNotificationStruct logoutNotification = (LogoutNotificationStruct)msgReceived;
+                            RequestLogout logoutNotification = (RequestLogout)msgReceived;
                             // Write Action Function here.........
                             break;
                         }

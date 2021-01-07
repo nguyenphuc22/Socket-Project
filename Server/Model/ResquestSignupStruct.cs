@@ -16,6 +16,9 @@ namespace Project_CNPM.Model
             this.userName = "";
             this.passWord = "";
         }
+
+
+
         public ResquestSignupStruct(string userName, string passWord)
         {
             this.userName = userName;

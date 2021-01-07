@@ -6,6 +6,9 @@ using System.Text;
 namespace Project_CNPM.Model
 {
     class ResquestSignupStruct : ChatStruct
+
+
+
     {
         string userName;
         string passWord;
@@ -44,6 +47,7 @@ namespace Project_CNPM.Model
         {
             int offset = 4; //Skip messageType
             int userNameLength, passWordLength;
+
 
             userNameLength = BitConverter.ToInt32(buff, offset);
             offset += 4; //Update Offset

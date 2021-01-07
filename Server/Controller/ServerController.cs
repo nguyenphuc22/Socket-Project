@@ -16,7 +16,7 @@ namespace Server.Controller
     class ServerController
     {
         public string dataSource = "Data Source=";
-        public string path = @"C:\Users\Admin\Desktop\do an\Socket-Project\Server\Data\";
+        public string path = @"C:\Users\ADMIN\Desktop\Socket-Project\Server\Data\";
         public string fileName = "database.db";
         int filesize = 1024 * 1024 * 25;
         public SocketController socketController;
@@ -315,6 +315,10 @@ namespace Server.Controller
                 }
             }
         }
+        public void outGroup(RequestOutGroup request)
+        {
+            request.writeData(connnectData);
+        }
         // Function Listen Message Client
         public void ListenClientMessage(object obj)
             {
@@ -499,7 +503,12 @@ namespace Server.Controller
 
                                     break;
                                 }
-                            
+                        case ChatStruct.MessageType.RequestOutGroup:
+                            {
+                                RequestOutGroup request = (RequestOutGroup)msgReceived;
+                                this.outGroup(request);
+                                break;
+                            }
                         default:
                                 break;
                         }

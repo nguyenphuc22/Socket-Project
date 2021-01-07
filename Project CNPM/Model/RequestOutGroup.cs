@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Text;
 
-namespace Server.Model
+namespace Project_CNPM.Model
 {
     class RequestOutGroup : ChatStruct
     {

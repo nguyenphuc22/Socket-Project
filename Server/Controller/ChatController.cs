@@ -30,10 +30,10 @@ namespace Server.Controller
                         result.unpack(buff);
                         break;
                     }
-                case ChatStruct.MessageType.LogoutNotificationStruct:
+                case ChatStruct.MessageType.RequestLogoutStruct:
                     {
                         result = new RequestLogout();
-                        result.messageType = ChatStruct.MessageType.LogoutNotificationStruct;
+                        result.messageType = ChatStruct.MessageType.RequestLogoutStruct;
                         result.unpack(buff);
                         break;
                     }

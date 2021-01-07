@@ -322,6 +322,11 @@ namespace Project_CNPM
             AppController.getObject().change.ShowDialog();
             //chuyen form sang doi pass
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AppController.getObject().logout(new RequestLogout(AppController.getObject().userName));
+        }
     }
 }
 

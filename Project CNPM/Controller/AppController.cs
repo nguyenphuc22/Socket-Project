@@ -417,6 +417,10 @@ namespace Project_CNPM.Controller
             appSocketController.sendMessage(request.pack());
 
         }
+        public void logout(RequestLogout request)
+        {
+            appSocketController.sendMessage(request.pack());
+        }
 
         /// <summary>
         ///  The main entry point for the application.

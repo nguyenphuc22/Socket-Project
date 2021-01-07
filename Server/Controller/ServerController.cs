@@ -275,7 +275,25 @@ namespace Server.Controller
                 ResponseRecFileGroup response = new ResponseRecFileGroup(fileName, data);
                 socket.Send(response.pack());
             }
+        public void changePass(RequestChangePass request, Socket socket)
+        {
 
+            if (!request.comparePass(connnectData))
+            {
+                ResponseChangePass response1 = new ResponseChangePass("Wrong Password!");
+                socket.Send(response1.pack());
+                return;
+            }
+            if (!request.compareNewPass())
+            {
+                ResponseChangePass response1 = new ResponseChangePass("New Password dose not match!");
+                socket.Send(response1.pack());
+                return;
+            }
+            request.writeData(connnectData);
+            ResponseChangePass response = new ResponseChangePass("Change Password successfully!");
+            socket.Send(response.pack());
+        }
         // Function Listen Message Client
         public void ListenClientMessage(object obj)
             {
@@ -452,6 +470,13 @@ namespace Server.Controller
                                     this.requestSendFileGroup(request,client);
                                     break;
                                 }
+                        case ChatStruct.MessageType.RequestChangePass:
+                            {
+                                RequestChangePass request = (RequestChangePass)msgReceived;
+                                this.changePass(request, client);
+
+                                break;
+                            }
 
                         default:
                                 break;

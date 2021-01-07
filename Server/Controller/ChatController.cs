@@ -226,7 +226,20 @@ namespace Server.Controller
                         result.unpack(buff);
                         break;
                     }
-
+                case ChatStruct.MessageType.RequestChangePass:
+                    {
+                        result = new RequestChangePass();
+                        result.messageType = ChatStruct.MessageType.RequestChangePass;
+                        result.unpack(buff);
+                        break;
+                    }
+                case ChatStruct.MessageType.ResponseChangePass:
+                    {
+                        result = new ResponseChangePass();
+                        result.messageType = ChatStruct.MessageType.ResponseChangePass;
+                        result.unpack(buff);
+                        break;
+                    }
                 default:
                     {
                         break;

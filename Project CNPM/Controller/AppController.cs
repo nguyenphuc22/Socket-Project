@@ -261,6 +261,11 @@ namespace Project_CNPM.Controller
                             AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName(),response.getRecGroupName());
                             break;
                         }
+                    case ChatStruct.MessageType.ResponseChangePass:
+                        {
+                            ResponseChangePass response = (ResponseChangePass)msgReceived;
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -404,6 +409,12 @@ namespace Project_CNPM.Controller
         public void requestRecFileGroup(RequestRecFileGroup request)
         {
             this.appSocketController.sendMessage(request.pack());
+        }
+        public void changePass(RequestChangePass request)
+        {
+            // Implement Here
+            appSocketController.sendMessage(request.pack());
+
         }
 
         /// <summary>

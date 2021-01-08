@@ -58,7 +58,7 @@ namespace Server.Model
             groupNameLength = BitConverter.ToInt32(buff, offset);
             offset += 4; //Update Offset
             if (groupNameLength > 0)
-                userName = Encoding.UTF8.GetString(buff, offset, groupNameLength);
+                groupName = Encoding.UTF8.GetString(buff, offset, groupNameLength);
 
             offset += groupNameLength; //Update offset
 

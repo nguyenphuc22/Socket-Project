@@ -342,7 +342,11 @@ namespace Project_CNPM
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            string groupName = label1.Text.Substring(label1.Text.IndexOf(":") + 1);
+            var request = new RequestOutGroup(groupName, AppController.getObject().userName);
+            AppController.getObject().outGroup(request);
+            this.listView2.Clear();
+            AppController.getObject().search(new ResquestSearchStruct("", AppController.getObject().userName));
         }
     }
 }

@@ -198,9 +198,13 @@ namespace Project_CNPM
             }
             else
             {
-                AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
-                SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
-                textBox2.Clear();
+                string spaceMsg = textBox2.Text.Replace(" ", "");
+                if (textBox2.Text.Length != 0 && spaceMsg.Length != 0)
+                {
+                    AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
+                    SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
+                    textBox2.Clear();
+                }
             }
             textBox2.Clear();
         }
@@ -371,6 +375,11 @@ namespace Project_CNPM
             Hide();
             AppController.getObject().create = new View.CreateGroupForm();
             AppController.getObject().create.ShowDialog();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

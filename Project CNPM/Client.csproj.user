@@ -4,6 +4,9 @@
     <Compile Update="View\ChangePassForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\CreateGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>

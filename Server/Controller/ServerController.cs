@@ -16,11 +16,7 @@ namespace Server.Controller
     class ServerController
     {
         public string dataSource = "Data Source=";
-<<<<<<< HEAD
         public string path = @"C:\Users\Asus\source\repos\Project CNPM\Server\Data\";
-=======
-        public string path = @"C:\Users\ADMIN\Desktop\Socket-Project\Server\Data\";
->>>>>>> 7007a132d7ad438ecb6f511c17edafe575340b66
         public string fileName = "database.db";
         int filesize = 1024*1024*1024;
         public SocketController socketController;
@@ -253,9 +249,19 @@ namespace Server.Controller
                 return 0;
             }
             // Function request Profile;
-            public int requestCreateGroup(string userName)
+            public int requestCreateGroup(RequestCreateGroupStruct request,Socket client)
             {
-                // Implement Here
+                ArrayList array = request.readData(connnectData);
+                ResposeCreateGroupStruct respose;
+                if (array.Count != 0)
+                {
+                    request.writeData(connnectData);
+                    respose = new ResposeCreateGroupStruct(request.getNameGroup(), request.getArrayList(), true, "Create Group Success");
+                }else
+                {
+                    respose = new ResposeCreateGroupStruct(request.getNameGroup(), request.getArrayList(), false, "Create Group Failed");
+                }
+                client.Send(respose.pack());
                 return 0;
             }
             // Function editProfile
@@ -386,7 +392,7 @@ namespace Server.Controller
                             case ChatStruct.MessageType.RequestCreateGroupStruct:
                                 {
                                     RequestCreateGroupStruct RequestCreateGroup = (RequestCreateGroupStruct)msgReceived;
-                                    // Write Action Function here.........
+                                    requestCreateGroup(RequestCreateGroup,client);
                                     break;
 
                                 }

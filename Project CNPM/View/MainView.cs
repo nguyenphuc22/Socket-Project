@@ -28,8 +28,8 @@ namespace Project_CNPM
             AppController.getObject().createThreadListenMessageFromServer();
             AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
             label2.Text = AppController.getObject().userName;
-            panel1.Height = 72;
-            panel2.Height = 72;
+            panel1.Height = 96;
+            panel2.Height = 96;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -50,22 +50,22 @@ namespace Project_CNPM
 
         public void open_panel1()
         {
-            this.panel1.Size = new Size(this.panel1.Width, 305);
+            this.panel1.Size = new Size(this.panel1.Width, 406);
         }
 
         public void close_panel1()
         {
-            this.panel1.Size = new Size(this.panel1.Width, 72);
+            this.panel1.Size = new Size(this.panel1.Width, 96);
         }
 
         public void open_panel2()
         {
-            this.panel2.Size = new Size(this.panel2.Width, 150);
+            this.panel2.Size = new Size(this.panel2.Width, 199);
         }
 
         public void close_panel2()
         {
-            this.panel2.Size = new Size(this.panel2.Width, 72);
+            this.panel2.Size = new Size(this.panel2.Width, 96);
         }
 
         public void SetListView(ArrayList user_data)
@@ -73,13 +73,16 @@ namespace Project_CNPM
             listView1.Items.Clear();
             for (int i = 0; i < user_data.Count; i++)
             {
-                listView1.Items.Add(user_data[i].ToString());
+                if (user_data[i].ToString() != label2.Text)
+                {
+                    listView1.Items.Add(user_data[i].ToString());
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.panel1.Size.Height == 72)
+            if (this.panel1.Size.Height == 96)
             {
                 open_panel1();
                 button1.Text = "▼";
@@ -106,7 +109,7 @@ namespace Project_CNPM
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (this.panel2.Size.Height == 72)
+            if (this.panel2.Size.Height == 96)
             {
                 open_panel2();
                 button7.Text = "▼";
@@ -361,6 +364,13 @@ namespace Project_CNPM
             AppController.getObject().outGroup(request);
             this.listView2.Clear();
             AppController.getObject().search(new ResquestSearchStruct("", AppController.getObject().userName));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AppController.getObject().create = new View.CreateGroupForm();
+            AppController.getObject().create.ShowDialog();
         }
     }
 }

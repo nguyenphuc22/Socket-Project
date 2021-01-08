@@ -12,6 +12,16 @@ namespace Project_CNPM.Model
         string nameGroup;
         ArrayList groupUserName;
 
+        public string getNameGroup()
+        {
+            return this.nameGroup;
+        }
+
+        public ArrayList getArrayList()
+        {
+            return this.groupUserName;
+        }
+       
         public RequestCreateGroupStruct()
         {
             this.groupUserName = new ArrayList();

@@ -19,6 +19,7 @@ namespace Project_CNPM.Controller
         public MainView mainView = null;
         public OpenFileDialog open = null;
         public ChangePassForm change = null;
+        public CreateGroupForm create = null;
         public int sizeFile = 1024 * 1024 * 25;
         //===================
         string Path = @"C:\Users\Asus\source\repos\Project CNPM\Project CNPM\Data\";
@@ -156,7 +157,16 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResposeCreateGroupStruct:
                         {
                             ResposeCreateGroupStruct ResposeCreateGroup = (ResposeCreateGroupStruct)msgReceived;
-                            // Write Action Function here.........
+                            if(ResposeCreateGroup.isSuccess())
+                            {
+                                MessageBox.Show(ResposeCreateGroup.getMsg(), "Create Succ");
+                            }
+                            else
+                            {
+                                MessageBox.Show(ResposeCreateGroup.getMsg(), "Fail");
+                            }
+                            AppController.getObject().mainView.Show();
+                            AppController.getObject().create.Close();
                             break;
 
                         }
@@ -209,6 +219,8 @@ namespace Project_CNPM.Controller
                         {
                             ResponseSearchStruct responseSearch = (ResponseSearchStruct)msgReceived;
                             this.mainView.SetListView(responseSearch.getData());
+                            if(this.create != null)
+                                this.create.SetListView(responseSearch.getData());
                             break;
                         }
                     case ChatStruct.MessageType.RequestChatStruct:
@@ -420,6 +432,10 @@ namespace Project_CNPM.Controller
             appSocketController.sendMessage(request.pack());
         }
         public void outGroup(RequestOutGroup request)
+        {
+            appSocketController.sendMessage(request.pack());
+        }
+        public void requestCreateGroup(RequestCreateGroupStruct request)
         {
             appSocketController.sendMessage(request.pack());
         }

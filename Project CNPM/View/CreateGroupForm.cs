@@ -13,16 +13,17 @@ namespace Project_CNPM.View
 {
     public partial class CreateGroupForm : Form
     {
-        ArrayList Group_nembers;
+        ArrayList Group_nembers = new ArrayList();
 
         public CreateGroupForm()
         {
+            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
+            AppController.getObject().search(new ResquestSearchStruct(textBox2.Text, AppController.getObject().userName));
         }
 
         public void SetListView(ArrayList user_data)
@@ -30,7 +31,7 @@ namespace Project_CNPM.View
             listView1.Items.Clear();
             for (int i = 0; i < user_data.Count; i++)
             {
-                if (!user_data[i].ToString().Contains("Group:"))
+                if (!user_data[i].ToString().Contains("Group:") && user_data[i].ToString() != AppController.getObject().userName)
                 {
                     listView1.Items.Add(user_data[i].ToString());
                 }
@@ -43,16 +44,22 @@ namespace Project_CNPM.View
             {
                 for (int i = 0; i < listView1.SelectedItems.Count; i++)
                 {
-                    Group_nembers.Add(listView1.SelectedItems[i].SubItems[0].Text);
+                    Group_nembers.Add(listView1.SelectedItems[i].Text);
                 }
             }
 
-            
+            AppController.getObject().requestCreateGroup(new RequestCreateGroupStruct(textBox1.Text,Group_nembers));
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CreateGroupForm_Load(object sender, EventArgs e)
+        {
+            AppController.getObject().createThreadListenMessageFromServer();
+            AppController.getObject().search(new ResquestSearchStruct(textBox2.Text, AppController.getObject().userName));
         }
     }
 }

@@ -12,6 +12,16 @@ namespace Project_CNPM.Model
         bool isSucc;
         string msg;
 
+        public bool isSuccess()
+        {
+            return this.isSucc;
+        }
+
+        public string getMsg()
+        {
+            return this.msg;
+        }
+
         public ResposeCreateGroupStruct()
         {
             this.groupUserName = new ArrayList();
@@ -28,7 +38,7 @@ namespace Project_CNPM.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.Add(Convert.ToByte(Convert.ToInt32(MessageType.ResposeCreateGroupStruct)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResposeCreateGroupStruct)));
             data.AddRange(BitConverter.GetBytes(isSucc));
 
             if (this.nameGroup != null)
@@ -95,7 +105,9 @@ namespace Project_CNPM.Model
                     {
                         offset += 4; //Update offset
                         this.groupUserName.Add(Encoding.UTF8.GetString(buff, offset, sizeUserName));
+                        offset += sizeUserName;    
                     }
+
 
                 }
             }

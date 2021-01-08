@@ -129,3 +129,4 @@ C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Cli
 =======
 D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
 >>>>>>> 7007a132d7ad438ecb6f511c17edafe575340b66
+C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.View.CreateGroupForm.resources

@@ -29,7 +29,7 @@ namespace Project_CNPM.Model
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();
-            data.Add(Convert.ToByte(Convert.ToInt32(MessageType.ResposeCreateGroupStruct)));
+            data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.ResposeCreateGroupStruct)));
             data.AddRange(BitConverter.GetBytes(isSucc));
 
             if (this.nameGroup != null)

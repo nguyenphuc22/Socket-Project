@@ -47,7 +47,7 @@ namespace Project_CNPM.View
                     Group_nembers.Add(listView1.SelectedItems[i].Text);
                 }
             }
-
+            Group_nembers.Add(AppController.getObject().userName);
             AppController.getObject().requestCreateGroup(new RequestCreateGroupStruct(textBox1.Text,Group_nembers));
         }
 

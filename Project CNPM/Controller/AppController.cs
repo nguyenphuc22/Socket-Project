@@ -166,7 +166,8 @@ namespace Project_CNPM.Controller
                                 MessageBox.Show(ResposeCreateGroup.getMsg(), "Fail");
                             }
                             AppController.getObject().mainView.Show();
-                            AppController.getObject().create.Close();
+                            AppController.getObject().create.Hide();
+                            search(new ResquestSearchStruct("", userName));
                             break;
 
                         }

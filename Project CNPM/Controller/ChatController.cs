@@ -246,6 +246,13 @@ namespace Project_CNPM.Controller
                         result.unpack(buff);
                         break;
                     }
+                case ChatStruct.MessageType.RequestOutGroup:
+                    {
+                        result = new RequestOutGroup();
+                        result.messageType = ChatStruct.MessageType.RequestOutGroup;
+                        result.unpack(buff);
+                        break;
+                    }
                 default:
                     {
                         break;

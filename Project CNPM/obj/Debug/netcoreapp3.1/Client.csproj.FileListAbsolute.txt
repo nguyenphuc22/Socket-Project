@@ -93,6 +93,7 @@ C:\Users\Admin\Desktop\do an\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1
 C:\Users\Admin\Desktop\do an\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.dll
 C:\Users\Admin\Desktop\do an\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.pdb
 C:\Users\Admin\Desktop\do an\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\Client.exe
 C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\Client.deps.json
 C:\Users\Asus\source\repos\Project CNPM\Project CNPM\bin\Debug\netcoreapp3.1\Client.runtimeconfig.json
@@ -125,3 +126,6 @@ C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Cli
 C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Client.dll
 C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Client.pdb
 C:\Users\Asus\source\repos\Project CNPM\Project CNPM\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
+=======
+D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
+>>>>>>> 7007a132d7ad438ecb6f511c17edafe575340b66

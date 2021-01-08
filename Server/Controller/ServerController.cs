@@ -16,9 +16,13 @@ namespace Server.Controller
     class ServerController
     {
         public string dataSource = "Data Source=";
+<<<<<<< HEAD
         public string path = @"C:\Users\Asus\source\repos\Project CNPM\Server\Data\";
+=======
+        public string path = @"C:\Users\ADMIN\Desktop\Socket-Project\Server\Data\";
+>>>>>>> 7007a132d7ad438ecb6f511c17edafe575340b66
         public string fileName = "database.db";
-        int filesize = 1024 * 1024 * 25;
+        int filesize = 1024*1024*1024;
         public SocketController socketController;
         private Thread threadListenClient;
         private List<Socket> clientList;
@@ -113,21 +117,26 @@ namespace Server.Controller
             // Function SignUp:
         public void signup(ResquestSignupStruct request, Socket socket)
         {
-
-
-
             ResponseSignupStruct response;
-            ArrayList data = new ArrayList(request.readData(connnectData));
-            if (data.Count==0)
+            if (!request.checkSpecialCharacter())
             {
-                response = new ResponseSignupStruct(true, "Signup Success");
-                request.writeData(connnectData);
+                response = new ResponseSignupStruct(false, "Username contains only letters and numbers !");
             }
             else
             {
-                response = new ResponseSignupStruct(false, "Username available!");
-              
-            }
+                ArrayList data = new ArrayList(request.readData(connnectData));
+
+                if (data.Count == 0)
+                {
+                    response = new ResponseSignupStruct(true, "Signup Success");
+                    request.writeData(connnectData);
+                }
+                else
+                {
+                    response = new ResponseSignupStruct(false, "Username available!");
+
+                }
+            }     
             socket.Send(response.pack());
         }
             // Function Send Message Group:
@@ -167,8 +176,8 @@ namespace Server.Controller
             // Function Request Send File Private:
             public int requestSendFilePrivate(RequestSendFileStruct request,Socket socket)
             {
-
-
+            
+            {
                 request.writeData(connnectData);
                 ResponseSendFileStruct response = new ResponseSendFileStruct(request.getsendUserName(), request.getrecUserName(), request.getPath());
                 if (getSocketByUsername(response.getrecUserName().ToString()) != null)
@@ -176,7 +185,7 @@ namespace Server.Controller
                     getSocketByUsername(response.getrecUserName()).Send(response.pack());
 
                 }
-                // Implement Here
+            }
                 return 0;
             }
             // Function ReponseSend File Private
@@ -315,6 +324,10 @@ namespace Server.Controller
                     
                 }
             }
+        }
+        public void outGroup(RequestOutGroup request)
+        {
+            request.writeData(connnectData);
         }
         // Function Listen Message Client
         public void ListenClientMessage(object obj)
@@ -500,7 +513,12 @@ namespace Server.Controller
 
                                     break;
                                 }
-                            
+                        case ChatStruct.MessageType.RequestOutGroup:
+                            {
+                                RequestOutGroup request = (RequestOutGroup)msgReceived;
+                                this.outGroup(request);
+                                break;
+                            }
                         default:
                                 break;
                         }

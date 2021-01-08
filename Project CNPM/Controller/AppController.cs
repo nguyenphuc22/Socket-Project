@@ -341,8 +341,7 @@ namespace Project_CNPM.Controller
         // Function Send File Private
         public int sendPrivateFile(RequestSendFileStruct request)
         {
-
-            appSocketController.sendMessage(request.pack());
+                appSocketController.sendMessage(request.pack());
             // Implement Here
             return 0;
         }
@@ -420,7 +419,10 @@ namespace Project_CNPM.Controller
         {
             appSocketController.sendMessage(request.pack());
         }
-
+        public void outGroup(RequestOutGroup request)
+        {
+            appSocketController.sendMessage(request.pack());
+        }
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

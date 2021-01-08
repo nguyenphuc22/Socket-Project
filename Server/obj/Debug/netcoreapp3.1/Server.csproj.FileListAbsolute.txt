@@ -87,3 +87,4 @@ C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Serve
 C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.dll
 C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.pdb
 C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache
+D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csprojAssemblyReference.cache

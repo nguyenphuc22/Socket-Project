@@ -93,3 +93,4 @@ C:\Users\Admin\Desktop\do an\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1
 C:\Users\Admin\Desktop\do an\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.dll
 C:\Users\Admin\Desktop\do an\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.pdb
 C:\Users\Admin\Desktop\do an\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
+D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache

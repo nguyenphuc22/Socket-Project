@@ -53,7 +53,8 @@ namespace Project_CNPM.View
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            AppController.getObject().mainView.Show();
         }
 
         private void CreateGroupForm_Load(object sender, EventArgs e)

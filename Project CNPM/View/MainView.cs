@@ -372,6 +372,16 @@ namespace Project_CNPM
             AppController.getObject().create = new View.CreateGroupForm();
             AppController.getObject().create.ShowDialog();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

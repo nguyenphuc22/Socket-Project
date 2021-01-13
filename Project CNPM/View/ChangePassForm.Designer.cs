@@ -45,7 +45,7 @@ namespace Project_CNPM.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(195, 41);
+            this.label1.Location = new System.Drawing.Point(73, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(241, 35);
             this.label1.TabIndex = 0;
@@ -54,7 +54,7 @@ namespace Project_CNPM.View
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(129, 116);
+            this.label2.Location = new System.Drawing.Point(23, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 1;
@@ -64,7 +64,7 @@ namespace Project_CNPM.View
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 197);
+            this.label3.Location = new System.Drawing.Point(44, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 20);
             this.label3.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace Project_CNPM.View
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(70, 249);
+            this.label4.Location = new System.Drawing.Point(44, 201);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 20);
             this.label4.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace Project_CNPM.View
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(70, 300);
+            this.label5.Location = new System.Drawing.Point(44, 249);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(164, 20);
             this.label5.TabIndex = 4;
@@ -90,7 +90,7 @@ namespace Project_CNPM.View
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(226, 193);
+            this.textBox1.Location = new System.Drawing.Point(44, 170);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '*';
@@ -99,7 +99,7 @@ namespace Project_CNPM.View
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(226, 245);
+            this.textBox2.Location = new System.Drawing.Point(44, 222);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
@@ -108,7 +108,7 @@ namespace Project_CNPM.View
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(226, 296);
+            this.textBox3.Location = new System.Drawing.Point(44, 273);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
@@ -117,31 +117,36 @@ namespace Project_CNPM.View
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(269, 360);
+            this.button1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(65, 322);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 31);
             this.button1.TabIndex = 8;
             this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(427, 360);
+            this.button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(217, 322);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 31);
             this.button2.TabIndex = 9;
             this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ChangePassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 425);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(370, 416);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);

@@ -238,7 +238,7 @@
             // 
             // Name
             // 
-            this.Name.Text = "Name";
+            this.Name.Text = "MainView";
             this.Name.Width = 327;
             // 
             // listView2
@@ -246,14 +246,17 @@
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader0,
             this.columnHeader1});
-            this.listView2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listView2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listView2.FullRowSelect = true;
             this.listView2.HideSelection = false;
+            this.listView2.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
             this.listView2.Location = new System.Drawing.Point(381, 104);
             this.listView2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listView2.MaximumSize = new System.Drawing.Size(650, 550);
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(634, 531);
+            this.listView2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listView2.Size = new System.Drawing.Size(634, 550);
             this.listView2.TabIndex = 11;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -261,7 +264,8 @@
             // 
             // columnHeader0
             // 
-            this.columnHeader0.Width = 275;
+            this.columnHeader0.Text = "YourMessage";
+            this.columnHeader0.Width = 280;
             // 
             // columnHeader1
             // 
@@ -291,12 +295,11 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.panel3);
-            this.Name.Text = "MainView";
+            this.Controls.Add(this.listView2);
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);

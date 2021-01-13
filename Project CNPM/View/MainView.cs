@@ -198,9 +198,13 @@ namespace Project_CNPM
             }
             else
             {
-                AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
-                SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
-                textBox2.Clear();
+                string spaceMsg = textBox2.Text.Replace(" ", "");
+                if (textBox2.Text.Length != 0 && spaceMsg.Length != 0)
+                {
+                    AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
+                    SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
+                    textBox2.Clear();
+                }
             }
             textBox2.Clear();
         }
@@ -373,12 +377,16 @@ namespace Project_CNPM
             AppController.getObject().create.ShowDialog();
         }
 
+<<<<<<< HEAD
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
         private void label2_Click(object sender, EventArgs e)
+=======
+        private void textBox2_TextChanged(object sender, EventArgs e)
+>>>>>>> f529bb362a190c919ca2236c84c6260622765416
         {
 
         }

@@ -1,32 +1,3 @@
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.exe
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.deps.json
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.json
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.dev.json
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.pdb
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\EntityFramework.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.EF6.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.MainView.resources
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.GenerateResource.cache
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfoInputs.cache
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfo.cs
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.CoreCompileInputs.cache
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.CopyComplete
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.dll
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.pdb
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache
 C:\Users\ADMIN\Desktop\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.exe
 C:\Users\ADMIN\Desktop\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.deps.json
 C:\Users\ADMIN\Desktop\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.json
@@ -47,7 +18,6 @@ C:\Users\ADMIN\Desktop\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\wi
 C:\Users\ADMIN\Desktop\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
 C:\Users\ADMIN\Desktop\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\ADMIN\Desktop\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\ADMIN\Desktop\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csprojAssemblyReference.cache
 C:\Users\ADMIN\Desktop\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.MainView.resources
 C:\Users\ADMIN\Desktop\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.GenerateResource.cache
 C:\Users\ADMIN\Desktop\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfoInputs.cache
@@ -57,67 +27,3 @@ C:\Users\ADMIN\Desktop\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.cspr
 C:\Users\ADMIN\Desktop\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.dll
 C:\Users\ADMIN\Desktop\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.pdb
 C:\Users\ADMIN\Desktop\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.exe
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.deps.json
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.json
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.dev.json
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\Server.pdb
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\EntityFramework.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.EF6.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csprojAssemblyReference.cache
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.MainView.resources
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.GenerateResource.cache
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfoInputs.cache
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfo.cs
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csproj.CopyComplete
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.dll
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.pdb
-C:\Users\Admin\Desktop\do an\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache
-<<<<<<< HEAD
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\Server.exe
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\Server.deps.json
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.json
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.dev.json
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\Server.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\Server.pdb
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\EntityFramework.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.EF6.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.csprojAssemblyReference.cache
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.MainView.resources
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.csproj.GenerateResource.cache
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfoInputs.cache
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfo.cs
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.csproj.CoreCompileInputs.cache
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.csproj.CopyComplete
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.dll
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.pdb
-C:\Users\Asus\source\repos\Project CNPM\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache
-=======
-D:\Socket-Project\Server\obj\Debug\netcoreapp3.1\Server.csprojAssemblyReference.cache
->>>>>>> 7007a132d7ad438ecb6f511c17edafe575340b66

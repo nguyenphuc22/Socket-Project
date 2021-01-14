@@ -182,6 +182,11 @@ namespace Project_CNPM
             {
                 
             }
+            listView2.BeginUpdate();
+
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+            listView2.EndUpdate();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -255,8 +260,11 @@ namespace Project_CNPM
                     }
                 }
             }
-            
+            listView2.BeginUpdate();
 
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+            listView2.EndUpdate();
         }
 
         private void button2_Click(object sender, EventArgs e)

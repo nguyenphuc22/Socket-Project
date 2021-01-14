@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj": {}
+    "D:\\Socket-Project\\Project CNPM\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj": {
+    "D:\\Socket-Project\\Project CNPM\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj",
+        "projectUniqueName": "D:\\Socket-Project\\Project CNPM\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\Client.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Project CNPM\\obj\\",
+        "projectPath": "D:\\Socket-Project\\Project CNPM\\Client.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "D:\\Socket-Project\\Project CNPM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

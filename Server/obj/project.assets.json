@@ -1150,19 +1150,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Asus\\.nuget\\packages\\": {}
+    "C:\\Users\\USER\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Server\\Server.csproj",
+      "projectUniqueName": "D:\\Socket-Project\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Server\\Server.csproj",
-      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Server\\obj\\",
+      "projectPath": "D:\\Socket-Project\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+      "outputPath": "D:\\Socket-Project\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

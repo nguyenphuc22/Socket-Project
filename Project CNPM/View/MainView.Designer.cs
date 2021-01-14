@@ -44,10 +44,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Name = new System.Windows.Forms.ColumnHeader();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.button2 = new System.Windows.Forms.Button();
             this.columnHeader0 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.button2 = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -241,6 +241,30 @@
             this.Name.Text = "MainView";
             this.Name.Width = 327;
             // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(381, 644);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(56, 61);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "📎";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // columnHeader0
+            // 
+            this.columnHeader0.Text = "YourMessage";
+            this.columnHeader0.Width = 280;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "MyMassage";
+            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader1.Width = 280;
+            // 
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -262,30 +286,6 @@
             this.listView2.View = System.Windows.Forms.View.Details;
             this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
-            // columnHeader0
-            // 
-            this.columnHeader0.Text = "YourMessage";
-            this.columnHeader0.Width = 280;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "MyMassage";
-            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader1.Width = 280;
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(381, 644);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 61);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "📎";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -300,6 +300,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.listView2);
+            this.Name = "MainView";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
@@ -328,12 +329,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader Name;
-        private System.Windows.Forms.ColumnHeader columnHeader0;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader columnHeader0;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ListView listView2;
     }
 }
 

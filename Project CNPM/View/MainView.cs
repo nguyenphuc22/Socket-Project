@@ -390,6 +390,11 @@ namespace Project_CNPM
         {
 
         }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

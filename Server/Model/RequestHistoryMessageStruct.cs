@@ -69,11 +69,8 @@ namespace Server.Model
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    string message;
-                    
-                    message = row["sender"].ToString() + ":" + row["message"].ToString();
-                    
-                    data.Add(message);
+                    data.Add(row["sender"].ToString());
+                    data.Add(row["message"].ToString());
                 }
                 return data;
             }
@@ -113,17 +110,11 @@ namespace Server.Model
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    string message;
-
-                    message = row["sender"] + ":" + row["message"].ToString();
-
-                    data.Add(message);
+                    data.Add(row["sender"].ToString());
+                    data.Add(row["message"].ToString());
                 }
 
             }
-
-           
-
             return data;
         }
 

@@ -9,9 +9,30 @@ namespace Project_CNPM.Model
     {
         ArrayList messArr;
 
-        public ArrayList getData()
+        public ArrayList getDataMess()
         {
-            return this.messArr;
+            ArrayList datamess = new ArrayList();
+            for(int i = 0; i < messArr.Count;i++)
+            {
+                if(i % 2 != 0)
+                {
+                    datamess.Add(messArr[i]);
+                }
+            }
+            return datamess;
+        }
+
+        public ArrayList getUsername()
+        {
+            ArrayList dataUsername = new ArrayList();
+            for (int i = 0; i < messArr.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    dataUsername.Add(messArr[i]);
+                }
+            }
+            return dataUsername;
         }
 
         public ResponseHistoryMesssageStruct()

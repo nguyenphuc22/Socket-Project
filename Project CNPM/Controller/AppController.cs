@@ -71,6 +71,7 @@ namespace Project_CNPM.Controller
 
                 try
                 {
+                    
                     revc = client.Receive(buff);
 
                 }
@@ -228,25 +229,25 @@ namespace Project_CNPM.Controller
                         {
                             RequestChatStruct requestChat = (RequestChatStruct)msgReceived;
                             // call function set msg view
-                            getObject().mainView.SetListItem2_send_msg(requestChat.getMessage(),requestChat.getSendUserName());
+                            getObject().mainView.SetListItem2_send_msg(requestChat.getMessage(), requestChat.getSendUserName(), requestChat.getSendUserName());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseChatStruct:
                         {
                             ResponseChatStruct responseSearch = (ResponseChatStruct)msgReceived;
-                            getObject().mainView.SetListItem2_send_msg(responseSearch.getMessage(),responseSearch.getrecUserName());
+                            getObject().mainView.SetListItem2_send_msg(responseSearch.getMessage(), responseSearch.getrecUserName(), responseSearch.getrecUserName());
                             break;
                         }
                     case ChatStruct.MessageType.RequestChatGroupStruct:
                         {
                             RequestChatGroupStruct requestChatGroup = (RequestChatGroupStruct)msgReceived;
-                            getObject().mainView.SetListItem2_send_msg(requestChatGroup.getMessage(),requestChatGroup.getRecGroupName());
+                            getObject().mainView.SetListItem2_send_msg(requestChatGroup.getMessage(), requestChatGroup.getRecGroupName(), requestChatGroup.getRecGroupName());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseHistoryMesssage:
                         {
                             ResponseHistoryMesssageStruct responseHistoryMesssage = (ResponseHistoryMesssageStruct)msgReceived;
-                            AppController.getObject().mainView.SetListView2(responseHistoryMesssage.getData());
+                            AppController.getObject().mainView.SetListView2(responseHistoryMesssage.getDataMess(),responseHistoryMesssage.getUsername());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseRecFile:
@@ -265,13 +266,13 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResponseSendFileStruct:
                         {
                             ResponseSendFileStruct response = (ResponseSendFileStruct)msgReceived;
-                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName(), response.getSendUserName());
+                            AppController.getObject().mainView.SetListItem2_send_msg(response.getFileName(), this.userName, response.getSendUserName());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseSendFileGroupStruct:
                         {
                             ResponseSendFileGroupStruct response = (ResponseSendFileGroupStruct)msgReceived;
-                            AppController.getObject().mainView.SetListItem2_send_msg(this.userName + ":" + response.getFileName(),response.getRecGroupName());
+                            AppController.getObject().mainView.SetListItem2_send_msg(response.getFileName(), this.userName,response.getRecGroupName());
                             break;
                         }
                     case ChatStruct.MessageType.ResponseChangePass:

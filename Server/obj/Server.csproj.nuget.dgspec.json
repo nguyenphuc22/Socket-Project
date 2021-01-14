@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Socket-Project\\Server\\Server.csproj": {}
+    "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Server\\Server.csproj": {}
   },
   "projects": {
-    "D:\\Socket-Project\\Server\\Server.csproj": {
+    "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Socket-Project\\Server\\Server.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "D:\\Socket-Project\\Server\\Server.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "D:\\Socket-Project\\Server\\obj\\",
+        "projectPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Server\\Server.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asus\\source\\repos\\Project CNPM\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

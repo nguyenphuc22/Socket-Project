@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Project_CNPM.Model;
 using System.Collections;
 using System.IO;
+using Project_CNPM.View;
 using Microsoft.VisualBasic;
 
 namespace Project_CNPM
@@ -19,8 +20,89 @@ namespace Project_CNPM
     {
         public MainView()
         {
-            CheckForIllegalCrossThreadCalls = false;
-            InitializeComponent();
+                InitializeComponent();
+                CheckForIllegalCrossThreadCalls = false;
+                chatLabelForm_old = chatLabelForm1;
+        }
+        
+        ChatLabelForm chatLabelForm_old = new ChatLabelForm();
+
+        public void addInMessage(string msg, string username)
+        {
+           
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    //perform on the UI thread
+                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In);
+                    chatLabelForm.Anchor = chatLabelForm1.Anchor;
+                    chatLabelForm.Location = chatLabelForm1.Location;
+                    chatLabelForm.Size = chatLabelForm1.Size;
+                    chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
+
+                    panel4.Controls.Add(chatLabelForm);
+                    panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
+
+                    chatLabelForm_old = chatLabelForm;
+                });
+            }
+            else
+            {
+                //perform on the UI thread
+                ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In);
+                chatLabelForm.Anchor = chatLabelForm1.Anchor;
+                chatLabelForm.Location = chatLabelForm1.Location;
+                chatLabelForm.Size = chatLabelForm1.Size;
+                chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
+
+                panel4.Controls.Add(chatLabelForm);
+                panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
+
+                chatLabelForm_old = chatLabelForm;
+            }
+
+
+
+        }
+        public void addOutMessage(string msg, string username)
+        {
+            
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out);
+                    chatLabelForm.Location = chatLabelForm1.Location;
+                    chatLabelForm.Left += 20;
+                    chatLabelForm.Size = chatLabelForm1.Size;
+                    chatLabelForm.Anchor = chatLabelForm1.Anchor;
+                    chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
+
+
+                    panel4.Controls.Add(chatLabelForm);
+                    panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
+
+                    chatLabelForm_old = chatLabelForm;
+
+                });
+            }
+            else
+            {
+                ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out);
+                chatLabelForm.Location = chatLabelForm1.Location;
+                chatLabelForm.Left += 20;
+                chatLabelForm.Size = chatLabelForm1.Size;
+                chatLabelForm.Anchor = chatLabelForm1.Anchor;
+                chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
+
+
+                panel4.Controls.Add(chatLabelForm);
+                panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
+
+                chatLabelForm_old = chatLabelForm;
+
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -132,61 +214,39 @@ namespace Project_CNPM
             }
         }
 
-        public void SetListView2(ArrayList message_data)
+        public void SetListView2(ArrayList message_data,ArrayList username_data)
         {
-            bool Chatting = false;
-            listView2.Items.Clear();
+            //listView2.Items.Clear();
+            
             for (int i = 0; i < message_data.Count; i++)
             {
-                if (label1.Text == listView1.SelectedItems[0].SubItems[0].Text)
+                if (username_data[i].ToString() == AppController.getObject().userName)
                 {
-                    Chatting = true;
-                }
-            }
-            if (Chatting) {
-                for (int i = 0; i < message_data.Count; i++)
-                {
-                    if (message_data[i].ToString().Contains(AppController.getObject().userName + ":"))
+                    if (message_data[i].ToString().Contains(":\\"))
                     {
-                        if (message_data[i].ToString().Contains(":\\"))
-                        {
-                            ListViewItem sender = new ListViewItem("");
-                            sender.SubItems.Add(message_data[i].ToString());
-                            listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
-                        }
-                        else
-                        {
-                            ListViewItem sender = new ListViewItem("");
-                            sender.SubItems.Add(message_data[i].ToString());
-                            listView2.Items.Add(sender);
-                        }
+                        addOutMessage(message_data[i].ToString(), username_data[i].ToString());
                     }
                     else
                     {
-                        if (message_data[i].ToString().Contains(":\\"))
-                        {
-                            ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
-                            recievcer.SubItems.Add("");
-                            listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
-                        }
-                        else
-                        {
-                            ListViewItem recievcer = new ListViewItem(message_data[i].ToString());
-                            recievcer.SubItems.Add("");
-                            listView2.Items.Add(recievcer);
-                        }
+
+                        addOutMessage(message_data[i].ToString(), username_data[i].ToString());
+                    }
+                }
+                else
+                {
+                    if (message_data[i].ToString().Contains(":\\"))
+                    {
+                        addInMessage(message_data[i].ToString(), username_data[i].ToString());
+                        
+                    }
+                    else
+                    {
+                        addInMessage(message_data[i].ToString(), username_data[i].ToString());
+                       
                     }
                 }
             }
-            else
-            {
-                
-            }
-            listView2.BeginUpdate();
-
-            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-
-            listView2.EndUpdate();
+          
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -196,9 +256,9 @@ namespace Project_CNPM
                 string spaceMsg = textBox2.Text.Replace(" ", "");
                 if (textBox2.Text.Length != 0 && spaceMsg.Length!=0)
                 { 
-                AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
-                SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
-                textBox2.Clear();
+                    AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
+                    SetListItem2_send_msg(textBox2.Text, AppController.getObject().userName, label1.Text);
+                    textBox2.Clear();
                 } 
             }
             else
@@ -207,45 +267,41 @@ namespace Project_CNPM
                 if (textBox2.Text.Length != 0 && spaceMsg.Length != 0)
                 {
                     AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
-                    SetListItem2_send_msg(AppController.getObject().userName + ":" + textBox2.Text, label1.Text);
+                    SetListItem2_send_msg(textBox2.Text, AppController.getObject().userName, label1.Text);
                     textBox2.Clear();
                 }
             }
             textBox2.Clear();
         }
 
-        public void SetListItem2_send_msg(string message_data,string recMessage)
+        public void SetListItem2_send_msg(string message_data,string userName,string recMessage)
         {
             if(label1.Text == recMessage)
             {
-                if (message_data.ToString().Contains(AppController.getObject().userName + ":"))
+                if (userName == label2.Text.ToString())
                 {
                     if (message_data.ToString().Contains(":\\"))
                     {
-                        ListViewItem sender = new ListViewItem("");
-                        sender.SubItems.Add(message_data.ToString());
-                        listView2.Items.Add(sender).ForeColor = Color.DarkBlue;
+                        addOutMessage(message_data,userName);
+                        
                     }
                     else
                     {
-                        ListViewItem sender = new ListViewItem("");
-                        sender.SubItems.Add(message_data.ToString());
-                        listView2.Items.Add(sender);
+                        addOutMessage(message_data,userName);
+                        
                     }
                 }
                 else
                 {
                     if (message_data.ToString().Contains(":\\"))
                     {
-                        ListViewItem recievcer = new ListViewItem(message_data.ToString());
-                        recievcer.SubItems.Add("");
-                        listView2.Items.Add(recievcer).ForeColor = Color.DarkBlue;
+                        addInMessage(message_data,userName);
+                        
                     }
                     else
                     {
-                        ListViewItem recievcer = new ListViewItem(message_data.ToString());
-                        recievcer.SubItems.Add("");
-                        listView2.Items.Add(recievcer);
+                        addInMessage(message_data, userName);
+                        
                     }
                 }
             } 
@@ -260,11 +316,7 @@ namespace Project_CNPM
                     }
                 }
             }
-            listView2.BeginUpdate();
-
-            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-
-            listView2.EndUpdate();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -278,7 +330,7 @@ namespace Project_CNPM
 
                 if (label1.Text.Contains("Group:"))
                 {
-                    SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename, label1.Text);
+                    SetListItem2_send_msg(strfilename, AppController.getObject().userName,  label1.Text);
                     int indexNumber = label1.Text.IndexOf(":");
                     string nameGroup = label1.Text.Substring(indexNumber + 1);
                     AppController.getObject().sendGroupFile(new RequestSendFileGroupStruct(AppController.getObject().userName, nameGroup, strfilename,
@@ -290,7 +342,7 @@ namespace Project_CNPM
                          File.ReadAllBytes(strfilename));
                     if (request.checkFileSize())
                     {
-                        SetListItem2_send_msg(AppController.getObject().userName + ":" + strfilename, label1.Text);
+                        SetListItem2_send_msg(strfilename, AppController.getObject().userName, label1.Text);
                         AppController.getObject().sendPrivateFile(request);
                     }
                     
@@ -302,6 +354,7 @@ namespace Project_CNPM
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
             if (listView2.SelectedItems.Count >= 1)
             {
                 if (listView2.SelectedItems[0].SubItems.Count >= 1)
@@ -352,6 +405,7 @@ namespace Project_CNPM
                     }
                 }
             }
+            */
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -374,7 +428,7 @@ namespace Project_CNPM
             string groupName = label1.Text.Substring(label1.Text.IndexOf(":") + 1);
             var request = new RequestOutGroup(groupName, AppController.getObject().userName);
             AppController.getObject().outGroup(request);
-            this.listView2.Clear();
+            //this.listView2.Clear();
             AppController.getObject().search(new ResquestSearchStruct("", AppController.getObject().userName));
         }
 
@@ -400,6 +454,11 @@ namespace Project_CNPM
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chatLabelForm1_Load(object sender, EventArgs e)
         {
 
         }

@@ -261,6 +261,7 @@ namespace Project_CNPM.Controller
                         {
                             ResponseRecFileGroup responseRec = (ResponseRecFileGroup)msgReceived;
                             responseRec.writeData(this.Path);
+                            MessageBox.Show("Download File Success!");
                             break;
                         }
                     case ChatStruct.MessageType.ResponseSendFileStruct:

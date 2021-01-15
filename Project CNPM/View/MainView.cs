@@ -1,18 +1,11 @@
 ﻿using Project_CNPM.Controller;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Project_CNPM.Model;
-using System.Collections;
-using System.IO;
 using Project_CNPM.View;
-using Microsoft.VisualBasic;
+using System;
+using System.Collections;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Project_CNPM
 {
@@ -20,26 +13,32 @@ namespace Project_CNPM
     {
         public MainView()
         {
-                InitializeComponent();
-                CheckForIllegalCrossThreadCalls = false;
-                chatLabelForm_old = chatLabelForm1;
+            InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
+            chatLabelForm1.Visible = true;
+
+            chatLabelForm_old = chatLabelForm1;
+            chatLabelForm_old.Height = chatLabelForm1.Height = 100;
+            
         }
-        
+
         ChatLabelForm chatLabelForm_old = new ChatLabelForm();
 
-        public void addInMessage(string msg, string username)
+        public void addInMessage(string msg, string username,bool isfile)
         {
-           
+
             if (this.InvokeRequired)
             {
                 this.BeginInvoke((MethodInvoker)delegate ()
                 {
                     //perform on the UI thread
-                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In);
+                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In, isfile,label1.Text);
                     chatLabelForm.Anchor = chatLabelForm1.Anchor;
                     chatLabelForm.Location = chatLabelForm1.Location;
                     chatLabelForm.Size = chatLabelForm1.Size;
                     chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
+
+                    chatLabelForm.Height = 100;
 
                     panel4.Controls.Add(chatLabelForm);
                     panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
@@ -49,12 +48,13 @@ namespace Project_CNPM
             }
             else
             {
-                //perform on the UI thread
-                ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In);
+                ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In, isfile, label1.Text);
                 chatLabelForm.Anchor = chatLabelForm1.Anchor;
                 chatLabelForm.Location = chatLabelForm1.Location;
                 chatLabelForm.Size = chatLabelForm1.Size;
                 chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
+
+                chatLabelForm.Height = 100;
 
                 panel4.Controls.Add(chatLabelForm);
                 panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
@@ -65,23 +65,26 @@ namespace Project_CNPM
 
 
         }
-        public void addOutMessage(string msg, string username)
+        public void addOutMessage(string msg, string username,bool isfile)
         {
-            
+
             if (this.InvokeRequired)
             {
                 this.BeginInvoke((MethodInvoker)delegate ()
                 {
-                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out);
+                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out,isfile, label1.Text);
                     chatLabelForm.Location = chatLabelForm1.Location;
                     chatLabelForm.Left += 20;
+
+                    
                     chatLabelForm.Size = chatLabelForm1.Size;
                     chatLabelForm.Anchor = chatLabelForm1.Anchor;
                     chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
 
-
+                    chatLabelForm.Height = 100;
                     panel4.Controls.Add(chatLabelForm);
                     panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
+
 
                     chatLabelForm_old = chatLabelForm;
 
@@ -89,16 +92,19 @@ namespace Project_CNPM
             }
             else
             {
-                ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out);
+                ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out, isfile, label1.Text);
                 chatLabelForm.Location = chatLabelForm1.Location;
                 chatLabelForm.Left += 20;
+
+
                 chatLabelForm.Size = chatLabelForm1.Size;
                 chatLabelForm.Anchor = chatLabelForm1.Anchor;
                 chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
 
-
+                chatLabelForm.Height = 100;
                 panel4.Controls.Add(chatLabelForm);
                 panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
+
 
                 chatLabelForm_old = chatLabelForm;
 
@@ -108,7 +114,7 @@ namespace Project_CNPM
         private void Form1_Load(object sender, EventArgs e)
         {
             AppController.getObject().createThreadListenMessageFromServer();
-            AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
+            AppController.getObject().search(new ResquestSearchStruct("", AppController.getObject().userName));
             label2.Text = AppController.getObject().userName;
             panel1.Height = 96;
             panel2.Height = 96;
@@ -178,7 +184,7 @@ namespace Project_CNPM
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            close_panel1();
+            textBox1.Clear();
             AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
         }
 
@@ -214,52 +220,60 @@ namespace Project_CNPM
             }
         }
 
-        public void SetListView2(ArrayList message_data,ArrayList username_data)
+        public void SetListView2(ArrayList message_data, ArrayList username_data)
         {
             //listView2.Items.Clear();
-            
+            panel4.Controls.Clear();
+            chatLabelForm_old = chatLabelForm1;
+            chatLabelForm_old.Height = chatLabelForm1.Height = 100;
             for (int i = 0; i < message_data.Count; i++)
             {
                 if (username_data[i].ToString() == AppController.getObject().userName)
                 {
                     if (message_data[i].ToString().Contains(":\\"))
                     {
-                        addOutMessage(message_data[i].ToString(), username_data[i].ToString());
+                        addOutMessage(message_data[i].ToString(), username_data[i].ToString(), true) ;
                     }
                     else
                     {
 
-                        addOutMessage(message_data[i].ToString(), username_data[i].ToString());
+                        addOutMessage(message_data[i].ToString(), username_data[i].ToString(),false);
                     }
                 }
                 else
                 {
                     if (message_data[i].ToString().Contains(":\\"))
                     {
-                        addInMessage(message_data[i].ToString(), username_data[i].ToString());
-                        
+                        addInMessage(message_data[i].ToString(), username_data[i].ToString(),true);
+
                     }
                     else
                     {
-                        addInMessage(message_data[i].ToString(), username_data[i].ToString());
-                       
+                        addInMessage(message_data[i].ToString(), username_data[i].ToString(),false);
+
                     }
                 }
             }
-          
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if(textBox2.Text.Contains("'"))
+            {
+                MessageBox.Show("Do not enter special characters");
+                return;
+            }
+
             if (!label1.Text.Contains("Group:"))
             {
                 string spaceMsg = textBox2.Text.Replace(" ", "");
-                if (textBox2.Text.Length != 0 && spaceMsg.Length!=0)
-                { 
+                if (textBox2.Text.Length != 0 && spaceMsg.Length != 0)
+                {
                     AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
                     SetListItem2_send_msg(textBox2.Text, AppController.getObject().userName, label1.Text);
                     textBox2.Clear();
-                } 
+                }
             }
             else
             {
@@ -274,37 +288,37 @@ namespace Project_CNPM
             textBox2.Clear();
         }
 
-        public void SetListItem2_send_msg(string message_data,string userName,string recMessage)
+        public void SetListItem2_send_msg(string message_data, string userName, string recMessage)
         {
-            if(label1.Text == recMessage)
+            if (label1.Text == recMessage)
             {
                 if (userName == label2.Text.ToString())
                 {
                     if (message_data.ToString().Contains(":\\"))
                     {
-                        addOutMessage(message_data,userName);
-                        
+                        addOutMessage(message_data, userName,true);
+
                     }
                     else
                     {
-                        addOutMessage(message_data,userName);
-                        
+                        addOutMessage(message_data, userName,false);
+
                     }
                 }
                 else
                 {
                     if (message_data.ToString().Contains(":\\"))
                     {
-                        addInMessage(message_data,userName);
-                        
+                        addInMessage(message_data, userName,true);
+
                     }
                     else
                     {
-                        addInMessage(message_data, userName);
-                        
+                        addInMessage(message_data, userName,false);
+
                     }
                 }
-            } 
+            }
             else
             {
                 for (int j = 0; j < listView1.Items.Count; j++)
@@ -316,7 +330,7 @@ namespace Project_CNPM
                     }
                 }
             }
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -330,7 +344,7 @@ namespace Project_CNPM
 
                 if (label1.Text.Contains("Group:"))
                 {
-                    SetListItem2_send_msg(strfilename, AppController.getObject().userName,  label1.Text);
+                    SetListItem2_send_msg(strfilename, AppController.getObject().userName, label1.Text);
                     int indexNumber = label1.Text.IndexOf(":");
                     string nameGroup = label1.Text.Substring(indexNumber + 1);
                     AppController.getObject().sendGroupFile(new RequestSendFileGroupStruct(AppController.getObject().userName, nameGroup, strfilename,
@@ -345,7 +359,7 @@ namespace Project_CNPM
                         SetListItem2_send_msg(strfilename, AppController.getObject().userName, label1.Text);
                         AppController.getObject().sendPrivateFile(request);
                     }
-                    
+
 
                 }
             }
@@ -354,58 +368,7 @@ namespace Project_CNPM
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            if (listView2.SelectedItems.Count >= 1)
-            {
-                if (listView2.SelectedItems[0].SubItems.Count >= 1)
-                {
-                    if (label1.Text.Contains("Group:"))
-                    {
-                        if (listView2.SelectedItems[0].SubItems[0].Text != "")
-                        {
-                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
-                            {
-                                int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
-                                string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
-                                string nameGroup = label1.Text.Substring(label1.Text.IndexOf(":") + 1);
-                                AppController.getObject().requestRecFileGroup(new RequestRecFileGroup(nameGroup, path));
-                            }
-                        }
-                        if (listView2.SelectedItems[0].SubItems[1].Text != "")
-                        {
-                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
-                            {
-                                int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
-                                string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
-                                string nameGroup = label1.Text.Substring(label1.Text.IndexOf(":") + 1);
-                                AppController.getObject().requestRecFileGroup(new RequestRecFileGroup(nameGroup, path));
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (listView2.SelectedItems[0].SubItems[0].Text != "")
-                        {
-                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
-                            {
-                                int indexNumber = listView2.SelectedItems[0].SubItems[0].Text.IndexOf(":");
-                                string path = listView2.SelectedItems[0].SubItems[0].Text.Substring(indexNumber + 1);
-                                AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
-                            }
-                        }
-                        if (listView2.SelectedItems[0].SubItems[1].Text != "")
-                        {
-                            if (listView2.SelectedItems[0].ForeColor == Color.DarkBlue)
-                            {
-                                int indexNumber = listView2.SelectedItems[0].SubItems[1].Text.IndexOf(":");
-                                string path = listView2.SelectedItems[0].SubItems[1].Text.Substring(indexNumber + 1);
-                                AppController.getObject().requestRecFile(new RequestRecFile(AppController.getObject().userName, path));
-                            }
-                        }
-                    }
-                }
-            }
-            */
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -461,6 +424,11 @@ namespace Project_CNPM
         private void chatLabelForm1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
         }
     }
 }

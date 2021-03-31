@@ -104,7 +104,7 @@
             this.Name});
             this.listView1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(15, 100);
+            this.listView1.Location = new System.Drawing.Point(15, 123);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(327, 263);
             this.listView1.TabIndex = 10;
@@ -154,6 +154,7 @@
             this.chatLabelForm1.Name = "chatLabelForm1";
             this.chatLabelForm1.Size = new System.Drawing.Size(503, 57);
             this.chatLabelForm1.TabIndex = 0;
+            this.chatLabelForm1.Load += new System.EventHandler(this.chatLabelForm1_Load_1);
             // 
             // flowLayoutPanel1
             // 
@@ -260,7 +261,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name.Name= "MainView";
+            this.Name.Name = "MainView";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainView_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainView_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -105,7 +105,7 @@ namespace Project_CNPM.View
             {
             if (txtPassword.Text == "Type Your Password")
                 txtPassword.Text = "";
-                txtPassword.ForeColor = Color.Black;
+                txtPassword.ForeColor = Color.White;
             }
         }
 
@@ -116,6 +116,11 @@ namespace Project_CNPM.View
                 txtPassword.Text = "Type Your Password";
                 txtPassword.ForeColor = Color.Gray;
             }
+        }
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -5,8 +5,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.Name = new System.Windows.Forms.ColumnHeader();
             this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.chatLabelForm1 = new Project_CNPM.View.ChatLabelForm();
@@ -87,6 +85,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(553, 72);
             this.panel3.TabIndex = 9;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label1
             // 
@@ -97,26 +96,6 @@
             this.label1.Size = new System.Drawing.Size(0, 32);
             this.label1.TabIndex = 10;
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Name});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(15, 123);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(327, 263);
-            this.listView1.TabIndex = 10;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // Name
-            // 
-            this.Name.Name = "MainView";
-            this.Name.Text = "List Chat";
-            this.Name.Width = 400;
             // 
             // button2
             // 
@@ -136,7 +115,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.listView1);
             this.panel4.Controls.Add(this.chatLabelForm1);
             this.panel4.Location = new System.Drawing.Point(333, 79);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -261,7 +239,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name.Name = "MainView";
+            this.Name = "MainView";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainView_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainView_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -274,4 +252,4 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }          #endregion         private System.Windows.Forms.TextBox textBox2;         private System.Windows.Forms.Button button6;         private System.Windows.Forms.Panel panel2;         private System.Windows.Forms.Button button8;         private System.Windows.Forms.Button button7;         private System.Windows.Forms.Panel panel3;         private System.Windows.Forms.Label label1;         private System.Windows.Forms.ListView listView1;         private System.Windows.Forms.ColumnHeader Name;         private System.Windows.Forms.Button button2;         private System.Windows.Forms.Panel panel4;         private View.ChatLabelForm chatLabelForm1;         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;         private System.Windows.Forms.Panel panel1;         private System.Windows.Forms.Label label2;         private System.Windows.Forms.Button button1;         private System.Windows.Forms.Button button5;         private System.Windows.Forms.Button button4;         private System.Windows.Forms.Button button3;         private System.Windows.Forms.TextBox textBox1;     } }  
+        }          #endregion         private System.Windows.Forms.TextBox textBox2;         private System.Windows.Forms.Button button6;         private System.Windows.Forms.Panel panel2;         private System.Windows.Forms.Button button8;         private System.Windows.Forms.Button button7;         private System.Windows.Forms.Panel panel3;         private System.Windows.Forms.Label label1;         private System.Windows.Forms.Button button2;         private System.Windows.Forms.Panel panel4;         private View.ChatLabelForm chatLabelForm1;         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;         private System.Windows.Forms.Panel panel1;         private System.Windows.Forms.Label label2;         private System.Windows.Forms.Button button1;         private System.Windows.Forms.Button button5;         private System.Windows.Forms.Button button4;         private System.Windows.Forms.Button button3;         private System.Windows.Forms.TextBox textBox1;     } }  

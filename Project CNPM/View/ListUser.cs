@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Project_CNPM.Controller;
+using Project_CNPM.Model;
+using Project_CNPM.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,6 +59,12 @@ namespace Project_CNPM.View
         private void ListUser_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.White;
+        }
+
+        private void ListUser_Click(object sender, EventArgs e)
+        {
+            AppController.getObject().mainView.setLabel1(this.userName.Text);
+            AppController.getObject().loadMessage(new RequestHistoryMessageStruct(AppController.getObject().userName,this.userName.Text));
         }
     }
 }

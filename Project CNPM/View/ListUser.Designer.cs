@@ -44,7 +44,6 @@ namespace Project_CNPM.View
             this.avatar.Size = new System.Drawing.Size(96, 96);
             this.avatar.TabIndex = 0;
             this.avatar.TabStop = false;
-           
             // 
             // userName
             // 
@@ -53,7 +52,6 @@ namespace Project_CNPM.View
             this.userName.Size = new System.Drawing.Size(100, 23);
             this.userName.TabIndex = 1;
             this.userName.Text = "username";
-           
             // 
             // recentMes
             // 
@@ -81,6 +79,7 @@ namespace Project_CNPM.View
             this.Controls.Add(this.panel1);
             this.Name = "ListUser";
             this.Size = new System.Drawing.Size(262, 96);
+            this.Click += new System.EventHandler(this.ListUser_Click);
             this.DragLeave += new System.EventHandler(this.ListUser_DragLeave);
             this.MouseEnter += new System.EventHandler(this.ListUser_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.ListUser_MouseLeave);

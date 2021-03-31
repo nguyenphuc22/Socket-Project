@@ -114,6 +114,11 @@ namespace Project_CNPM
             }
         }
 
+        public void setLabel1(String text)
+        {
+            label1.Text = text;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             AppController.getObject().createThreadListenMessageFromServer();
@@ -160,17 +165,7 @@ namespace Project_CNPM
             this.panel2.Size = new Size(this.panel2.Width, 96);
         }
 
-        public void SetListView(ArrayList user_data)
-        {
-            listView1.Items.Clear();
-            for (int i = 0; i < user_data.Count; i++)
-            {
-                if (user_data[i].ToString() != label2.Text)
-                {
-                    listView1.Items.Add(user_data[i].ToString());
-                }
-            }
-        }
+    
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -213,17 +208,7 @@ namespace Project_CNPM
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count >= 1)
-            {
-                Font n_font = new Font(listView1.SelectedItems[0].SubItems[0].Font, FontStyle.Regular);
-                listView1.SelectedItems[0].SubItems[0].Font = n_font;
-                label1.Text = listView1.SelectedItems[0].SubItems[0].Text;
-                AppController.getObject().loadMessage(new RequestHistoryMessageStruct(AppController.getObject().userName, listView1.SelectedItems[0].SubItems[0].Text));
-            }
-        }
-
+      
         public void SetListView2(ArrayList message_data, ArrayList username_data)
         {
             //listView2.Items.Clear();
@@ -325,14 +310,7 @@ namespace Project_CNPM
             }
             else
             {
-                for (int j = 0; j < listView1.Items.Count; j++)
-                {
-                    if (listView1.Items[j].Text == recMessage)
-                    {
-                        Font n_font = new Font(listView1.Items[j].Font, FontStyle.Bold);
-                        listView1.Items[j].Font = n_font;
-                    }
-                }
+              
             }
 
         }
@@ -439,7 +417,7 @@ namespace Project_CNPM
        public void populateItem(ArrayList arr )
         {
            
-            ListUser[] listusers = new ListUser[10];
+            ListUser[] listusers = new ListUser[arr.Count];
          
             this.BeginInvoke((Action)(() =>
             {
@@ -448,8 +426,8 @@ namespace Project_CNPM
 
                     listusers[i] = new ListUser();
                     // listusers[i].Ava = Image.FromFile("C://Users//w1oz//Downloads//images.jpg");
-                    listusers[i].Username = "allo " + i.ToString();
-                    listusers[i].Recentmess = arr[i].ToString();
+                    listusers[i].Username = arr[i].ToString();
+                    listusers[i].Recentmess = i.ToString();
                     //if (flowLayoutPanel1.Controls.Count > 0)
                     //{
                     //    flowLayoutPanel1.Controls.Clear();
@@ -465,6 +443,9 @@ namespace Project_CNPM
                 }
             }));
         }
+
+
+      
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -492,6 +473,11 @@ namespace Project_CNPM
         }
 
         private void chatLabelForm1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

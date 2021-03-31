@@ -16,7 +16,7 @@ namespace Server.Controller
     class ServerController
     {
         public string dataSource = "Data Source=";
-        public string path = @"C:\Users\Asus\source\repos\Socket-Project\Server\Data\";
+        public string path = @"E:\Socket-Project-main\Server\Data\";
         public string fileName = "database.db";
         int filesize = 1024*1024*1024;
         public SocketController socketController;

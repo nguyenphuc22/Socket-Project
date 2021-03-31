@@ -26,28 +26,28 @@ namespace Project_CNPM.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtUserName.Text) || String.IsNullOrEmpty(txtPassword.Text))
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text))
             {
                 label4.Text = "Empty Username or Password!";
             }
             else
             {
-                user.Username = txtUserName.Text;
-                user.Password = txtPassword.Text;
+                user.Username = textBox1.Text;
+                user.Password = textBox2.Text;
                 AppController.getObject().signup(new ResquestSignupStruct(user.Username, user.Password));
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtUserName.Text) || String.IsNullOrEmpty(txtPassword.Text))
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text))
             {
                 label4.Text = "Empty Username or Password!";
             }
             else
             {
-                user.Username = txtUserName.Text;
-                user.Password = txtPassword.Text;
+                user.Username = textBox1.Text;
+                user.Password = textBox2.Text;
                 AppController.getObject().login(new RequestLoginStruct(user.Username, user.Password));
             }
         }
@@ -80,42 +80,6 @@ namespace Project_CNPM.View
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void txtUserName_MouseEnter(object sender, EventArgs e)
-        {
-            if(txtUserName.Text == "Type Your UserName")
-            {
-                txtUserName.Text = "";
-                txtUserName.ForeColor = Color.Black;
-            } 
-        }
-
-        private void txtUserName_MouseLeave(object sender, EventArgs e)
-        {
-            if (txtUserName.Text.Length == 0)
-            {
-                txtUserName.Text = "Type Your UserName";
-                txtUserName.ForeColor = Color.Gray;
-            }
-        }
-
-        private void txtPassword_MouseEnter(object sender, EventArgs e)
-        {
-            {
-            if (txtPassword.Text == "Type Your Password")
-                txtPassword.Text = "";
-                txtPassword.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtPassword_MouseLeave(object sender, EventArgs e)
-        {
-            if (txtPassword.Text.Length == 0)
-            {
-                txtPassword.Text = "Type Your Password";
-                txtPassword.ForeColor = Color.Gray;
-            }
         }
     }
 }

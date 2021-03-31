@@ -11,6 +11,7 @@ namespace Project_CNPM
 {
     public partial class MainView : Form
     {
+        
         public MainView()
         {
             InitializeComponent();
@@ -19,7 +20,9 @@ namespace Project_CNPM
 
             chatLabelForm_old = chatLabelForm1;
             chatLabelForm_old.Height = chatLabelForm1.Height = 100;
-            
+
+           
+
         }
 
         ChatLabelForm chatLabelForm_old = new ChatLabelForm();
@@ -118,6 +121,7 @@ namespace Project_CNPM
             label2.Text = AppController.getObject().userName;
             panel1.Height = 96;
             panel2.Height = 96;
+            populateItem();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -184,6 +188,7 @@ namespace Project_CNPM
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            textBox1.Clear();
             AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
         }
 
@@ -380,6 +385,7 @@ namespace Project_CNPM
 
         private void button5_Click(object sender, EventArgs e)
         {
+       
             AppController.getObject().logout(new RequestLogout(AppController.getObject().userName));
             AppController.getObject().loginView.Show();
             AppController.getObject().mainView.Close();
@@ -428,6 +434,53 @@ namespace Project_CNPM
         private void textBox1_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
+        }
+
+        private void populateItem()
+        {
+
+            ListUser[] listusers = new ListUser[10];
+            for(int i = 0; i < listusers.Length; i++)
+            {
+                
+                listusers[i] = new ListUser();
+               // listusers[i].Ava = Image.FromFile("C://Users//w1oz//Downloads//images.jpg");
+                listusers[i].Username = "allo " + i.ToString();
+                listusers[i].Recentmess = "bello ";
+                //if (flowLayoutPanel1.Controls.Count > 0)
+                //{
+                //    flowLayoutPanel1.Controls.Clear();
+                //}
+                //else
+                //{
+
+                //}
+                flowLayoutPanel1.Controls.Add(listusers[i]);
+            }
+        }
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void MainView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+           
+        }
+
+        private void MainView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }

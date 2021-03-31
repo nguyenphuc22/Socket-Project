@@ -20,8 +20,8 @@ namespace Project_CNPM
 
             chatLabelForm_old = chatLabelForm1;
             chatLabelForm_old.Height = chatLabelForm1.Height = 100;
-
            
+           // populateItem()
 
         }
 
@@ -121,7 +121,7 @@ namespace Project_CNPM
             label2.Text = AppController.getObject().userName;
             panel1.Height = 96;
             panel2.Height = 96;
-            populateItem();
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -436,27 +436,34 @@ namespace Project_CNPM
             textBox1.Clear();
         }
 
-        private void populateItem()
+       public void populateItem(ArrayList arr )
         {
-
+           
             ListUser[] listusers = new ListUser[10];
-            for(int i = 0; i < listusers.Length; i++)
+         
+            this.BeginInvoke((Action)(() =>
             {
-                
-                listusers[i] = new ListUser();
-               // listusers[i].Ava = Image.FromFile("C://Users//w1oz//Downloads//images.jpg");
-                listusers[i].Username = "allo " + i.ToString();
-                listusers[i].Recentmess = "bello ";
-                //if (flowLayoutPanel1.Controls.Count > 0)
-                //{
-                //    flowLayoutPanel1.Controls.Clear();
-                //}
-                //else
-                //{
+                for (int i = 0; i < 9; i++)
+                {
 
-                //}
-                flowLayoutPanel1.Controls.Add(listusers[i]);
-            }
+                    listusers[i] = new ListUser();
+                    // listusers[i].Ava = Image.FromFile("C://Users//w1oz//Downloads//images.jpg");
+                    listusers[i].Username = "allo " + i.ToString();
+                    listusers[i].Recentmess = arr[i].ToString();
+                    //if (flowLayoutPanel1.Controls.Count > 0)
+                    //{
+                    //    flowLayoutPanel1.Controls.Clear();
+                    //}
+                    //else
+                    //{
+
+                    //}
+
+                    flowLayoutPanel1.Controls.Add(listusers[i]);
+
+
+                }
+            }));
         }
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -480,7 +487,13 @@ namespace Project_CNPM
 
         private void MainView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            AppController.getObject().logout(new RequestLogout(AppController.getObject().userName));
+
+        }
+
+        private void chatLabelForm1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

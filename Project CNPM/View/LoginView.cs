@@ -24,33 +24,8 @@ namespace Project_CNPM.View
             AppController.getObject().loginView = this;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtUserName.Text) || String.IsNullOrEmpty(txtPassword.Text))
-            {
-                label4.Text = "Empty Username or Password!";
-            }
-            else
-            {
-                user.Username = txtUserName.Text;
-                user.Password = txtPassword.Text;
-                AppController.getObject().signup(new ResquestSignupStruct(user.Username, user.Password));
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtUserName.Text) || String.IsNullOrEmpty(txtPassword.Text))
-            {
-                label4.Text = "Empty Username or Password!";
-            }
-            else
-            {
-                user.Username = txtUserName.Text;
-                user.Password = txtPassword.Text;
-                AppController.getObject().login(new RequestLoginStruct(user.Username, user.Password));
-            }
-        }
+       
+        
 
         public void Change_subtitle(string Warn_Msg)
         {
@@ -87,7 +62,7 @@ namespace Project_CNPM.View
             if(txtUserName.Text == "Type Your UserName")
             {
                 txtUserName.Text = "";
-                txtUserName.ForeColor = Color.Black;
+                txtUserName.ForeColor = Color.White;
             } 
         }
 
@@ -120,7 +95,45 @@ namespace Project_CNPM.View
 
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void label_signUp_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtUserName.Text) || String.IsNullOrEmpty(txtPassword.Text) || txtPassword.Text == "Type Your Password" || txtUserName.Text == "Type Your Username")
+            {
+                label4.Text = "Empty Username or Password!";
+            }
+            else
+            {
+                user.Username = txtUserName.Text;
+                user.Password = txtPassword.Text;
+                AppController.getObject().signup(new ResquestSignupStruct(user.Username, user.Password));
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtUserName.Text) || String.IsNullOrEmpty(txtPassword.Text) || txtPassword.Text == "Type Your Password" || txtUserName.Text == "Type Your Username")
+            {
+                label4.Text = "Empty Username or Password!";
+            }
+            else
+            {
+                user.Username = txtUserName.Text;
+                user.Password = txtPassword.Text;
+                AppController.getObject().login(new RequestLoginStruct(user.Username,user.Password));
+            }
+        }
+
+        private void label_signUp_MouseLeave(object sender, EventArgs e)
+        {
+            label_signUp.Font = new Font(label_signUp.Font.Name,label_signUp.Font.SizeInPoints, FontStyle.Regular);
+        }
+
+        private void label_signUp_MouseMove(object sender, MouseEventArgs e)
+        {
+            label_signUp.Font = new Font(label_signUp.Font.Name, label_signUp.Font.SizeInPoints, FontStyle.Underline);
         }
     }
 }

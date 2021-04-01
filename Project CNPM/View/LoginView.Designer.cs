@@ -29,44 +29,26 @@ namespace Project_CNPM.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label_signUp = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(118)))), ((int)(((byte)(171)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(148, 343);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(350, 54);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "SIGN UP";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(118)))), ((int)(((byte)(171)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(148, 271);
+            this.button2.Location = new System.Drawing.Point(148, 310);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(350, 55);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "SIGN IN";
+            this.button2.Size = new System.Drawing.Size(278, 55);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "LOGIN";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -75,11 +57,11 @@ namespace Project_CNPM.View
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(148, 30);
+            this.label1.Location = new System.Drawing.Point(148, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 41);
+            this.label1.Size = new System.Drawing.Size(313, 41);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Application Chating";
+            this.label1.Text = "Application Chatting";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -89,12 +71,12 @@ namespace Project_CNPM.View
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUserName.ForeColor = System.Drawing.Color.White;
-            this.txtUserName.Location = new System.Drawing.Point(148, 153);
+            this.txtUserName.Location = new System.Drawing.Point(148, 135);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(350, 32);
+            this.txtUserName.Size = new System.Drawing.Size(301, 32);
             this.txtUserName.TabIndex = 0;
-            this.txtUserName.Text = "Type Your UserName";
+            this.txtUserName.Text = "Type Your Username";
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             this.txtUserName.MouseEnter += new System.EventHandler(this.txtUserName_MouseEnter);
             this.txtUserName.MouseLeave += new System.EventHandler(this.txtUserName_MouseLeave);
@@ -103,13 +85,13 @@ namespace Project_CNPM.View
             // 
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.ForeColor = System.Drawing.Color.White;
-            this.txtPassword.Location = new System.Drawing.Point(148, 214);
+            this.txtPassword.Location = new System.Drawing.Point(148, 189);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(350, 32);
+            this.txtPassword.Size = new System.Drawing.Size(301, 31);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.Text = "Type Your Password";
             this.txtPassword.UseSystemPasswordChar = true;
@@ -125,29 +107,43 @@ namespace Project_CNPM.View
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(148, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 28);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "  ";
+            this.label4.Size = new System.Drawing.Size(0, 28);
+            this.label4.TabIndex = 0;
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label_signUp
+            // 
+            this.label_signUp.AutoSize = true;
+            this.label_signUp.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_signUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(118)))), ((int)(((byte)(171)))));
+            this.label_signUp.Location = new System.Drawing.Point(148, 254);
+            this.label_signUp.Name = "label_signUp";
+            this.label_signUp.Size = new System.Drawing.Size(63, 20);
+            this.label_signUp.TabIndex = 4;
+            this.label_signUp.Text = "Sign Up";
+            this.label_signUp.Click += new System.EventHandler(this.label_signUp_Click);
+            this.label_signUp.MouseLeave += new System.EventHandler(this.label_signUp_MouseLeave);
+            this.label_signUp.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label_signUp_MouseMove);
             // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(665, 447);
+            this.ClientSize = new System.Drawing.Size(582, 453);
+            this.Controls.Add(this.label_signUp);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(600, 500);
             this.Name = "LoginView";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.Text = "LoginView";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.LoginView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,12 +151,11 @@ namespace Project_CNPM.View
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_signUp;
     }
 }

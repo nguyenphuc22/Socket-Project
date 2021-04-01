@@ -183,7 +183,7 @@ namespace Project_CNPM
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            textBox1.Clear();
+            
             AppController.getObject().search(new ResquestSearchStruct(textBox1.Text, AppController.getObject().userName));
         }
 

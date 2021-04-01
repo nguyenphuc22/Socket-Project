@@ -85,7 +85,7 @@ namespace Server.Model
 
 
 
-            /* if(this.search != "all")
+             if(this.search != "all")
              {
                  queryUser = String.Format("SELECT DISTINCT nameGroup FROM GroupChat Where NameGroup like '{0}%' and UserName = '{1}'"
                 , this.search,this.userName);
@@ -104,9 +104,11 @@ namespace Server.Model
 
              foreach (DataRow row in dtUser.Rows)
              {
-                 recent.Add("Group:"+row["NameGroup"].ToString());
+                 byte[] i = new byte[0];
+                RecentMessage r = new RecentMessage("Group:" + row["NameGroup"].ToString(), "", i);
+                 recentMsg.Add(r);
              }
-            */
+            
 
             queryUser = String.Format("select userName,message,Ava, pb.idBox " +
                "FROM PrivateMessage pm,PrivateBox pb, UserData ud " +

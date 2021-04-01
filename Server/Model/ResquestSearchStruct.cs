@@ -73,7 +73,7 @@ namespace Server.Model
             foreach (DataRow row in dtUser.Rows)
             {
                 byte[] i = new byte[0];
-                /*i = Convert.FromBase64String(row["Ava"].ToString());*/
+                i = Convert.FromBase64String(row["Ava"].ToString());
 
                 RecentMessage r = new RecentMessage(row["userName"].ToString(), " ", i);
                 recentMsg.Add(r);
@@ -131,6 +131,30 @@ namespace Server.Model
                 RecentMessage recent = new RecentMessage(row["userName"].ToString(), row["message"].ToString(), i);
                 arrBoxMsg.Add(recent);
             }
+
+            queryUser = String.Format("select *" +
+                "FROM GroupChat gc, GroupMessage gm where gc.userName = '{0}' and gm.nameGroup = gc.nameGroup " +
+                "and gm.time = (SELECT max(time) " +
+                "FROM GroupMessage gm1 " +
+                "where gm1.nameGroup = gm.nameGroup)", this.userName);
+            cmdUser = new SQLiteCommand(queryUser, connectionData);
+
+            dtUser = new DataTable();
+
+            adapter = new SQLiteDataAdapter(cmdUser);
+            // data type table
+            adapter.Fill(dtUser);
+            
+            foreach (DataRow row in dtUser.Rows)
+            {
+                byte[] i = new byte[0];
+                
+
+                RecentMessage recent = new RecentMessage("Group:" + row["NameGroup"].ToString(), row["sender"].ToString()+": " +row["message"].ToString(), i);
+                arrBoxMsg.Add(recent);
+            }
+
+
             for (int i = 0; i < recentMsg.Count; i++)
             {
                 for (int j = 0; j < arrBoxMsg.Count; j++)

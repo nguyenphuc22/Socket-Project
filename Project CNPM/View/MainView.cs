@@ -11,6 +11,7 @@ namespace Project_CNPM
 {
     public partial class MainView : Form
     {
+        int sizbar = 54;
 
         public MainView()
         {
@@ -124,8 +125,8 @@ namespace Project_CNPM
             AppController.getObject().createThreadListenMessageFromServer();
             AppController.getObject().search(new ResquestSearchStruct("", AppController.getObject().userName));
             label2.Text = AppController.getObject().userName;
-            panel1.Height = 96;
-            panel2.Height = 96;
+            panel1.Height = sizbar;
+            panel2.Height = sizbar;
 
         }
 
@@ -147,37 +148,37 @@ namespace Project_CNPM
 
         public void open_panel1()
         {
-            this.panel1.Size = new Size(this.panel1.Width, 406);
+            int size_wi = this.panel1.Size.Height + button_SignOut.Size.Height + button_createGroup.Size.Height + button_changpass.Size.Height;
+            this.panel1.Size = new Size(this.panel1.Width, size_wi);
         }
 
         public void close_panel1()
         {
-            this.panel1.Size = new Size(this.panel1.Width, 96);
+            this.panel1.Size = new Size(this.panel1.Width, 54);
         }
 
         public void open_panel2()
         {
-            this.panel2.Size = new Size(this.panel2.Width, 199);
+            int height = this.panel2.Size.Height + this.button_chatMenu.Size.Height;
+            this.panel2.Size = new Size(this.panel2.Width, height);
         }
 
         public void close_panel2()
         {
-            this.panel2.Size = new Size(this.panel2.Width, 96);
+            this.panel2.Size = new Size(this.panel2.Width, 54);
         }
 
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.panel1.Size.Height == 96)
+            if (this.panel1.Size.Height == sizbar)
             {
                 open_panel1();
-                button1.Text = "▼";
             }
             else
             {
                 close_panel1();
-                button1.Text = "≡";
             }
         }
 
@@ -196,15 +197,15 @@ namespace Project_CNPM
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (this.panel2.Size.Height == 96)
+            if (this.panel2.Size.Height == sizbar)
             {
                 open_panel2();
-                button7.Text = "▼";
+                
             }
             else
             {
                 close_panel2();
-                button7.Text = "≡";
+                
             }
         }
 
@@ -528,6 +529,16 @@ namespace Project_CNPM
             {
                 MessageBox.Show(" Enter pressed ");
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

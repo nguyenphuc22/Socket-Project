@@ -70,7 +70,6 @@ E:\Socket-Project-main\Project CNPM\obj\Debug\netcoreapp3.1\Client.dll
 E:\Socket-Project-main\Project CNPM\obj\Debug\netcoreapp3.1\Client.pdb
 E:\Socket-Project-main\Project CNPM\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
 E:\Socket-Project-main\Project CNPM\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
-D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
 D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.Properties.Resources.resources
 D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.UserControl1.resources
 D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.View.ChangePassForm.resources

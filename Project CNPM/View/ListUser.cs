@@ -48,7 +48,8 @@ namespace Project_CNPM.View
 
         private void ListUser_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.Silver;
+     
+            panel1.BackColor = Color.Silver;
         }
 
         private void ListUser_DragLeave(object sender, EventArgs e)
@@ -65,6 +66,23 @@ namespace Project_CNPM.View
         {
             AppController.getObject().mainView.setLabel1(this.userName.Text);
             AppController.getObject().loadMessage(new RequestHistoryMessageStruct(AppController.getObject().userName,this.userName.Text));
+        }
+
+  
+        private void panel1_MouseLeave(object sender, EventArgs e)
+        {
+            panel1.BackColor = Color.DodgerBlue;
+        }
+        public void setpanel(string a)
+        {
+            if (a == "black")
+            {
+                panel1.BackColor = Color.Silver;
+            }
+            if (a == "blue")
+            {
+                panel1.BackColor = Color.DodgerBlue;
+            }
         }
     }
 }

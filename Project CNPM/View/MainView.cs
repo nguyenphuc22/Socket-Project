@@ -426,8 +426,8 @@ namespace Project_CNPM
 
                     listusers[i] = new ListUser();
                     // listusers[i].Ava = Image.FromFile("C://Users//w1oz//Downloads//images.jpg");
-                    listusers[i].Username = arr[i].ToString();
-                    listusers[i].Recentmess = i.ToString();
+                    listusers[i].Username = ((RecentMessage)arr[i]).userName;
+                    listusers[i].Recentmess = ((RecentMessage)arr[i]).lastMessage;
                     //if (flowLayoutPanel1.Controls.Count > 0)
                     //{
                     //    flowLayoutPanel1.Controls.Clear();

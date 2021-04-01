@@ -149,7 +149,6 @@ namespace Project_CNPM.Controller
                                 AppController.getObject().loginView.Hide();
                                 AppController.getObject().mainView = new MainView();
                                 AppController.getObject().mainView.ShowDialog();
-                                
                             }
                             
                             break;

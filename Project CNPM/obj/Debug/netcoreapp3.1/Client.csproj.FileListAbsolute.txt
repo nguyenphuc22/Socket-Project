@@ -180,3 +180,4 @@ C:\Users\ADMIN\Desktop\Socket-Project\Project CNPM\bin\Debug\netcoreapp3.1\runti
 C:\Users\ADMIN\Desktop\Socket-Project\Project CNPM\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\ADMIN\Desktop\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
+D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache

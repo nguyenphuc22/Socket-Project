@@ -430,14 +430,22 @@ namespace Project_CNPM
         {
             textBox1.Clear();
         }
-
+        public void clear()
+        {
+            foreach (ListUser control in flowLayoutPanel1.Controls)
+            {
+                flowLayoutPanel1.Controls.Clear();
+               
+            }
+        }
         public void populateItem(ArrayList arr)
         {
-
+            
             ListUser[] listusers = new ListUser[arr.Count];
 
             this.BeginInvoke((Action)(() =>
             {
+
                 for (int i = 0; i < arr.Count; i++)
                 {
 
@@ -445,16 +453,16 @@ namespace Project_CNPM
                     // listusers[i].Ava = Image.FromFile("C://Users//w1oz//Downloads//images.jpg");
                     listusers[i].Username = ((RecentMessage)arr[i]).userName;
                     listusers[i].Recentmess = ((RecentMessage)arr[i]).lastMessage;
-                    //if (flowLayoutPanel1.Controls.Count > 0)
-                    //{
-                    //    flowLayoutPanel1.Controls.Clear();
-                    //}
-                    //else
-                    //{
+                    if (flowLayoutPanel1.Controls.Count < 0)
+                    {
+                        flowLayoutPanel1.Controls.Clear();
+                    }
+                    else
+                    {
+                        flowLayoutPanel1.Controls.Add(listusers[i]);
+                    }
 
-                    //}
-
-                    flowLayoutPanel1.Controls.Add(listusers[i]);
+                    
 
 
                 }

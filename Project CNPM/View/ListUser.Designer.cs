@@ -44,45 +44,58 @@ namespace Project_CNPM.View
             this.avatar.Size = new System.Drawing.Size(96, 96);
             this.avatar.TabIndex = 0;
             this.avatar.TabStop = false;
+            this.avatar.Click += new System.EventHandler(this.ListUser_Click);
+            this.avatar.MouseEnter += new System.EventHandler(this.ListUser_MouseEnter);
+            this.avatar.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // userName
             // 
-            this.userName.Location = new System.Drawing.Point(17, 9);
+            this.userName.Location = new System.Drawing.Point(49, 15);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(100, 23);
             this.userName.TabIndex = 1;
             this.userName.Text = "username";
+            this.userName.Click += new System.EventHandler(this.ListUser_Click);
+            this.userName.MouseEnter += new System.EventHandler(this.ListUser_MouseEnter);
+            this.userName.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // recentMes
             // 
-            this.recentMes.Location = new System.Drawing.Point(17, 56);
+            this.recentMes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.recentMes.Location = new System.Drawing.Point(49, 49);
             this.recentMes.Name = "recentMes";
             this.recentMes.Size = new System.Drawing.Size(100, 23);
             this.recentMes.TabIndex = 2;
             this.recentMes.Text = "recentmessage";
+            this.recentMes.Click += new System.EventHandler(this.ListUser_Click);
+            this.recentMes.MouseEnter += new System.EventHandler(this.ListUser_MouseEnter);
+            this.recentMes.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Blue;
-            this.panel1.Controls.Add(this.recentMes);
+            this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel1.Controls.Add(this.userName);
-            this.panel1.Location = new System.Drawing.Point(95, 0);
+            this.panel1.Controls.Add(this.recentMes);
+            this.panel1.Location = new System.Drawing.Point(102, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(154, 96);
+            this.panel1.Size = new System.Drawing.Size(160, 96);
             this.panel1.TabIndex = 3;
+            this.panel1.Click += new System.EventHandler(this.ListUser_Click);
+            this.panel1.MouseEnter += new System.EventHandler(this.ListUser_MouseEnter);
+            this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // ListUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.avatar);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.avatar);
             this.Name = "ListUser";
             this.Size = new System.Drawing.Size(262, 96);
             this.Click += new System.EventHandler(this.ListUser_Click);
             this.DragLeave += new System.EventHandler(this.ListUser_DragLeave);
             this.MouseEnter += new System.EventHandler(this.ListUser_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.ListUser_MouseLeave);
+            this.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

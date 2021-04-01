@@ -11,7 +11,7 @@ namespace Project_CNPM
 {
     public partial class MainView : Form
     {
-        
+
         public MainView()
         {
             InitializeComponent();
@@ -20,14 +20,14 @@ namespace Project_CNPM
 
             chatLabelForm_old = chatLabelForm1;
             chatLabelForm_old.Height = chatLabelForm1.Height = 100;
-           
-           // populateItem()
+
+            // populateItem()
 
         }
 
         ChatLabelForm chatLabelForm_old = new ChatLabelForm();
 
-        public void addInMessage(string msg, string username,bool isfile)
+        public void addInMessage(string msg, string username, bool isfile)
         {
 
             if (this.InvokeRequired)
@@ -35,7 +35,7 @@ namespace Project_CNPM
                 this.BeginInvoke((MethodInvoker)delegate ()
                 {
                     //perform on the UI thread
-                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In, isfile,label1.Text);
+                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In, isfile, label1.Text);
                     chatLabelForm.Anchor = chatLabelForm1.Anchor;
                     chatLabelForm.Location = chatLabelForm1.Location;
                     chatLabelForm.Size = chatLabelForm1.Size;
@@ -68,18 +68,18 @@ namespace Project_CNPM
 
 
         }
-        public void addOutMessage(string msg, string username,bool isfile)
+        public void addOutMessage(string msg, string username, bool isfile)
         {
 
             if (this.InvokeRequired)
             {
                 this.BeginInvoke((MethodInvoker)delegate ()
                 {
-                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out,isfile, label1.Text);
+                    ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out, isfile, label1.Text);
                     chatLabelForm.Location = chatLabelForm1.Location;
                     chatLabelForm.Left += 20;
 
-                    
+
                     chatLabelForm.Size = chatLabelForm1.Size;
                     chatLabelForm.Anchor = chatLabelForm1.Anchor;
                     chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
@@ -126,7 +126,7 @@ namespace Project_CNPM
             label2.Text = AppController.getObject().userName;
             panel1.Height = 96;
             panel2.Height = 96;
-            
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -165,7 +165,7 @@ namespace Project_CNPM
             this.panel2.Size = new Size(this.panel2.Width, 96);
         }
 
-    
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -208,7 +208,7 @@ namespace Project_CNPM
             }
         }
 
-      
+
         public void SetListView2(ArrayList message_data, ArrayList username_data)
         {
             //listView2.Items.Clear();
@@ -221,24 +221,24 @@ namespace Project_CNPM
                 {
                     if (message_data[i].ToString().Contains(":\\"))
                     {
-                        addOutMessage(message_data[i].ToString(), username_data[i].ToString(), true) ;
+                        addOutMessage(message_data[i].ToString(), username_data[i].ToString(), true);
                     }
                     else
                     {
 
-                        addOutMessage(message_data[i].ToString(), username_data[i].ToString(),false);
+                        addOutMessage(message_data[i].ToString(), username_data[i].ToString(), false);
                     }
                 }
                 else
                 {
                     if (message_data[i].ToString().Contains(":\\"))
                     {
-                        addInMessage(message_data[i].ToString(), username_data[i].ToString(),true);
+                        addInMessage(message_data[i].ToString(), username_data[i].ToString(), true);
 
                     }
                     else
                     {
-                        addInMessage(message_data[i].ToString(), username_data[i].ToString(),false);
+                        addInMessage(message_data[i].ToString(), username_data[i].ToString(), false);
 
                     }
                 }
@@ -248,7 +248,7 @@ namespace Project_CNPM
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if(textBox2.Text.Contains("'"))
+            if (textBox2.Text.Contains("'"))
             {
                 MessageBox.Show("Do not enter special characters");
                 return;
@@ -281,16 +281,23 @@ namespace Project_CNPM
         {
             if (label1.Text == recMessage)
             {
+                foreach (ListUser c in flowLayoutPanel1.Controls)
+                {
+                    if (c.Username == recMessage)
+                    {
+                        c.setpanel("blue");
+                    }
+                }
                 if (userName == label2.Text.ToString())
                 {
                     if (message_data.ToString().Contains(":\\"))
                     {
-                        addOutMessage(message_data, userName,true);
+                        addOutMessage(message_data, userName, true);
 
                     }
                     else
                     {
-                        addOutMessage(message_data, userName,false);
+                        addOutMessage(message_data, userName, false);
 
                     }
                 }
@@ -298,19 +305,29 @@ namespace Project_CNPM
                 {
                     if (message_data.ToString().Contains(":\\"))
                     {
-                        addInMessage(message_data, userName,true);
+                        addInMessage(message_data, userName, true);
 
                     }
                     else
                     {
-                        addInMessage(message_data, userName,false);
+                        addInMessage(message_data, userName, false);
 
                     }
                 }
             }
             else
             {
-              
+
+
+                foreach (ListUser c in flowLayoutPanel1.Controls)
+                {
+                    if (c.Username == recMessage)
+                    {
+                        c.setpanel("black");
+
+                    }
+                }
+
             }
 
         }
@@ -350,7 +367,7 @@ namespace Project_CNPM
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -363,7 +380,7 @@ namespace Project_CNPM
 
         private void button5_Click(object sender, EventArgs e)
         {
-       
+
             AppController.getObject().logout(new RequestLogout(AppController.getObject().userName));
             AppController.getObject().loginView.Show();
             AppController.getObject().mainView.Close();
@@ -414,14 +431,14 @@ namespace Project_CNPM
             textBox1.Clear();
         }
 
-       public void populateItem(ArrayList arr )
+        public void populateItem(ArrayList arr)
         {
-           
+
             ListUser[] listusers = new ListUser[arr.Count];
-         
+
             this.BeginInvoke((Action)(() =>
             {
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < arr.Count; i++)
                 {
 
                     listusers[i] = new ListUser();
@@ -445,7 +462,7 @@ namespace Project_CNPM
         }
 
 
-      
+
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -462,13 +479,15 @@ namespace Project_CNPM
         }
         private void MainView_FormClosed(object sender, FormClosedEventArgs e)
         {
-           
-           
+
+
         }
 
         private void MainView_FormClosing(object sender, FormClosingEventArgs e)
         {
+            
             AppController.getObject().logout(new RequestLogout(AppController.getObject().userName));
+            System.Windows.Forms.Application.Exit();
 
         }
 
@@ -480,6 +499,27 @@ namespace Project_CNPM
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void button6_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button6_Click(this, new EventArgs());
+            }
+        }
+
+        private void button6_KeyDown(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                MessageBox.Show(" Enter pressed ");
+            }
         }
     }
 }

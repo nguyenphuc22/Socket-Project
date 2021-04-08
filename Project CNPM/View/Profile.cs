@@ -2,23 +2,25 @@
 using Project_CNPM.Model;
 using Project_CNPM.View;
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
+using System.IO;
+
 
 namespace Project_CNPM.View
 {
     public partial class Profile : Form
     {
+        string path;
         public Profile()
         {
             InitializeComponent();
-           // changeUsr.Text= AppController.getObject().userName;
-          //setprofile("anhtu","1","2");
+            changeUsr.Text= AppController.getObject().userName;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -51,9 +53,11 @@ namespace Project_CNPM.View
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.ShowHelp = true;
             openFileDialog1.Filter = "img( *.jpg *.jpeg *.png )| *.jpg; *.jpeg; *.png";
+            
             openFileDialog1.ShowDialog();
+            path = openFileDialog1.FileName;
+           
         }
-
         public static Bitmap ByteToImage(byte[] blob)
         {
             MemoryStream mStream = new MemoryStream();
@@ -63,12 +67,23 @@ namespace Project_CNPM.View
             mStream.Dispose();
             return bm;
         }
-        public void setprofile( byte[]d ,string a, string b, string c)
+
+        public void setprofile(byte[] d,string a,string b, string c)
         {
             pictureBox1.Image = ByteToImage(d);
             changeUsr.Text = a;
             changePhone.Text = b;
             changeMail.Text = c;
+        }
+
+        private void changeMailButton_Click(object sender, EventArgs e)
+        {
+            AppController.getObject().requestProfile(new RequestProfile(File.ReadAllBytes("path"), changeUsr.Text, changePhone.Text, changeMail.Text));
+        }
+
+        private void changeMailButton_Click_1(object sender, EventArgs e)
+        {
+            AppController.getObject().requestProfile(new RequestProfile(File.ReadAllBytes("path"), changeUsr.Text, changePhone.Text, changeMail.Text));
         }
     }
 }

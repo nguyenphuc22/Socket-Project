@@ -32,8 +32,6 @@ namespace Project_CNPM.View
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.changeUsr = new System.Windows.Forms.TextBox();
             this.changePhone = new System.Windows.Forms.TextBox();
-            this.editName = new System.Windows.Forms.Button();
-            this.editPhone = new System.Windows.Forms.Button();
             this.changePicture = new System.Windows.Forms.Button();
             this.changeMail = new System.Windows.Forms.TextBox();
             this.changeMailButton = new System.Windows.Forms.Button();
@@ -42,53 +40,37 @@ namespace Project_CNPM.View
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(88, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(101, 33);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(119, 120);
+            this.pictureBox1.Size = new System.Drawing.Size(136, 160);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // changeUsr
             // 
-            this.changeUsr.Location = new System.Drawing.Point(53, 189);
+            this.changeUsr.Location = new System.Drawing.Point(61, 252);
+            this.changeUsr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.changeUsr.Name = "changeUsr";
-            this.changeUsr.Size = new System.Drawing.Size(176, 23);
+            this.changeUsr.Size = new System.Drawing.Size(201, 27);
             this.changeUsr.TabIndex = 1;
             this.changeUsr.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // changePhone
             // 
-            this.changePhone.Location = new System.Drawing.Point(53, 234);
+            this.changePhone.Location = new System.Drawing.Point(61, 312);
+            this.changePhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.changePhone.Name = "changePhone";
-            this.changePhone.Size = new System.Drawing.Size(176, 23);
+            this.changePhone.Size = new System.Drawing.Size(201, 27);
             this.changePhone.TabIndex = 2;
             this.changePhone.TextChanged += new System.EventHandler(this.changePhone_TextChanged);
             // 
-            // editName
-            // 
-            this.editName.Location = new System.Drawing.Point(235, 189);
-            this.editName.Name = "editName";
-            this.editName.Size = new System.Drawing.Size(30, 23);
-            this.editName.TabIndex = 3;
-            this.editName.Text = "button1";
-            this.editName.UseVisualStyleBackColor = true;
-            this.editName.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // editPhone
-            // 
-            this.editPhone.Location = new System.Drawing.Point(235, 234);
-            this.editPhone.Name = "editPhone";
-            this.editPhone.Size = new System.Drawing.Size(30, 23);
-            this.editPhone.TabIndex = 4;
-            this.editPhone.Text = "button2";
-            this.editPhone.UseVisualStyleBackColor = true;
-            this.editPhone.Click += new System.EventHandler(this.editPhone_Click);
-            // 
             // changePicture
             // 
-            this.changePicture.Location = new System.Drawing.Point(108, 151);
+            this.changePicture.Location = new System.Drawing.Point(123, 201);
+            this.changePicture.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.changePicture.Name = "changePicture";
-            this.changePicture.Size = new System.Drawing.Size(75, 23);
+            this.changePicture.Size = new System.Drawing.Size(86, 31);
             this.changePicture.TabIndex = 5;
             this.changePicture.Text = "button1";
             this.changePicture.UseVisualStyleBackColor = true;
@@ -96,33 +78,35 @@ namespace Project_CNPM.View
             // 
             // changeMail
             // 
-            this.changeMail.Location = new System.Drawing.Point(53, 275);
+            this.changeMail.Location = new System.Drawing.Point(61, 367);
+            this.changeMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.changeMail.Name = "changeMail";
-            this.changeMail.Size = new System.Drawing.Size(176, 23);
+            this.changeMail.Size = new System.Drawing.Size(201, 27);
             this.changeMail.TabIndex = 6;
             // 
             // changeMailButton
             // 
-            this.changeMailButton.Location = new System.Drawing.Point(235, 274);
+            this.changeMailButton.Location = new System.Drawing.Point(123, 402);
+            this.changeMailButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.changeMailButton.Name = "changeMailButton";
-            this.changeMailButton.Size = new System.Drawing.Size(30, 23);
+            this.changeMailButton.Size = new System.Drawing.Size(79, 31);
             this.changeMailButton.TabIndex = 7;
             this.changeMailButton.Text = "button2";
             this.changeMailButton.UseVisualStyleBackColor = true;
+            this.changeMailButton.Click += new System.EventHandler(this.changeMailButton_Click_1);
             // 
             // Profile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 329);
+            this.ClientSize = new System.Drawing.Size(345, 439);
             this.Controls.Add(this.changeMailButton);
             this.Controls.Add(this.changeMail);
             this.Controls.Add(this.changePicture);
-            this.Controls.Add(this.editPhone);
-            this.Controls.Add(this.editName);
             this.Controls.Add(this.changePhone);
             this.Controls.Add(this.changeUsr);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Profile";
             this.Text = "Form1";
@@ -138,8 +122,6 @@ namespace Project_CNPM.View
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox changeUsr;
         private System.Windows.Forms.TextBox changePhone;
-        private System.Windows.Forms.Button editName;
-        private System.Windows.Forms.Button editPhone;
         private System.Windows.Forms.Button changePicture;
         private System.Windows.Forms.TextBox changeMail;
         private System.Windows.Forms.Button changeMailButton;

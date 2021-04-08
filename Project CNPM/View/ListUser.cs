@@ -71,7 +71,7 @@ namespace Project_CNPM.View
   
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.DodgerBlue;
+            panel1.BackColor = Color.FromArgb(23,33,43);
         }
         public void setpanel(string a)
         {
@@ -81,7 +81,7 @@ namespace Project_CNPM.View
             }
             if (a == "blue")
             {
-                panel1.BackColor = Color.DodgerBlue;
+                panel1.BackColor = Color.FromArgb(23, 33, 43);
             }
         }
     }

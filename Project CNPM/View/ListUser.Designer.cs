@@ -40,8 +40,9 @@ namespace Project_CNPM.View
             // avatar
             // 
             this.avatar.Location = new System.Drawing.Point(0, 0);
+            this.avatar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.avatar.Name = "avatar";
-            this.avatar.Size = new System.Drawing.Size(96, 96);
+            this.avatar.Size = new System.Drawing.Size(89, 89);
             this.avatar.TabIndex = 0;
             this.avatar.TabStop = false;
             this.avatar.Click += new System.EventHandler(this.ListUser_Click);
@@ -50,9 +51,10 @@ namespace Project_CNPM.View
             // 
             // userName
             // 
-            this.userName.Location = new System.Drawing.Point(49, 15);
+            this.userName.ForeColor = System.Drawing.Color.White;
+            this.userName.Location = new System.Drawing.Point(22, 15);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(100, 23);
+            this.userName.Size = new System.Drawing.Size(114, 31);
             this.userName.TabIndex = 1;
             this.userName.Text = "username";
             this.userName.Click += new System.EventHandler(this.ListUser_Click);
@@ -62,9 +64,10 @@ namespace Project_CNPM.View
             // recentMes
             // 
             this.recentMes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.recentMes.Location = new System.Drawing.Point(49, 49);
+            this.recentMes.ForeColor = System.Drawing.Color.White;
+            this.recentMes.Location = new System.Drawing.Point(22, 57);
             this.recentMes.Name = "recentMes";
-            this.recentMes.Size = new System.Drawing.Size(100, 23);
+            this.recentMes.Size = new System.Drawing.Size(114, 31);
             this.recentMes.TabIndex = 2;
             this.recentMes.Text = "recentmessage";
             this.recentMes.Click += new System.EventHandler(this.ListUser_Click);
@@ -73,12 +76,14 @@ namespace Project_CNPM.View
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.userName);
             this.panel1.Controls.Add(this.recentMes);
-            this.panel1.Location = new System.Drawing.Point(102, 0);
+            this.panel1.Location = new System.Drawing.Point(92, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(160, 96);
+            this.panel1.Size = new System.Drawing.Size(234, 89);
             this.panel1.TabIndex = 3;
             this.panel1.Click += new System.EventHandler(this.ListUser_Click);
             this.panel1.MouseEnter += new System.EventHandler(this.ListUser_MouseEnter);
@@ -86,12 +91,14 @@ namespace Project_CNPM.View
             // 
             // ListUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.avatar);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ListUser";
-            this.Size = new System.Drawing.Size(262, 96);
+            this.Size = new System.Drawing.Size(325, 87);
             this.Click += new System.EventHandler(this.ListUser_Click);
             this.DragLeave += new System.EventHandler(this.ListUser_DragLeave);
             this.MouseEnter += new System.EventHandler(this.ListUser_MouseEnter);

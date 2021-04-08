@@ -221,7 +221,7 @@ namespace Project_CNPM.Controller
                             ResponseSearchStruct responseSearch = (ResponseSearchStruct)msgReceived;
                             this.mainView.clear();
                             this.mainView.populateItem(responseSearch.getData());
-                          
+                            
                             break;
                         }
                     case ChatStruct.MessageType.RequestChatStruct:

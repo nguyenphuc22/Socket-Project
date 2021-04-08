@@ -104,7 +104,7 @@ namespace Project_CNPM.View
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(118)))), ((int)(((byte)(171)))));
             this.label4.Location = new System.Drawing.Point(148, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 28);

@@ -135,6 +135,14 @@ namespace Project_CNPM.View
         {
             label_signUp.Font = new Font(label_signUp.Font.Name, label_signUp.Font.SizeInPoints, FontStyle.Underline);
         }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button2_Click(this, new EventArgs());
+            }
+        }
     }
 }
 

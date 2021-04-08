@@ -22,5 +22,8 @@
     <Compile Update="View\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -373,6 +373,7 @@ namespace Project_CNPM
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.Hide();
             AppController.getObject().change = new View.ChangePassForm();
             AppController.getObject().change.ShowDialog();
             //chuyen form sang doi pass
@@ -397,6 +398,7 @@ namespace Project_CNPM
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Hide();
             AppController.getObject().create = new View.CreateGroupForm();
             AppController.getObject().create.ShowDialog();
         }

@@ -27,12 +27,12 @@ namespace Project_CNPM.View
         private void button1_Click(object sender, EventArgs e)
         {
             string userName = AppController.getObject().userName;
-            string currentPass = textBox_CurretPass.Text;
-            string newpassword = textBox_NewPass.Text;
-            string configpassword = textBox_ConfirmPass.Text;
-            if (textBox_NewPass.Text != "")
+            string currentPass = textBox1.Text;
+            string newpassword = textBox2.Text;
+            string configpassword = textBox3.Text;
+            if (textBox2.Text != "")
             {
-                if (textBox_NewPass.Text == textBox_ConfirmPass.Text)
+                if (textBox2.Text == textBox3.Text)
                 {
                     //Back_end here
                     RequestChangePass request = new RequestChangePass(userName, currentPass, newpassword, configpassword);
@@ -63,70 +63,6 @@ namespace Project_CNPM.View
         public void changePassNotification(string msg)
         {
             label2.Text = msg;
-        }
-
-        private void textBox_CurretPass_MouseLeave(object sender, EventArgs e)
-        {
-            if (textBox_CurretPass.Text.Length == 0)
-            {
-                textBox_CurretPass.Text = "Type Your UserName";
-                textBox_CurretPass.ForeColor = Color.Gray;
-            }
-        }
-
-        private void textBox_CurretPass_MouseEnter(object sender, EventArgs e)
-        {
-            if (textBox_CurretPass.Text == "Type Your UserName")
-            {
-                textBox_CurretPass.Text = "";
-                textBox_CurretPass.ForeColor = Color.White;
-            }
-        }
-
-        private void textBox_NewPass_MouseLeave(object sender, EventArgs e)
-        {
-            if (textBox_NewPass.Text.Length == 0)
-            {
-                textBox_NewPass.Text = "Type Your UserName";
-                textBox_NewPass.ForeColor = Color.Gray;
-            }
-        }
-
-        private void textBox_NewPass_MouseEnter(object sender, EventArgs e)
-        {
-            if (textBox_NewPass.Text == "Type Your UserName")
-            {
-                textBox_NewPass.Text = "";
-                textBox_NewPass.ForeColor = Color.White;
-            }
-        }
-
-        private void textBox_ConfirmPass_MouseLeave(object sender, EventArgs e)
-        {
-            if (textBox_ConfirmPass.Text.Length == 0)
-            {
-                textBox_ConfirmPass.Text = "Type Your UserName";
-                textBox_ConfirmPass.ForeColor = Color.Gray;
-            }
-        }
-
-        private void textBox_ConfirmPass_MouseEnter(object sender, EventArgs e)
-        {
-            if (textBox_ConfirmPass.Text == "Type Your UserName")
-            {
-                textBox_ConfirmPass.Text = "";
-                textBox_ConfirmPass.ForeColor = Color.White;
-            }
-        }
-
-        private void textBox_CurretPass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_NewPass_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

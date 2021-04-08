@@ -52,7 +52,6 @@ namespace Project_CNPM.View
             openFileDialog1.ShowHelp = true;
             openFileDialog1.Filter = "img( *.jpg *.jpeg *.png )| *.jpg; *.jpeg; *.png";
             openFileDialog1.ShowDialog();
-            
         }
 
         public static Bitmap ByteToImage(byte[] blob)

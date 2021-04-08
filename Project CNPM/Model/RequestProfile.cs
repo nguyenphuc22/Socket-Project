@@ -6,7 +6,6 @@ namespace Project_CNPM.Model
 {
     class RequestProfile : ChatStruct
     {
-        string userName;
         byte[] ava;
         string fullName;
         string phoneNum;
@@ -14,16 +13,14 @@ namespace Project_CNPM.Model
 
         public RequestProfile()
         {
-            userName = "";
             ava = new byte[0];
             fullName = "";
             phoneNum = "";
             mail = "";
         }
 
-        public RequestProfile(string username,byte[] img,string name, string fone,string email)
+        public RequestProfile(byte[] img,string name, string fone,string email)
         {
-            userName = username;
             ava = img;
             fullName = name;
             phoneNum = fone;
@@ -34,9 +31,6 @@ namespace Project_CNPM.Model
         {
             List<byte> data = new List<byte>();
             data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestChangePass)));
-
-            data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.userName)));
-            data.AddRange(Encoding.UTF8.GetBytes(this.userName));
 
             data.AddRange(BitConverter.GetBytes((ava.GetLength(0))));
             data.AddRange(ava);
@@ -57,15 +51,7 @@ namespace Project_CNPM.Model
         public override ChatStruct unpack(byte[] buff)
         {
             int offset = 4;
-            int sizeuserName, sizeAva, sizeName, sizeFone, sizeMail;
-
-            sizeuserName = BitConverter.ToInt32(buff, offset);
-            if (sizeuserName != 0)
-            {
-                this.userName = Encoding.UTF8.GetString(buff, offset, sizeuserName);
-
-            }
-            offset += sizeuserName;
+            int sizeAva, sizeName, sizeFone, sizeMail;
 
             sizeAva = BitConverter.ToInt32(buff, offset);
             offset += 4;

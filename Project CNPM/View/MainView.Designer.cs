@@ -11,6 +11,7 @@
             this.chatLabelForm1 = new Project_CNPM.View.ChatLabelForm();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.profile = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button_SignOut = new System.Windows.Forms.Button();
@@ -159,7 +160,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 61);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(374, 695);
             this.flowLayoutPanel1.TabIndex = 14;
@@ -167,18 +168,35 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.profile);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button_SignOut);
             this.panel1.Controls.Add(this.button_createGroup);
             this.panel1.Controls.Add(this.button_changpass);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(373, 193);
+            this.panel1.Size = new System.Drawing.Size(373, 247);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // profile
+            // 
+            this.profile.FlatAppearance.BorderSize = 0;
+            this.profile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profile.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.profile.ForeColor = System.Drawing.Color.White;
+            this.profile.Location = new System.Drawing.Point(-1, 147);
+            this.profile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.profile.Name = "profile";
+            this.profile.Size = new System.Drawing.Size(374, 49);
+            this.profile.TabIndex = 7;
+            this.profile.Text = "Profile";
+            this.profile.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.profile.UseVisualStyleBackColor = true;
+            this.profile.Click += new System.EventHandler(this.profile_Click);
             // 
             // label2
             // 
@@ -214,7 +232,7 @@
             this.button_SignOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_SignOut.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button_SignOut.ForeColor = System.Drawing.Color.White;
-            this.button_SignOut.Location = new System.Drawing.Point(0, 149);
+            this.button_SignOut.Location = new System.Drawing.Point(0, 191);
             this.button_SignOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_SignOut.Name = "button_SignOut";
             this.button_SignOut.Size = new System.Drawing.Size(374, 43);
@@ -230,7 +248,7 @@
             this.button_createGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_createGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button_createGroup.ForeColor = System.Drawing.Color.White;
-            this.button_createGroup.Location = new System.Drawing.Point(0, 104);
+            this.button_createGroup.Location = new System.Drawing.Point(1, 105);
             this.button_createGroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_createGroup.Name = "button_createGroup";
             this.button_createGroup.Size = new System.Drawing.Size(374, 49);
@@ -299,4 +317,6 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }          #endregion         private System.Windows.Forms.TextBox textBox2;         private System.Windows.Forms.Button button6;         private System.Windows.Forms.Panel panel2;         private System.Windows.Forms.Button button8;         private System.Windows.Forms.Button button_chatMenu;         private System.Windows.Forms.Panel panel3;         private System.Windows.Forms.Label label1;         private System.Windows.Forms.Button button2;         private System.Windows.Forms.Panel panel4;         private View.ChatLabelForm chatLabelForm1;         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;         private System.Windows.Forms.Panel panel1;         private System.Windows.Forms.Label label2;         private System.Windows.Forms.Button button1;         private System.Windows.Forms.Button button_SignOut;         private System.Windows.Forms.Button button_createGroup;         private System.Windows.Forms.Button button_changpass;         private System.Windows.Forms.TextBox textBox1;     } }  
+        }          #endregion         private System.Windows.Forms.TextBox textBox2;         private System.Windows.Forms.Button button6;         private System.Windows.Forms.Panel panel2;         private System.Windows.Forms.Button button8;         private System.Windows.Forms.Button button_chatMenu;         private System.Windows.Forms.Panel panel3;         private System.Windows.Forms.Label label1;         private System.Windows.Forms.Button button2;         private System.Windows.Forms.Panel panel4;         private View.ChatLabelForm chatLabelForm1;         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;         private System.Windows.Forms.Panel panel1;         private System.Windows.Forms.Label label2;         private System.Windows.Forms.Button button1;         private System.Windows.Forms.Button button_SignOut;         private System.Windows.Forms.Button button_createGroup;         private System.Windows.Forms.Button button_changpass;         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button profile;
+    } }  

@@ -148,7 +148,7 @@ namespace Project_CNPM
 
         public void open_panel1()
         {
-            int size_wi = this.panel1.Size.Height + button_SignOut.Size.Height + button_createGroup.Size.Height + button_changpass.Size.Height;
+            int size_wi = this.panel1.Size.Height + button_SignOut.Size.Height + button_createGroup.Size.Height + button_changpass.Size.Height + profile.Size.Height;
             this.panel1.Size = new Size(this.panel1.Width, size_wi);
         }
 
@@ -539,6 +539,12 @@ namespace Project_CNPM
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void profile_Click(object sender, EventArgs e)
+        {
+            AppController.getObject().profile = new View.Profile();
+            AppController.getObject().profile.ShowDialog();
         }
     }
 }

@@ -336,6 +336,10 @@ namespace Server.Controller
             request.writeData(connnectData);
         }
         // Function Listen Message Client
+        public void updProfile(RequestProfile request)
+        {
+            request.writeData(connnectData);
+        }
         public void ListenClientMessage(object obj)
             {
                 Socket client = obj as Socket;
@@ -523,6 +527,12 @@ namespace Server.Controller
                             {
                                 RequestOutGroup request = (RequestOutGroup)msgReceived;
                                 this.outGroup(request);
+                                break;
+                            }
+                        case ChatStruct.MessageType.RequestProfile:
+                            {
+                                RequestProfile request = (RequestProfile)msgReceived;
+                                this.updProfile(request);
                                 break;
                             }
                         default:

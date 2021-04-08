@@ -20,6 +20,7 @@ namespace Project_CNPM.Controller
         public OpenFileDialog open = null;
         public ChangePassForm change = null;
         public CreateGroupForm create = null;
+        public Profile profile = null;
         public int sizeFile = 1024 * 1024 * 25;
         //===================
         string Path = @"E:\Socket-Project-main\Project CNPM\Data\";
@@ -438,6 +439,10 @@ namespace Project_CNPM.Controller
             appSocketController.sendMessage(request.pack());
         }
         public void requestCreateGroup(RequestCreateGroupStruct request)
+        {
+            appSocketController.sendMessage(request.pack());
+        }
+        public void requestProfile(RequestProfile request)
         {
             appSocketController.sendMessage(request.pack());
         }

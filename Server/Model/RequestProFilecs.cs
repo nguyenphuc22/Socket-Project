@@ -9,6 +9,7 @@ namespace Server.Model
 {
     class RequestProfile: ChatStruct
     {
+        string userName;
         byte[] ava;
         string fullName;
         string phoneNum;
@@ -16,14 +17,16 @@ namespace Server.Model
 
         public RequestProfile()
         {
+            userName = "";
             ava = new byte[0];
             fullName = "";
             phoneNum = "";
             mail = "";
         }
 
-        public RequestProfile(byte[] img, string name, string fone, string email)
+        public RequestProfile(string username,byte[] img, string name, string fone, string email)
         {
+            userName = username;
             ava = img;
             fullName = name;
             phoneNum = fone;
@@ -34,6 +37,10 @@ namespace Server.Model
         {
             List<byte> data = new List<byte>();
             data.AddRange(BitConverter.GetBytes(Convert.ToInt32(MessageType.RequestChangePass)));
+
+            data.AddRange(BitConverter.GetBytes(Encoding.UTF8.GetByteCount(this.userName)));
+            data.AddRange(Encoding.UTF8.GetBytes(this.userName));
+
 
             data.AddRange(BitConverter.GetBytes((ava.GetLength(0))));
             data.AddRange(ava);
@@ -59,7 +66,16 @@ namespace Server.Model
         public override ChatStruct unpack(byte[] buff)
         {
             int offset = 4;
-            int sizeAva, sizeName, sizeFone, sizeMail;
+            int sizeuserName,sizeAva, sizeName, sizeFone, sizeMail;
+
+            sizeuserName = BitConverter.ToInt32(buff, offset);
+            if (sizeuserName != 0)
+            {
+                this.userName = Encoding.UTF8.GetString(buff, offset, sizeuserName);
+                
+            }
+            offset += sizeuserName;
+
 
             sizeAva = BitConverter.ToInt32(buff, offset);
             offset += 4;
@@ -92,7 +108,7 @@ namespace Server.Model
         public override void writeData(SQLiteConnection connectionData)
         {
             string a = Convert.ToBase64String(ava);
-            string query = String.Format("INSERT into UserData(Ava,fullName,phoneNum,mail) VALUES('{0}' , '{1}','{2}','{3}' )",a,this.fullName,this.phoneNum,this.mail);
+            string query = String.Format("Update UserData Set Ava = '{0}', phoneNum = '{1}', fullName = '{2}', mail = '{3}' where userName = '{4}'", a,this.fullName,this.phoneNum,this.mail,this.userName);
             SQLiteCommand cmd = new SQLiteCommand(query,connectionData);
         }
     }

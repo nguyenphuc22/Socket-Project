@@ -282,6 +282,12 @@ namespace Project_CNPM.Controller
                             AppController.getObject().change.changePassNotification(response.getMsg());
                             break;
                         }
+                    case ChatStruct.MessageType.RequestProfile:
+                        {
+                            RequestProfile request = (RequestProfile)msgReceived;
+                            
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -374,11 +380,7 @@ namespace Project_CNPM.Controller
             return 0;
         }
         // Function request Profile;
-        public int requestProfile(string userName)
-        {
-            // Implement Here
-            return 0;
-        }
+        
         // Function editProfile
         public int editProfile(string userName,string address,bool sex,string dayofbird)
         {

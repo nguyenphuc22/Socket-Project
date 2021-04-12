@@ -16,7 +16,7 @@ namespace Server.Controller
     class ServerController
     {
         public string dataSource = "Data Source=";
-        public string path = @"C:\Users\Asus\source\repos\Socket-Project\Server\Data\";
+        public string path = @"C:\Users\ADMIN\Desktop\Socket-Project\Server\Data\";
         public string fileName = "database.db";
         int filesize = 1024*1024*1024;
         public SocketController socketController;
@@ -32,7 +32,7 @@ namespace Server.Controller
 
 
         //Private Constructor.
-        // LocalHost
+        // LocalHostC:\Users\ADMIN\Desktop\Socket-Project\Server\Controller\ServerController.cs
         private ServerController()
         {
             // Create Socket LocalHost
@@ -523,13 +523,13 @@ namespace Server.Controller
 
                                     break;
                                 }
-                        case ChatStruct.MessageType.RequestOutGroup:
+                            case ChatStruct.MessageType.RequestOutGroup:
                             {
                                 RequestOutGroup request = (RequestOutGroup)msgReceived;
                                 this.outGroup(request);
                                 break;
                             }
-                        case ChatStruct.MessageType.RequestProfile:
+                            case ChatStruct.MessageType.RequestProfile:
                             {
                                 RequestProfile request = (RequestProfile)msgReceived;
                                 this.updProfile(request);

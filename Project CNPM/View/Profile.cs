@@ -78,12 +78,12 @@ namespace Project_CNPM.View
 
         private void changeMailButton_Click(object sender, EventArgs e)
         {
-            AppController.getObject().requestProfile(new RequestProfile(File.ReadAllBytes("path"), changeUsr.Text, changePhone.Text, changeMail.Text));
+            AppController.getObject().requestProfile(new RequestProfile(AppController.getObject().userName,File.ReadAllBytes("path"), changeUsr.Text, changePhone.Text, changeMail.Text));
         }
 
         private void changeMailButton_Click_1(object sender, EventArgs e)
         {
-            AppController.getObject().requestProfile(new RequestProfile(File.ReadAllBytes("path"), changeUsr.Text, changePhone.Text, changeMail.Text));
+            AppController.getObject().requestProfile(new RequestProfile((AppController.getObject().userName).ToString(),File.ReadAllBytes(path), (changeUsr.Text).ToString(), (changePhone.Text).ToString(), (changeMail.Text).ToString()));
         }
     }
 }

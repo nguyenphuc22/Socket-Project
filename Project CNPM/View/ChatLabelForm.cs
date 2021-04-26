@@ -36,6 +36,7 @@ namespace Project_CNPM.View
             this.isFile = isFile;
             this.type.Left = this.usernameView.Right + 10;
             this.recName = recName;
+            
 
             
 
@@ -45,6 +46,8 @@ namespace Project_CNPM.View
             }
             else
             {
+                this.type.Left = 200;
+                this.usernameView.Left = this.type.Right + this.usernameView.Size.Width + 10;
                 this.BackColor = Color.FromArgb(108, 105, 108);
             }
             if (isFile)

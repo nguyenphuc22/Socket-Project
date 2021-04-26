@@ -12,6 +12,7 @@ namespace Project_CNPM
     public partial class MainView : Form
     {
         int sizbar = 54;
+        int height = 30;
 
         public MainView()
         {
@@ -20,8 +21,6 @@ namespace Project_CNPM
             chatLabelForm1.Visible = true;
 
             chatLabelForm_old = chatLabelForm1;
-            chatLabelForm_old.Height = chatLabelForm1.Height = 100;
-
             // populateItem()
 
         }
@@ -37,12 +36,16 @@ namespace Project_CNPM
                 {
                     //perform on the UI thread
                     ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In, isfile, label1.Text);
-                    chatLabelForm.Anchor = chatLabelForm1.Anchor;
                     chatLabelForm.Location = chatLabelForm1.Location;
+
+                    chatLabelForm.Anchor = chatLabelForm1.Anchor;
                     chatLabelForm.Size = chatLabelForm1.Size;
                     chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
 
-                    chatLabelForm.Height = 100;
+
+
+                    chatLabelForm.Height += height;
+
 
                     panel4.Controls.Add(chatLabelForm);
                     panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
@@ -53,12 +56,15 @@ namespace Project_CNPM
             else
             {
                 ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In, isfile, label1.Text);
-                chatLabelForm.Anchor = chatLabelForm1.Anchor;
                 chatLabelForm.Location = chatLabelForm1.Location;
+
+                chatLabelForm.Anchor = chatLabelForm1.Anchor;
                 chatLabelForm.Size = chatLabelForm1.Size;
                 chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
 
-                chatLabelForm.Height = 100;
+
+                chatLabelForm.Height += height;
+
 
                 panel4.Controls.Add(chatLabelForm);
                 panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
@@ -78,14 +84,14 @@ namespace Project_CNPM
                 {
                     ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out, isfile, label1.Text);
                     chatLabelForm.Location = chatLabelForm1.Location;
-                    chatLabelForm.Left += 20;
-
 
                     chatLabelForm.Size = chatLabelForm1.Size;
                     chatLabelForm.Anchor = chatLabelForm1.Anchor;
                     chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
 
-                    chatLabelForm.Height = 100;
+                    chatLabelForm.Height += height;
+                    chatLabelForm.Left = 226;
+
                     panel4.Controls.Add(chatLabelForm);
                     panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
 
@@ -98,14 +104,17 @@ namespace Project_CNPM
             {
                 ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out, isfile, label1.Text);
                 chatLabelForm.Location = chatLabelForm1.Location;
-                chatLabelForm.Left += 20;
 
 
                 chatLabelForm.Size = chatLabelForm1.Size;
                 chatLabelForm.Anchor = chatLabelForm1.Anchor;
                 chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
 
-                chatLabelForm.Height = 100;
+                chatLabelForm.Height += height;
+
+                chatLabelForm.Left = 226;
+
+
                 panel4.Controls.Add(chatLabelForm);
                 panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
 
@@ -215,8 +224,7 @@ namespace Project_CNPM
             //listView2.Items.Clear();
             panel4.Controls.Clear();
             chatLabelForm_old = chatLabelForm1;
-            chatLabelForm_old.Height = chatLabelForm1.Height = 100;
-            for (int i = 0; i < message_data.Count; i++)
+            for (int i = 0; i < message_data.Count  ; i++)
             {
                 if (username_data[i].ToString() == AppController.getObject().userName)
                 {

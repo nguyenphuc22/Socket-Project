@@ -137,7 +137,7 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.AutoScroll = true;
-            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel4.Controls.Add(this.chatLabelForm1);
             this.panel4.Location = new System.Drawing.Point(381, 62);
             this.panel4.Name = "panel4";
@@ -147,11 +147,14 @@
             // 
             // chatLabelForm1
             // 
-            this.chatLabelForm1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.chatLabelForm1.ForeColor = System.Drawing.Color.White;
-            this.chatLabelForm1.Location = new System.Drawing.Point(30, 13);
+            this.chatLabelForm1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chatLabelForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
+            this.chatLabelForm1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.chatLabelForm1.Location = new System.Drawing.Point(16, 16);
             this.chatLabelForm1.Name = "chatLabelForm1";
-            this.chatLabelForm1.Size = new System.Drawing.Size(575, 68);
+            this.chatLabelForm1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chatLabelForm1.Size = new System.Drawing.Size(371, 94);
             this.chatLabelForm1.TabIndex = 0;
             this.chatLabelForm1.Load += new System.EventHandler(this.chatLabelForm1_Load_1);
             // 

@@ -53,13 +53,13 @@ namespace Server.Model
             string queryUser;
             if (this.search != "all")
             {
-                queryUser = String.Format("SELECT * FROM UserData Where userName like '{0}%'"
-                                 , this.search);
+                queryUser = String.Format("SELECT * FROM UserData Where userName like '{0}%' and userName !='{1}' "
+                                 , this.search,this.userName);
 
             }
             else
             {
-                queryUser = String.Format("SELECT * FROM UserData");
+                queryUser = String.Format("SELECT * FROM UserData where userName !='{0}' ",this.userName);
             }
 
             SQLiteCommand cmdUser = new SQLiteCommand(queryUser, connectionData);

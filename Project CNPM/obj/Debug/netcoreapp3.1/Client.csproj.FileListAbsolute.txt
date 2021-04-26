@@ -183,3 +183,4 @@ C:\Users\ADMIN\Desktop\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Clien
 D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
 D:\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.View.Profile.resources
 C:\Users\Asus\source\repos\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.View.Profile.resources
+C:\Users\ADMIN\Desktop\Socket-Project\Project CNPM\obj\Debug\netcoreapp3.1\Project_CNPM.View.Profile.resources

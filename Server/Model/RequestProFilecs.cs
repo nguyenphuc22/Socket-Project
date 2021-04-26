@@ -111,7 +111,7 @@ namespace Server.Model
         public override void writeData(SQLiteConnection connectionData)
         {
             string a = Convert.ToBase64String(ava);
-            string query = String.Format("Update UserData Set Ava='{0}', phoneNum='{1}',fullName='{2}',mail='{3}' where userName='{4}'",a,this.fullName,this.phoneNum,this.mail,this.userName);
+            string query = String.Format("Update UserData Set Ava='{0}', fullName='{1}',phoneNum='{2}',mail='{3}' where userName='{4}'",a,this.fullName,this.phoneNum,this.mail,this.userName);
             SQLiteCommand cmd = new SQLiteCommand(query,connectionData);
             cmd.ExecuteNonQuery();
         }

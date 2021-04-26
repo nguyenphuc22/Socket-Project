@@ -7,7 +7,10 @@ namespace Project_CNPM.Model
     class RequestLoadProfile : ChatStruct
     {
         string userName;
-        
+        public RequestLoadProfile(string name)
+        {
+            userName = name;
+        }
         public override byte[] pack()
         {
             List<byte> data = new List<byte>();

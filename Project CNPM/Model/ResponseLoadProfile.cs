@@ -6,10 +6,11 @@ namespace Project_CNPM.Model
 {
     class ResponseLoadProfile : ChatStruct
     {
-        byte[] ava;
-        string fullName;
-        string phoneNum;
-        string mail;
+       public byte[] ava;
+        public string fullName;
+        public string phoneNum;
+        public string mail;
+
 
         public override byte[] pack()
         {

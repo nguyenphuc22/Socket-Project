@@ -447,6 +447,15 @@ namespace Project_CNPM
                
             }
         }
+        public static Bitmap ByteToImage(byte[] blob)
+        {
+            MemoryStream mStream = new MemoryStream();
+            byte[] pData = blob;
+            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+            return bm;
+        }
         public void populateItem(ArrayList arr)
         {
             
@@ -459,7 +468,12 @@ namespace Project_CNPM
                 {
 
                     listusers[i] = new ListUser();
-                    // listusers[i].Ava = Image.FromFile("C://Users//w1oz//Downloads//images.jpg");
+                    byte[] im = ((RecentMessage)arr[i]).image;
+                    byte[] a = new byte[0];
+                    if (im.Length != 0)
+                    {
+                    listusers[i].Ava = ByteToImage(im); 
+                    }
                     listusers[i].Username = ((RecentMessage)arr[i]).userName;
                     listusers[i].Recentmess = ((RecentMessage)arr[i]).lastMessage;
                     if (flowLayoutPanel1.Controls.Count < 0)

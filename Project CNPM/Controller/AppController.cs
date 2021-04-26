@@ -288,6 +288,11 @@ namespace Project_CNPM.Controller
                             
                             break;
                         }
+                    case ChatStruct.MessageType.ResponseLoadProfile:
+                        {
+                            ResponseLoadProfile response = (ResponseLoadProfile)msgReceived;
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -445,6 +450,10 @@ namespace Project_CNPM.Controller
             appSocketController.sendMessage(request.pack());
         }
         public void requestProfile(RequestProfile request)
+        {
+            appSocketController.sendMessage(request.pack());
+        }
+        public void loadProfile(RequestLoadProfile request)
         {
             appSocketController.sendMessage(request.pack());
         }

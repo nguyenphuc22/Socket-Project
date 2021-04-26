@@ -254,6 +254,13 @@ namespace Server.Controller
                         result.unpack(buff);
                         break;
                     }
+                case ChatStruct.MessageType.RequestLoadProfile:
+                    {
+                        result = new RequestLoadProfile();
+                        result.messageType = ChatStruct.MessageType.RequestLoadProfile;
+                        result.unpack(buff);
+                        break;
+                    }
                 default:
                     {
                         break;

@@ -260,7 +260,13 @@ namespace Project_CNPM.Controller
                         result.unpack(buff);
                         break;
                     }
-
+                case ChatStruct.MessageType.ResponseLoadProfile:
+                    {
+                        result = new ResponseLoadProfile();
+                        result.messageType = ChatStruct.MessageType.ResponseLoadProfile;
+                        result.unpack(buff);
+                        break;
+                    }
 
                 default:
                     {

@@ -340,6 +340,12 @@ namespace Server.Controller
         {
             request.writeData(connnectData);
         }
+        public void loadProfile(RequestLoadProfile request,Socket socket)
+        {
+            ArrayList a = request.readData(connnectData);
+            ResponseLoadProfile response=(ResponseLoadProfile)a[0];
+            socket.Send(response.pack());
+        }
         public void ListenClientMessage(object obj)
             {
                 Socket client = obj as Socket;
@@ -533,6 +539,12 @@ namespace Server.Controller
                             {
                                 RequestProfile request = (RequestProfile)msgReceived;
                                 this.updProfile(request);
+                                break;
+                            }
+                        case ChatStruct.MessageType.RequestLoadProfile:
+                            {
+                                RequestLoadProfile request = (RequestLoadProfile)msgReceived;
+                                this.loadProfile(request, client);
                                 break;
                             }
                         default:

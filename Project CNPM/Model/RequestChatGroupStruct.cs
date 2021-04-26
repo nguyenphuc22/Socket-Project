@@ -17,7 +17,7 @@ namespace Project_CNPM.Model
 
         public string getMessage()
         {
-            return this.sendUserName + ":" + this.message;
+            return this.message;
         }
 
         public RequestChatGroupStruct()

@@ -17,10 +17,21 @@ namespace Project_CNPM.View
     public partial class Profile : Form
     {
         string path;
+        byte[] img;
         public Profile()
         {
+            
+        
+
             InitializeComponent();
-            changeUsr.Text= AppController.getObject().userName;
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddEllipse(0, 0, 136, 136);
+            pictureBox1.Region = new Region(path);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            AppController.getObject().loadProfile(new RequestLoadProfile(AppController.getObject().userName));
+            //   changeUsr.Text= AppController.getObject().userName;
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -71,6 +82,7 @@ namespace Project_CNPM.View
         public void setprofile(byte[] d,string a,string b, string c)
         {
             pictureBox1.Image = ByteToImage(d);
+            img = d;
             changeUsr.Text = a;
             changePhone.Text = b;
             changeMail.Text = c;
@@ -83,7 +95,17 @@ namespace Project_CNPM.View
 
         private void changeMailButton_Click_1(object sender, EventArgs e)
         {
-            AppController.getObject().requestProfile(new RequestProfile((AppController.getObject().userName).ToString(),File.ReadAllBytes(path), (changeUsr.Text).ToString(), (changePhone.Text).ToString(), (changeMail.Text).ToString()));
+            if (path != null)
+            {
+                AppController.getObject().requestProfile(new RequestProfile((AppController.getObject().userName).ToString(), File.ReadAllBytes(path), (changeUsr.Text).ToString(), (changePhone.Text).ToString(), (changeMail.Text).ToString()));
+            }
+            else
+            {
+                AppController.getObject().requestProfile(new RequestProfile((AppController.getObject().userName).ToString(), img, (changeUsr.Text).ToString(), (changePhone.Text).ToString(), (changeMail.Text).ToString()));
+
+            }
         }
+
+
     }
 }

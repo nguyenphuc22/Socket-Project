@@ -291,6 +291,7 @@ namespace Project_CNPM.Controller
                     case ChatStruct.MessageType.ResponseLoadProfile:
                         {
                             ResponseLoadProfile response = (ResponseLoadProfile)msgReceived;
+                            this.profile.setprofile(response.ava, response.fullName, response.phoneNum, response.mail);
                             break;
                         }
                     default:

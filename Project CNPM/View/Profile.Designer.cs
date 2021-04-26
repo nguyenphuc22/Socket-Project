@@ -40,10 +40,10 @@ namespace Project_CNPM.View
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(101, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(99, 57);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(136, 160);
+            this.pictureBox1.Size = new System.Drawing.Size(136, 136);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 

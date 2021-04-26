@@ -14,7 +14,8 @@ namespace Project_CNPM.Model
             ResposeProfileStruct, ResposeSignupStruct, ResquestProfileStruct, ResquestSearchStruct, ResquestSignupStruct, ResponseSignupStruct,
             ResposeSearchStruct, RequestChatStruct, ResponseChatStruct, RequestChatGroupStruct, RequestHistoryMessage, ResponseHistoryMesssage,
             RequestSendFileStruct, ResponseSendFileStruct, RequestRecFile, ResponseRecFile, RequestSendFileGroupStruct, ResponseSendFileGroupStruct,
-            RequestRecFileGroup, ResponseRecFileGroup, RequestChangePass, ResponseChangePass, RequestOutGroup, RequestProfile
+            RequestRecFileGroup, ResponseRecFileGroup, RequestChangePass, ResponseChangePass, RequestOutGroup, RequestProfile, RequestLoadProfile, 
+            ResponseLoadProfile
         }
         public MessageType messageType;
         public abstract byte[] pack();

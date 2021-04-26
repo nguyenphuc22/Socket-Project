@@ -16,7 +16,7 @@ namespace Server.Controller
     class ServerController
     {
         public string dataSource = "Data Source=";
-        public string path = @"C:\Users\Asus\source\repos\Socket-Project\Server\Data\";
+        public string path = @"C:\Users\ADMIN\Desktop\Socket-Project\Server\Data\";
         public string fileName = "database.db";
         int filesize = 1024*1024*1024;
         public SocketController socketController;
@@ -32,7 +32,7 @@ namespace Server.Controller
 
 
         //Private Constructor.
-        // LocalHost
+        // LocalHostC:\Users\ADMIN\Desktop\Socket-Project\Server\Controller\ServerController.cs
         private ServerController()
         {
             // Create Socket LocalHost
@@ -340,6 +340,12 @@ namespace Server.Controller
         {
             request.writeData(connnectData);
         }
+        public void loadProfile(RequestLoadProfile request,Socket socket)
+        {
+            ArrayList a = request.readData(connnectData);
+            ResponseLoadProfile response=(ResponseLoadProfile)a[0];
+            socket.Send(response.pack());
+        }
         public void ListenClientMessage(object obj)
             {
                 Socket client = obj as Socket;
@@ -523,16 +529,22 @@ namespace Server.Controller
 
                                     break;
                                 }
-                        case ChatStruct.MessageType.RequestOutGroup:
+                            case ChatStruct.MessageType.RequestOutGroup:
                             {
                                 RequestOutGroup request = (RequestOutGroup)msgReceived;
                                 this.outGroup(request);
                                 break;
                             }
-                        case ChatStruct.MessageType.RequestProfile:
+                            case ChatStruct.MessageType.RequestProfile:
                             {
                                 RequestProfile request = (RequestProfile)msgReceived;
                                 this.updProfile(request);
+                                break;
+                            }
+                        case ChatStruct.MessageType.RequestLoadProfile:
+                            {
+                                RequestLoadProfile request = (RequestLoadProfile)msgReceived;
+                                this.loadProfile(request, client);
                                 break;
                             }
                         default:

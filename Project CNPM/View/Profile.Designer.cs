@@ -29,6 +29,7 @@ namespace Project_CNPM.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profile));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.changeUsr = new System.Windows.Forms.TextBox();
             this.changePhone = new System.Windows.Forms.TextBox();
@@ -39,6 +40,9 @@ namespace Project_CNPM.View
             // 
             // pictureBox1
             // 
+            this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(99, 57);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -97,12 +101,14 @@ namespace Project_CNPM.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(345, 439);
             this.Controls.Add(this.changeMailButton);
             this.Controls.Add(this.changeMail);
             this.Controls.Add(this.changePhone);
             this.Controls.Add(this.changeUsr);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Profile";

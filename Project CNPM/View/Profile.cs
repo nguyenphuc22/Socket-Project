@@ -71,7 +71,10 @@ namespace Project_CNPM.View
 
         public void setprofile(byte[] d,string a,string b, string c)
         {
-            pictureBox1.Image = ByteToImage(d);
+            if (d != null)
+            {
+                pictureBox1.Image = ByteToImage(d);
+            }
             img = d;
             changeUsr.Text = a;
             changePhone.Text = b;
@@ -94,6 +97,7 @@ namespace Project_CNPM.View
                 AppController.getObject().requestProfile(new RequestProfile((AppController.getObject().userName).ToString(), img, (changeUsr.Text).ToString(), (changePhone.Text).ToString(), (changeMail.Text).ToString()));
 
             }
+            Dispose();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -104,6 +108,10 @@ namespace Project_CNPM.View
 
             openFileDialog1.ShowDialog();
             path = openFileDialog1.FileName;
+            if (path != "" )
+            {
+                pictureBox1.Image = ByteToImage(File.ReadAllBytes(path));
+            }
 
         }
     }

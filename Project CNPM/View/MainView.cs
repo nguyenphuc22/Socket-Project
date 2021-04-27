@@ -257,18 +257,20 @@ namespace Project_CNPM
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text.Contains("'"))
+            //SQL injection
+            if (textBox2.Text.Contains("'")||textBox2.Text=="\r\n")
             {
                 MessageBox.Show("Do not enter special characters");
                 return;
             }
-
+            
             if (!label1.Text.Contains("Group:"))
             {
+                
                 string spaceMsg = textBox2.Text.Replace(" ", "");
                 if (textBox2.Text.Length != 0 && spaceMsg.Length != 0)
                 {
-                    AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text));
+                    AppController.getObject().sendPrivateMessage(new RequestChatStruct(AppController.getObject().userName, label1.Text, textBox2.Text.Replace("\r\n","")));
                     SetListItem2_send_msg(textBox2.Text, AppController.getObject().userName, label1.Text);
                     textBox2.Clear();
                 }
@@ -278,7 +280,7 @@ namespace Project_CNPM
                 string spaceMsg = textBox2.Text.Replace(" ", "");
                 if (textBox2.Text.Length != 0 && spaceMsg.Length != 0)
                 {
-                    AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text));
+                    AppController.getObject().sendGroupMessage(new RequestChatGroupStruct(AppController.getObject().userName, label1.Text.Substring(6), textBox2.Text.Replace("\r\n", "")));
                     SetListItem2_send_msg(textBox2.Text, AppController.getObject().userName, label1.Text);
                     textBox2.Clear();
                 }

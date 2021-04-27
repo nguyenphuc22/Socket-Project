@@ -74,8 +74,8 @@ namespace Project_CNPM.View
 
             Group_nembers.Add(AppController.getObject().userName);
             AppController.getObject().requestCreateGroup(new RequestCreateGroupStruct(textBox1.Text, Group_nembers));
-
-            System.Windows.Forms.MessageBox.Show(a);
+            AppController.getObject().mainView.Show();
+            // System.Windows.Forms.MessageBox.Show(a);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -121,34 +121,37 @@ namespace Project_CNPM.View
 
         public void populateItem(ArrayList arr)
         {
-
-            ListUser_1[] listusers = new ListUser_1[arr.Count];
-
-            
-            this.BeginInvoke((Action)(() =>
+            if (IsHandleCreated)
             {
 
-                for (int i = 0; i < arr.Count; i++)
+                ListUser_1[] listusers = new ListUser_1[arr.Count];
+
+
+                this.BeginInvoke((Action)(() =>
                 {
 
-                    listusers[i] = new ListUser_1();
+                    for (int i = 0; i < arr.Count; i++)
+                    {
+
+                        listusers[i] = new ListUser_1();
                     // listusers[i].Click();
-              
+
                     listusers[i].Username = ((RecentMessage)arr[i]).userName;
-                 //   listusers[i].Recentmess = ((RecentMessage)arr[i]).lastMessage;
+                    //   listusers[i].Recentmess = ((RecentMessage)arr[i]).lastMessage;
                     if (flowLayoutPanel2.Controls.Count < 0)
-                    {
-                        flowLayoutPanel2.Controls.Clear();
-                    }
-                    else
-                    {
-                        flowLayoutPanel2.Controls.Add(listusers[i]);
-                    }
+                        {
+                            flowLayoutPanel2.Controls.Clear();
+                        }
+                        else
+                        {
+                            flowLayoutPanel2.Controls.Add(listusers[i]);
+                        }
 
-                    
 
-                }
-            }));
+
+                    }
+                }));
+            }
         }
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)

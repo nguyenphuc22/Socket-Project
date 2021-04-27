@@ -41,7 +41,6 @@ namespace Project_CNPM.View
             // pictureBox1
             // 
             this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(99, 57);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

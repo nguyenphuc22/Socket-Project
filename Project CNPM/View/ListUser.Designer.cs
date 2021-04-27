@@ -29,6 +29,7 @@ namespace Project_CNPM.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListUser));
             this.avatar = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
             this.recentMes = new System.Windows.Forms.Label();
@@ -39,6 +40,7 @@ namespace Project_CNPM.View
             // 
             // avatar
             // 
+            this.avatar.Image = ((System.Drawing.Image)(resources.GetObject("avatar.Image")));
             this.avatar.Location = new System.Drawing.Point(0, 0);
             this.avatar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.avatar.Name = "avatar";

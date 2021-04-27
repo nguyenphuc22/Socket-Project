@@ -16,6 +16,9 @@
     <Compile Update="View\ListUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\ListUser_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>

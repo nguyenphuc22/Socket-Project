@@ -59,16 +59,6 @@ namespace Project_CNPM.View
 
         }
 
-        private void changePicture_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.ShowHelp = true;
-            openFileDialog1.Filter = "img( *.jpg *.jpeg *.png )| *.jpg; *.jpeg; *.png";
-            
-            openFileDialog1.ShowDialog();
-            path = openFileDialog1.FileName;
-           
-        }
         public static Bitmap ByteToImage(byte[] blob)
         {
             MemoryStream mStream = new MemoryStream();
@@ -106,6 +96,15 @@ namespace Project_CNPM.View
             }
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.ShowHelp = true;
+            openFileDialog1.Filter = "img( *.jpg *.jpeg *.png )| *.jpg; *.jpeg; *.png";
 
+            openFileDialog1.ShowDialog();
+            path = openFileDialog1.FileName;
+
+        }
     }
 }

@@ -12,9 +12,10 @@ using System.IO;
 
 namespace Project_CNPM.View
 {
-    public partial class ListUser : UserControl
+    public partial class ListUser_1 : UserControl
     {
-        public ListUser()
+        public bool isclicked = false;
+        public ListUser_1()
         {
             InitializeComponent();
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
@@ -64,11 +65,15 @@ namespace Project_CNPM.View
 
         private void ListUser_Click(object sender, EventArgs e)
         {
-            AppController.getObject().mainView.setLabel1(this.userName.Text);
-            AppController.getObject().loadMessage(new RequestHistoryMessageStruct(AppController.getObject().userName,this.userName.Text));
+            panel2.BackColor = Color.Red;
+            isclicked = true;
+        }
+           public string name_return()
+        {
+
+            return this.userName.Text;
         }
 
-  
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
             panel1.BackColor = Color.FromArgb(23,33,43);
@@ -83,6 +88,41 @@ namespace Project_CNPM.View
             {
                 panel1.BackColor = Color.FromArgb(23, 33, 43);
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ListUser_1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            if (isclicked == true)
+            {
+                isclicked = false;
+                panel2.BackColor = Color.Chartreuse;
+            }
+
+        }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

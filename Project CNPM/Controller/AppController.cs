@@ -23,7 +23,7 @@ namespace Project_CNPM.Controller
         public Profile profile = null;
         public int sizeFile = 1024 * 1024 * 25;
         //===================
-        string Path = @"E:\Socket-Project-main\Project CNPM\Data\";
+        string Path = @"C:\Users\Asus\Desktop\TKPM2\Socket-Project\Project CNPM\Data\";
         public string userName;
         public Thread threadListenClient;
         public AppSocketController appSocketController;

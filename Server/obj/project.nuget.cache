@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lsI+KqQT8uH2jNsaPaI9tOyYfvZ+toJjGpCbJIpFJ1qk/XpP3lWZ/xXKI5zXdx3bURylCR3NCllzzUxhgKVBUA==",
+  "dgSpecHash": "C7EeZo4tgcc9qfRgYVAYRV3SlvQmBfTqE+RrxFbnfq5H2XuZIBpiH/Ux3qdqUZbcV89eF3Qz2kp23nJGdzFitg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\source\\repos\\Socket-Project\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\Desktop\\TKPM2\\Socket-Project\\Server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",

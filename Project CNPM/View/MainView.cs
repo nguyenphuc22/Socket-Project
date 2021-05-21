@@ -40,10 +40,7 @@ namespace Project_CNPM
 
                     chatLabelForm.Anchor = chatLabelForm1.Anchor;
                     chatLabelForm.Size = chatLabelForm1.Size;
-                    chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
-
-
-
+                    chatLabelForm.Top = chatLabelForm_old.Bottom + height;
                     chatLabelForm.Height += height;
 
 
@@ -57,12 +54,9 @@ namespace Project_CNPM
             {
                 ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.In, isfile, label1.Text);
                 chatLabelForm.Location = chatLabelForm1.Location;
-
                 chatLabelForm.Anchor = chatLabelForm1.Anchor;
                 chatLabelForm.Size = chatLabelForm1.Size;
-                chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
-
-
+                chatLabelForm.Top = chatLabelForm_old.Bottom + height;
                 chatLabelForm.Height += height;
 
 
@@ -85,42 +79,32 @@ namespace Project_CNPM
                     ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out, isfile, label1.Text);
                     chatLabelForm.Location = chatLabelForm1.Location;
 
-                    chatLabelForm.Size = chatLabelForm1.Size;
                     chatLabelForm.Anchor = chatLabelForm1.Anchor;
-                    chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
-
+                    chatLabelForm.Size = chatLabelForm1.Size;
+                    chatLabelForm.Top = chatLabelForm_old.Bottom + height;
                     chatLabelForm.Height += height;
-                    chatLabelForm.Left = 226;
 
+
+                    chatLabelForm.Left = 226;
                     panel4.Controls.Add(chatLabelForm);
                     panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
-
-
                     chatLabelForm_old = chatLabelForm;
-
                 });
             }
             else
             {
                 ChatLabelForm chatLabelForm = new ChatLabelForm(msg, username, TypeMsg.Out, isfile, label1.Text);
                 chatLabelForm.Location = chatLabelForm1.Location;
-
-
-                chatLabelForm.Size = chatLabelForm1.Size;
                 chatLabelForm.Anchor = chatLabelForm1.Anchor;
-                chatLabelForm.Top = chatLabelForm_old.Bottom + 10;
-
+                chatLabelForm.Size = chatLabelForm1.Size;
+                chatLabelForm.Top = chatLabelForm_old.Bottom + height;
                 chatLabelForm.Height += height;
 
+
                 chatLabelForm.Left = 226;
-
-
                 panel4.Controls.Add(chatLabelForm);
                 panel4.VerticalScroll.Value = panel4.VerticalScroll.Maximum;
-
-
                 chatLabelForm_old = chatLabelForm;
-
             }
         }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\source\\repos\\Socket-Project\\Project CNPM\\Client.csproj": {}
+    "C:\\Users\\Asus\\Desktop\\TKPM2\\Socket-Project\\Project CNPM\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\source\\repos\\Socket-Project\\Project CNPM\\Client.csproj": {
+    "C:\\Users\\Asus\\Desktop\\TKPM2\\Socket-Project\\Project CNPM\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\Socket-Project\\Project CNPM\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Desktop\\TKPM2\\Socket-Project\\Project CNPM\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\Asus\\source\\repos\\Socket-Project\\Project CNPM\\Client.csproj",
+        "projectPath": "C:\\Users\\Asus\\Desktop\\TKPM2\\Socket-Project\\Project CNPM\\Client.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\source\\repos\\Socket-Project\\Project CNPM\\obj\\",
+        "outputPath": "C:\\Users\\Asus\\Desktop\\TKPM2\\Socket-Project\\Project CNPM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
